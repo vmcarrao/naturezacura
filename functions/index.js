@@ -1,7 +1,7 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
 const axios = require("axios");
-const stripe = require("stripe")(functions.config().stripe.secret_key);
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 
 admin.initializeApp();
 const db = admin.firestore();
@@ -60,8 +60,8 @@ exports.createStripeCheckout = functions.https.onCall(async (data, context) => {
             ],
             mode: "payment",
             // TODO: Append session_id better
-            success_url: `${functions.config().app.url}?status=success&session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url: `${functions.config().app.url}?status=cancel`,
+            success_url: `${process.env.APP_URL}?status=success&session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${process.env.APP_URL}?status=cancel`,
             metadata: metadata,
         };
 
@@ -97,7 +97,7 @@ exports.createStripeCheckout = functions.https.onCall(async (data, context) => {
 // Configure this URL in your Stripe Dashboard > Webhooks
 exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
     const sig = req.headers["stripe-signature"];
-    const endpointSecret = functions.config().stripe.webhook_secret; // Optional, strict verification
+    const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
     let event;
     try {
@@ -159,7 +159,7 @@ exports.checkPendingPayments = functions.pubsub.schedule("every 30 minutes").onR
     }
 
     const batch = db.batch();
-    const calendlyToken = functions.config().calendly.token;
+    const calendlyToken = process.env.CALENDLY_TOKEN;
 
     for (const doc of snapshot.docs) {
         const appointment = doc.data();

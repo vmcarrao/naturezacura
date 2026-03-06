@@ -7,3 +7,4 @@ style.css
 .DS_Store
 functions/node_modules/
 functions/.runtimeconfig.json
+functions/.env
