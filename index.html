@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natureza Cura | Terapia Holística</title>
+    <meta name="description"
+        content="Um retorno a si. Terapias naturais, astrologia e tarot para despertar o potencial que existe em você.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Calendly Widget CSS -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
+    <!-- Firebase SDKs (Compat) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
+
+    <!-- Tailwind Config Removed (Moved to tailwind.config.js) -->
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #fafaf9;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #a7f3d0;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #34d399;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-stone-50 text-gray-700 font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-nav py-4" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-serif font-bold text-green-900 tracking-wide hover:opacity-80 transition">
+                Natureza Cura
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#inicio"
+                    class="text-green-900 hover:text-rose-400 font-medium transition duration-300">Início</a>
+                <a href="#sobre"
+                    class="text-green-900 hover:text-rose-400 font-medium transition duration-300">Sobre</a>
+                <a href="#servicos"
+                    class="text-green-900 hover:text-rose-400 font-medium transition duration-300">Serviços</a>
+                <a href="#cursos"
+                    class="text-green-900 hover:text-rose-400 font-medium transition duration-300">Cursos</a>
+                <a href="#meditacoes"
+                    class="text-green-900 hover:text-rose-400 font-medium transition duration-300">Meditações</a>
+                <a href="#contato"
+                    class="px-5 py-2 rounded-full border border-green-900 text-green-900 hover:bg-green-900 hover:text-white transition duration-300 text-sm uppercase tracking-wider">Contato</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-btn" class="text-green-900 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white/95 backdrop-blur-md absolute w-full left-0 top-full border-t border-gray-100 shadow-lg">
+            <div class="flex flex-col space-y-4 px-6 py-6 text-center">
+                <a href="#inicio" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Início</a>
+                <a href="#sobre" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Sobre</a>
+                <a href="#servicos" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Serviços</a>
+                <a href="#cursos" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Cursos</a>
+                <a href="#meditacoes" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Meditações</a>
+                <a href="#contato" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen pt-20 flex flex-col md:flex-row">
+        <!-- Left Content -->
+        <div class="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 bg-green-50/50">
+            <div class="max-w-lg space-y-6 animate-fade-in-up">
+                <span
+                    class="inline-block text-rose-400 uppercase tracking-[0.2em] text-sm font-semibold mb-2">Renascimento
+                    & Cura</span>
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-green-900 leading-tight">
+                    Um retorno a si.<br>
+                    Um chamado <span class="italic text-rose-400">à alma.</span>
+                </h1>
+                <p class="text-lg text-gray-600 leading-relaxed font-light">
+                    Silencie o ruído externo e desperte o potencial que existe em você. A natureza sussurra sabedoria e
+                    o corpo se torna sua bússola.
+                </p>
+                <div class="pt-4">
+                    <a href="#servicos"
+                        class="inline-block bg-rose-400 text-white px-8 py-4 rounded-none hover:bg-rose-500 transition duration-300 font-serif text-lg tracking-wide shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        Iniciar Jornada
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Carousel -->
+        <div class="w-full md:w-1/2 h-[50vh] md:h-screen relative overflow-hidden bg-gray-200">
+            <!-- Slides -->
+            <div
+                class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out active-slide">
+                <img src="https://images.unsplash.com/photo-1545243424-0ce743321e11?auto=format&fit=crop&q=80&w=1200"
+                    alt="Natureza" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/10"></div>
+            </div>
+            <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <img src="https://images.unsplash.com/photo-1593811167562-9cef47bfc4d7?auto=format&fit=crop&q=80&w=1200"
+                    alt="Meditação" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-green-900/10"></div>
+            </div>
+            <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
+                <img src="https://images.unsplash.com/photo-1519750783826-e2420f4d687f?auto=format&fit=crop&q=80&w=1200"
+                    alt="Floresta" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 bg-white relative overflow-hidden">
+        <!-- Decorative bg leaf -->
+        <div class="absolute -left-10 top-20 text-green-50 opacity-50 select-none pointer-events-none">
+            <i class="fas fa-leaf text-[15rem] transform -rotate-45"></i>
+        </div>
+
+        <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
+            <span class="text-rose-400 font-serif italic text-xl mb-4 block">Quem sou</span>
+            <h2 class="text-4xl md:text-5xl font-serif text-green-900 mb-8">Sobre a Essência</h2>
+            <div class="w-16 h-1 bg-green-900/20 mx-auto mb-10 rounded-full"></div>
+
+            <p class="text-xl md:text-2xl text-gray-600 font-light leading-relaxed mb-12">
+                "Meus serviços terapêuticos são um convite para liberar bloqueios, quebrar padrões e curar feridas. Cada
+                encontro é um portal para acessar sua verdade mais profunda e viver a autenticidade que o seu coração
+                almeja."
+            </p>
+
+            <div class="text-green-900 text-3xl opacity-80">
+                <i class="fas fa-spa"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section (Zig-Zag) -->
+    <section id="servicos" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-serif text-green-900">Caminhos de Cura</h2>
+                <div class="w-24 h-px bg-rose-400 mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-0 space-y-0">
+                <!-- Row 1: Terapia Natural -->
+                <a href="terapia-natural.html" class="flex flex-col md:flex-row group cursor-pointer">
+                    <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544367563-12123d8966cd?auto=format&fit=crop&q=80&w=800"
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-out"
+                            alt="Aromaterapia">
+                    </div>
+                    <div
+                        class="w-full md:w-1/2 flex items-center bg-white p-10 md:p-16 transition-colors duration-300 group-hover:bg-green-50/30">
+                        <div class="max-w-md">
+                            <div
+                                class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-900 mb-4 group-hover:bg-white group-hover:shadow-sm transition">
+                                <i class="fas fa-mortar-pestle"></i>
+                            </div>
+                            <h3 class="text-3xl font-serif text-green-900 mb-4 group-hover:text-rose-400 transition">
+                                Terapia Natural</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Baseada na Naturopatia. Um espaço de escuta e nutrição com Aromaterapia, Fitoterapia e
+                                Ayurveda.
+                            </p>
+                            <p
+                                class="text-sm font-semibold text-rose-400 tracking-wider uppercase border-l-2 border-rose-400 pl-4 group-hover:border-green-900 group-hover:text-green-900 transition">
+                                Ver mais detalhes <i
+                                    class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Row 2: Astrologia (Reversed) -->
+                <a href="astrologia.html" class="flex flex-col md:flex-row-reverse group cursor-pointer">
+                    <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=800"
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-out"
+                            alt="Astrologia">
+                    </div>
+                    <div
+                        class="w-full md:w-1/2 flex items-center bg-green-50/50 p-10 md:p-16 transition-colors duration-300 group-hover:bg-white">
+                        <div class="max-w-md">
+                            <div
+                                class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-green-900 mb-4 group-hover:shadow-sm transition">
+                                <i class="fas fa-star-and-crescent"></i>
+                            </div>
+                            <h3 class="text-3xl font-serif text-green-900 mb-4 group-hover:text-rose-400 transition">
+                                Astrologia</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Seu mapa astral é a bússola da alma. Revolução Solar e Mapas Natais para encontrar
+                                propósito e clareza.
+                            </p>
+                            <p
+                                class="text-sm font-semibold text-rose-400 tracking-wider uppercase border-l-2 border-rose-400 pl-4 group-hover:border-green-900 group-hover:text-green-900 transition">
+                                Ver mais detalhes <i
+                                    class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Row 3: Tarot Terapêutico -->
+                <a href="tarot.html" class="flex flex-col md:flex-row group cursor-pointer">
+                    <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1620023647487-17eb9c2c62c9?auto=format&fit=crop&q=80&w=800"
+                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-out"
+                            alt="Tarot">
+                    </div>
+                    <div
+                        class="w-full md:w-1/2 flex items-center bg-white p-10 md:p-16 transition-colors duration-300 group-hover:bg-green-50/30">
+                        <div class="max-w-md">
+                            <div
+                                class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-900 mb-4 group-hover:bg-white group-hover:shadow-sm transition">
+                                <i class="fas fa-hands"></i>
+                            </div>
+                            <h3 class="text-3xl font-serif text-green-900 mb-4 group-hover:text-rose-400 transition">
+                                Tarot Terapêutico</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">
+                                Um espelho da alma que revela o oculto e traz clareza para o presente através de
+                                mensagens simbólicas.
+                            </p>
+                            <p
+                                class="text-sm font-semibold text-rose-400 tracking-wider uppercase border-l-2 border-rose-400 pl-4 group-hover:border-green-900 group-hover:text-green-900 transition">
+                                Ver mais detalhes <i
+                                    class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="cursos" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <span class="text-rose-400 font-serif italic text-lg mb-2 block">Aprofunde-se</span>
+                <h2 class="text-4xl font-serif text-green-900">Cursos e Jornadas</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <!-- Card 1 -->
+                <div
+                    class="group bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-xl transition duration-500 overflow-hidden flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&q=80&w=600"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                            alt="Cristais">
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 text-xs font-bold text-green-900 uppercase tracking-widest rounded-full">
+                            E-learning</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-2xl font-serif text-green-900 mb-2 group-hover:text-rose-400 transition">Curso
+                            de Cristais</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-3">
+                            Aprenda a utilizar a energia dos cristais para cura e equilíbrio energético. Um guia
+                            completo para iniciantes e praticantes avançados.
+                        </p>
+                        <div class="mt-auto flex items-center justify-between pt-6 border-t border-gray-100">
+                            <span class="text-2xl font-serif text-green-900">R$ 197,00</span>
+                            <button onclick="buyCourse('cristais')"
+                                class="px-6 py-3 bg-green-900 text-white text-sm font-bold uppercase tracking-wider rounded transition hover:bg-green-800 shadow-md transform hover:-translate-y-0.5">
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div
+                    class="group bg-white border border-gray-100 rounded-lg shadow-sm hover:shadow-xl transition duration-500 overflow-hidden flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&q=80&w=600"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition duration-700"
+                            alt="Chakras">
+                        <div
+                            class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 text-xs font-bold text-green-900 uppercase tracking-widest rounded-full">
+                            Jornada</div>
+                    </div>
+                    <div class="p-8 flex-1 flex flex-col">
+                        <h3 class="text-2xl font-serif text-green-900 mb-2 group-hover:text-rose-400 transition">Jornada
+                            dos Chakras</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-3">
+                            Uma imersão de 7 semanas para alinhar seus centros de energia e despertar seu potencial
+                            máximo através de meditações e práticas.
+                        </p>
+                        <div class="mt-auto flex items-center justify-between pt-6 border-t border-gray-100">
+                            <span class="text-2xl font-serif text-green-900">R$ 259,00</span>
+                            <button onclick="buyCourse('chakras')"
+                                class="px-6 py-3 bg-green-900 text-white text-sm font-bold uppercase tracking-wider rounded transition hover:bg-green-800 shadow-md transform hover:-translate-y-0.5">
+                                Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meditations (Video) -->
+    <section id="meditacoes" class="py-24 bg-rose-50/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <h2 class="text-4xl font-serif text-center text-green-900 mb-16">Meditações Guiadas</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Video 1 -->
+                <div
+                    class="aspect-w-16 aspect-h-9 w-full bg-gray-200 rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                    <!-- Placeholder for generic video -->
+                    <iframe class="w-full h-64 md:h-80" src="https://www.youtube.com/embed/inpok4MKVLM"
+                        title="Meditação Relaxante" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+
+                <!-- Video 2 -->
+                <div
+                    class="aspect-w-16 aspect-h-9 w-full bg-gray-200 rounded-lg overflow-hidden shadow-lg relative group cursor-pointer">
+                    <iframe class="w-full h-64 md:h-80" src="https://www.youtube.com/embed/iE6tU5e64fw"
+                        title="Meditação Natureza" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="py-24 bg-green-900 relative">
+        <!-- Texture overlay -->
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="bg-white rounded-xl shadow-2xl p-8 md:p-16">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-serif text-green-900 mb-4">Entre em Contato</h2>
+                    <p class="text-gray-500">Tem alguma dúvida ou gostaria de agendar um atendimento? Escreva para mim.
+                    </p>
+                </div>
+
+                <form action="#" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2" for="nome">Nome</label>
+                            <input
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition duration-200"
+                                id="nome" type="text" placeholder="Seu nome">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2" for="email">Email</label>
+                            <input
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition duration-200"
+                                id="email" type="email" placeholder="seu@email.com">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-2" for="mensagem">Mensagem</label>
+                        <textarea
+                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition duration-200 h-32"
+                            id="mensagem" placeholder="Sua mensagem..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button
+                            class="bg-rose-400 text-white font-bold py-4 px-10 rounded-lg hover:bg-rose-500 transition duration-300 shadow-lg transform hover:-translate-y-1 w-full md:w-auto uppercase tracking-widest text-sm">
+                            Enviar Mensagem
+                        </button>
+                    </div>
+                </form>
+
+                <div class="mt-10 text-center border-t border-gray-100 pt-8">
+                    <p class="text-gray-500 mb-2">Ou envie um email direto:</p>
+                    <a href="mailto:contato@naturezacura.com.br"
+                        class="text-green-900 font-bold hover:text-rose-400 transition text-lg">contato@naturezacura.com.br</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-950 text-green-100/60 py-12 text-center text-sm">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-serif text-xl text-green-50 mb-4 opacity-90">Natureza Cura</p>
+            <p>&copy; 2026 Natureza Cura. Todos os direitos reservados.</p>
+            <div class="flex justify-center space-x-6 mt-6 text-lg">
+                <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FAB: Agendar Consulta -->
+    <!-- FAB: Agendar Consulta (Calendly Popup) -->
+    <!-- Note: Replace 'https://calendly.com/YOUR_LINK/30min' with your actual URL -->
+    <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR_LINK/30min'});return false;"
+        class="fixed bottom-6 right-6 bg-green-900 text-white p-4 rounded-full shadow-2xl hover:bg-rose-400 transition duration-300 z-50 flex items-center justify-center group animate-bounce-slow"
+        title="Agendar Consulta">
+        <i class="fas fa-calendar-alt text-xl group-hover:rotate-12 transition transform"></i>
+        <span
+            class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-300 ease-in-out whitespace-nowrap font-medium">Agendar
+            Consulta</span>
+    </button>
+
+    <!-- Scripts -->
+    <!-- Calendly Widget JS -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <!-- App Logic -->
+    <script src="config.js"></script>
+    <script src="firebase-init.js"></script>
+    <script src="calendly-listener.js"></script>
+
+    <script>
+        // --- Mobile Menu Toggle ---
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // --- Carousel Logic ---
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+        const slideInterval = 5000; // 5 seconds
+
+        function showSlide(index) {
+            slides.forEach(slide => {
+                slide.classList.remove('opacity-100', 'z-10');
+                slide.classList.add('opacity-0');
+            });
+
+            slides[index].classList.remove('opacity-0');
+            slides[index].classList.add('opacity-100', 'z-10');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Initialize first slide
+        showSlide(0);
+        // Start auto slide
+        setInterval(nextSlide, slideInterval);
+
+        // --- Sticky Navbar Background on Scroll ---
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('py-4', 'py-2');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('py-2', 'py-4');
+            }
+        });
+    </script>
+</body>
+
+</html>

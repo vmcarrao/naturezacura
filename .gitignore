@@ -1,0 +1,8 @@
+node_modules/
+.firebase/
+.firebaserc
+firebase-debug.log
+.env
+style.css
+.DS_Store
+functions/node_modules/

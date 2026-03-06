@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarot Terapêutico | Natureza Cura</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Calendly Widget CSS -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
+
+    <!-- Tailwind Config Removed -->
+</head>
+
+<body class="bg-stone-50 text-gray-700 font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+            <a href="index.html"
+                class="text-2xl font-serif font-bold text-green-900 tracking-wide hover:opacity-80 transition">
+                Natureza Cura
+            </a>
+            <div class="flex space-x-8 items-center">
+                <a href="index.html"
+                    class="text-green-900 hover:text-rose-400 font-medium transition duration-300 flex items-center gap-2">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Image -->
+    <header class="relative h-[60vh] overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1620023647487-17eb9c2c62c9?auto=format&fit=crop&q=80&w=1600"
+            alt="Tarot Terapêutico" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-purple-900/30 flex items-center justify-center">
+            <h1 class="text-5xl md:text-7xl font-serif text-white font-bold drop-shadow-lg text-center px-4">Tarot
+                Terapêutico</h1>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="max-w-4xl mx-auto px-4 py-16 md:py-24">
+        <!-- Duration & Price Tags -->
+        <div class="flex justify-center gap-4 mb-12">
+            <span
+                class="px-6 py-2 bg-green-50 text-green-900 rounded-full font-bold uppercase tracking-wider text-sm border border-green-100">
+                <i class="far fa-clock mr-2"></i> 50min
+            </span>
+            <span
+                class="px-6 py-2 bg-rose-50 text-rose-400 rounded-full font-bold uppercase tracking-wider text-sm border border-rose-100">
+                <i class="fas fa-tag mr-2"></i> R$ 150,00
+            </span>
+        </div>
+
+        <div class="prose prose-lg mx-auto text-gray-600 leading-relaxed font-light text-center space-y-8">
+            <p class="text-2xl font-serif text-green-900 italic">
+                "O Tarot é um espelho da alma. Ele não adivinha o futuro, mas revela o que está oculto em você, trazendo
+                clareza para o presente e mostrando caminhos que talvez você ainda não tenha percebido."
+            </p>
+            <p>
+                Cada carta é uma mensagem simbólica que desperta reflexões e amplia a visão sobre seus desafios e
+                escolhas.
+            </p>
+
+            <div class="py-12">
+                <div class="w-24 h-px bg-rose-400 mx-auto"></div>
+            </div>
+
+            <p class="text-xl">
+                Para você que quer enxergar possibilidades, dissolver dúvidas e tomar decisões com mais confiança.
+            </p>
+        </div>
+
+        <!-- CTA -->
+        <div class="text-center mt-16">
+            <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR_LINK/tarot'});return false;"
+                class="inline-block bg-rose-400 text-white px-10 py-5 rounded-full hover:bg-rose-500 transition duration-300 font-bold text-lg tracking-widest shadow-xl transform hover:-translate-y-1 uppercase">
+                Agendar Leitura
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-green-50 text-green-900 py-8 text-center border-t border-green-100">
+        <p class="font-serif">&copy; 2026 Natureza Cura</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script src="config.js"></script>
+    <script src="firebase-init.js"></script>
+    <script src="calendly-listener.js"></script>
+</body>
+
+</html>
