@@ -4,7 +4,13 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "package.json",
+      "package-lock.json",
+      "tailwind.config.js",
+      "input.css",
+      "setup_guide.md",
+      "functions/**"
     ]
   },
   "functions": {

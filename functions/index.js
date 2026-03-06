@@ -117,7 +117,7 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
         const session = event.data.object;
 
         // Retrieve metadata
-        const { calendlyEventURI, calendlyInviteeURI } = session.metadata;
+        const { calendlyEventURI, calendlyInviteeURI } = session.metadata || {};
 
         console.log(`Payment successful for session: ${session.id}`);
 
@@ -168,6 +168,10 @@ exports.checkPendingPayments = functions.pubsub.schedule("every 30 minutes").onR
         try {
             // Call Calendly API to cancel event
             // Note: UUID extraction might be needed depending on URI format
+            if (!appointment.eventURI) {
+                console.warn(`Appointment ${doc.id} has no eventURI, skipping Calendly cancellation.`);
+                continue;
+            }
             const eventUuid = appointment.eventURI.split("/").pop();
 
             await axios.post(

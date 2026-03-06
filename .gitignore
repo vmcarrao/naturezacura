@@ -6,3 +6,4 @@ firebase-debug.log
 style.css
 .DS_Store
 functions/node_modules/
+functions/.runtimeconfig.json
