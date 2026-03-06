@@ -12,14 +12,15 @@ const AppConfig = {
         cristais: "Curso de Cristais",
         chakras: "Jornada dos Chakras"
     },
-    // Firebase Config - TODO: Replace with actual values
+    // Firebase Config
     firebase: {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "naturezacura.firebaseapp.com",
-        projectId: "naturezacura",
-        storageBucket: "naturezacura.appspot.com",
-        messagingSenderId: "YOUR_SENDER_ID",
-        appId: "YOUR_APP_ID"
+        apiKey: "AIzaSyAWPrVNAJ-6pwlxdQMweu-ru8pxIfsx7V4",
+        authDomain: "naturezacura-d0f70.firebaseapp.com",
+        projectId: "naturezacura-d0f70",
+        storageBucket: "naturezacura-d0f70.firebasestorage.app",
+        messagingSenderId: "421753901082",
+        appId: "1:421753901082:web:08990ab830bcd7160141a3",
+        measurementId: "G-995927BJNK"
     },
     // Stripe Publishable Key (if needed for frontend-only Checkout, though we use backend creation)
     stripe: {
