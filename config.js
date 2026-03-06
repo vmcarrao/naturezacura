@@ -22,9 +22,9 @@ const AppConfig = {
         appId: "1:421753901082:web:08990ab830bcd7160141a3",
         measurementId: "G-995927BJNK"
     },
-    // Stripe Publishable Key (if needed for frontend-only Checkout, though we use backend creation)
+    // Stripe Publishable Key
     stripe: {
-        publishableKey: "pk_test_YOUR_KEY"
+        publishableKey: "pk_live_51T3jmWJ3BPB3ENkhzJ7cnBX0PmUlwQWAGDrKiOJYFH5QQzcZn85q2ZS9sdLnvQRjPJk6YQ9npu7aAzcZD7hyZn6m00ebsVETjt"
     }
 };
 
