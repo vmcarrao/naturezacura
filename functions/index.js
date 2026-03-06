@@ -7,22 +7,42 @@ const { sendConfirmationEmail, sendOwnerNotification } = require("./notification
 admin.initializeApp();
 const db = admin.firestore();
 
+// Trusted source of truth for pricing and products (in cents, e.g. R$ 150,00 = 15000)
+const PRODUCTS = {
+    // Courses
+    "cristais": { name: "Curso de Cristais", price: 19700, type: "course" },
+    "chakras": { name: "Jornada dos Chakras", price: 25900, type: "course" },
+
+    // Services
+    "terapia-natural": { name: "Terapia Natural", price: 18000, type: "appointment" },
+    "astrologia": { name: "Astrologia", price: 22000, type: "appointment" },
+    "tarot": { name: "Tarot Terapêutico", price: 15000, type: "appointment" },
+};
+
 // ============================================================
 // 1. CREATE STRIPE CHECKOUT SESSION
 // ============================================================
 exports.createStripeCheckout = functions.https.onCall(async (data, context) => {
-    const { type, serviceKey, productName, amount, inviteeEmail, inviteeName } = data;
+    const { serviceKey, inviteeEmail, inviteeName } = data;
+
+    // Security Fix: Do NOT trust the client for price or product name!
+    const product = PRODUCTS[serviceKey];
+    if (!product) {
+        throw new functions.https.HttpsError("invalid-argument", "Produto ou serviço inválido.");
+    }
 
     try {
-        let priceAmount = amount || 15000;
-        let productTitle = productName || "Sessão Terapêutica - Natureza Cura";
+        const priceAmount = product.price;
+        const productTitle = product.name;
+        const type = product.type;
+
         let description = type === "course"
-            ? `Curso: ${productName}`
-            : `Agendamento: ${productName}`;
+            ? `Curso: ${productTitle}`
+            : `Agendamento: ${productTitle}`;
 
         const metadata = {
-            type: type || "appointment",
-            serviceKey: serviceKey || "unknown",
+            type: type,
+            serviceKey: serviceKey,
         };
 
         const sessionConfig = {
@@ -99,11 +119,14 @@ exports.verifyPayment = functions.https.onCall(async (data, context) => {
             }
         }
 
+        const serviceKey = session.metadata?.serviceKey || "unknown";
+        const trueProductName = PRODUCTS[serviceKey] ? PRODUCTS[serviceKey].name : "Sessão Terapêutica";
+
         return {
             valid: true,
             customerEmail: session.customer_details?.email || null,
             customerName: session.customer_details?.name || null,
-            serviceName: session.metadata?.serviceKey || "appointment",
+            serviceName: trueProductName,
             type: session.metadata?.type || "appointment",
         };
     } catch (error) {
@@ -135,7 +158,7 @@ exports.getAvailableSlots = functions.https.onCall(async (data, context) => {
 // 4. BOOK APPOINTMENT (Google Calendar + Email + Firestore)
 // ============================================================
 exports.bookAppointment = functions.https.onCall(async (data, context) => {
-    const { sessionId, slotStart, slotEnd, clientName, clientEmail, clientPhone, serviceName } = data;
+    const { sessionId, slotStart, slotEnd, clientName, clientEmail, clientPhone } = data;
 
     // Validate inputs
     if (!sessionId || !slotStart || !slotEnd || !clientName || !clientEmail) {
@@ -160,13 +183,17 @@ exports.bookAppointment = functions.https.onCall(async (data, context) => {
             }
         }
 
+        // Determine true service name from secure session metadata
+        const serviceKey = session.metadata?.serviceKey || "unknown";
+        const trueServiceName = PRODUCTS[serviceKey] ? PRODUCTS[serviceKey].name : "Sessão Terapêutica";
+
         // 2. Create Google Calendar event
         const calendarEvent = await createEvent({
             startTime: slotStart,
             endTime: slotEnd,
             clientName,
             clientEmail,
-            serviceName: serviceName || "Sessão Terapêutica",
+            serviceName: trueServiceName,
         });
 
         // 3. Format date/time for emails
@@ -184,7 +211,7 @@ exports.bookAppointment = functions.https.onCall(async (data, context) => {
         const emailDetails = {
             clientEmail,
             clientName,
-            serviceName: serviceName || "Sessão Terapêutica",
+            serviceName: trueServiceName,
             date: dateStr,
             time: timeStr,
         };
@@ -216,7 +243,7 @@ exports.bookAppointment = functions.https.onCall(async (data, context) => {
             clientName,
             clientEmail,
             clientPhone: clientPhone || null,
-            serviceName: serviceName || "Sessão Terapêutica",
+            serviceName: trueServiceName,
             appointmentStart: slotStart,
             appointmentEnd: slotEnd,
             status: "Confirmed",

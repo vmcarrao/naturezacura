@@ -6,10 +6,7 @@
 
 // --- Buy Course (from index.html course cards) ---
 window.buyCourse = function (courseKey) {
-    const price = window.AppConfig.prices[courseKey];
-    const productName = window.AppConfig.products[courseKey];
-
-    if (!price) {
+    if (!window.AppConfig.prices[courseKey]) {
         alert("Curso não encontrado.");
         return;
     }
@@ -17,16 +14,12 @@ window.buyCourse = function (courseKey) {
     triggerStripeCheckout({
         type: "course",
         serviceKey: courseKey,
-        productName: productName,
-        amount: price,
     });
 };
 
 // --- Book Service (from service detail pages) ---
 window.bookService = function (serviceKey) {
-    const service = window.AppConfig.services[serviceKey];
-
-    if (!service) {
+    if (!window.AppConfig.services[serviceKey]) {
         alert("Serviço não encontrado.");
         return;
     }
@@ -34,8 +27,6 @@ window.bookService = function (serviceKey) {
     triggerStripeCheckout({
         type: "appointment",
         serviceKey: serviceKey,
-        productName: service.name,
-        amount: service.price,
     });
 };
 
