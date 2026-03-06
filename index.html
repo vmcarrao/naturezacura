@@ -21,8 +21,7 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Calendly Widget CSS -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+
 
     <!-- Firebase SDKs (Compat) -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
@@ -451,20 +450,16 @@
     </footer>
 
     <!-- FAB: Agendar Consulta -->
-    <!-- FAB: Agendar Consulta (Calendly Popup) -->
-    <!-- Note: Replace 'https://calendly.com/YOUR_LINK/30min' with your actual URL -->
-    <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR_LINK/30min'});return false;"
-        class="fixed bottom-6 right-6 bg-green-900 text-white p-4 rounded-full shadow-2xl hover:bg-rose-400 transition duration-300 z-50 flex items-center justify-center group animate-bounce-slow"
+    <a href="#servicos"
+        class="fixed bottom-6 right-6 bg-green-900 text-white p-4 rounded-full shadow-2xl hover:bg-rose-400 transition duration-300 z-50 flex items-center justify-center group"
         title="Agendar Consulta">
         <i class="fas fa-calendar-alt text-xl group-hover:rotate-12 transition transform"></i>
         <span
             class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-300 ease-in-out whitespace-nowrap font-medium">Agendar
             Consulta</span>
-    </button>
+    </a>
 
     <!-- Scripts -->
-    <!-- Calendly Widget JS -->
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <!-- App Logic -->
     <script src="config.js"></script>
     <script src="firebase-init.js"></script>

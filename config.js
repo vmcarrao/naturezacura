@@ -12,6 +12,12 @@ const AppConfig = {
         cristais: "Curso de Cristais",
         chakras: "Jornada dos Chakras"
     },
+    // Service configurations (appointments)
+    services: {
+        "terapia-natural": { name: "Terapia Natural", price: 18000, duration: 90 },   // R$ 180,00
+        "astrologia": { name: "Astrologia", price: 22000, duration: 60 },        // R$ 220,00
+        "tarot": { name: "Tarot Terapêutico", price: 15000, duration: 50 },  // R$ 150,00
+    },
     // Firebase Config
     firebase: {
         apiKey: "AIzaSyAWPrVNAJ-6pwlxdQMweu-ru8pxIfsx7V4",

@@ -20,8 +20,6 @@
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Calendly Widget CSS -->
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <!-- Firebase SDKs -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-functions-compat.js"></script>
@@ -92,7 +90,7 @@
 
         <!-- CTA -->
         <div class="text-center mt-16">
-            <button onclick="Calendly.initPopupWidget({url: 'https://calendly.com/YOUR_LINK/tarot'});return false;"
+            <button onclick="bookService('tarot')"
                 class="inline-block bg-rose-400 text-white px-10 py-5 rounded-full hover:bg-rose-500 transition duration-300 font-bold text-lg tracking-widest shadow-xl transform hover:-translate-y-1 uppercase">
                 Agendar Leitura
             </button>
@@ -105,7 +103,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
     <script src="config.js"></script>
     <script src="firebase-init.js"></script>
     <script src="calendly-listener.js"></script>
