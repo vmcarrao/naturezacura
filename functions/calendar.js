@@ -1,27 +1,22 @@
 /**
  * Google Calendar API Integration
- * Uses a service account to read/write to the owner's Google Calendar.
+ * Uses Application Default Credentials (ADC) — the built-in Firebase service account.
+ * No JSON key file needed.
  */
 const { google } = require("googleapis");
 
-// Service account credentials from environment
-const CREDENTIALS = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON || "{}");
 const CALENDAR_ID = process.env.GOOGLE_CALENDAR_ID || "primary";
 
-// Scopes needed for read/write access
-const SCOPES = ["https://www.googleapis.com/auth/calendar"];
-
 /**
- * Get an authenticated Google Calendar client
+ * Get an authenticated Google Calendar client using ADC.
+ * In Firebase Functions, this automatically uses the default service account.
  */
-function getCalendarClient() {
-    const auth = new google.auth.JWT(
-        CREDENTIALS.client_email,
-        null,
-        CREDENTIALS.private_key,
-        SCOPES
-    );
-    return google.calendar({ version: "v3", auth });
+async function getCalendarClient() {
+    const auth = new google.auth.GoogleAuth({
+        scopes: ["https://www.googleapis.com/auth/calendar"],
+    });
+    const authClient = await auth.getClient();
+    return google.calendar({ version: "v3", auth: authClient });
 }
 
 /**
@@ -32,7 +27,7 @@ function getCalendarClient() {
  * @returns {Array} Available slots [{date, startTime, endTime}, ...]
  */
 async function getAvailableSlots(startDate, endDate, slotDurationMinutes = 60) {
-    const calendar = getCalendarClient();
+    const calendar = await getCalendarClient();
 
     // Define working hours (9:00 - 18:00, Mon-Fri, Brasilia time)
     const WORK_START_HOUR = 9;
@@ -106,7 +101,7 @@ async function getAvailableSlots(startDate, endDate, slotDurationMinutes = 60) {
  * @returns {Object} Created event data
  */
 async function createEvent(details) {
-    const calendar = getCalendarClient();
+    const calendar = await getCalendarClient();
     const { startTime, endTime, clientName, clientEmail, serviceName } = details;
 
     const event = {
