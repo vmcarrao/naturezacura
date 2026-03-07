@@ -1,0 +1,600 @@
+2026-03-07T07:34:09.578316Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T07:34:09.578318Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T07:34:09.578349Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T07:34:09.578352Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T07:34:09.578353Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T07:34:09.578355Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T07:34:09.578359Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T07:34:09.578362Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T07:34:09.578365Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T07:34:09.580858966Z D cleanupStaleOrders: Function execution took 1540 ms, finished with status: 'error'
+2026-03-07T08:04:08.179419707Z D cleanupStaleOrders: Function execution started
+2026-03-07T08:04:09.730467Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T08:04:09.730476Z ? cleanupStaleOrders: for call at
+2026-03-07T08:04:09.730480Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T08:04:09.730484Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T08:04:09.730487Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T08:04:09.730489Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T08:04:09.730491Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T08:04:09.730493Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T08:04:09.730495Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T08:04:09.730497Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T08:04:09.730499Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T08:04:09.730501Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T08:04:09.730536Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T08:04:09.730539Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T08:04:09.730541Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T08:04:09.730543Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T08:04:09.730547Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T08:04:09.730549Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T08:04:09.730551Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T08:04:09.731828564Z D cleanupStaleOrders: Function execution took 1552 ms, finished with status: 'error'
+2026-03-07T08:34:07.741162885Z D cleanupStaleOrders: Function execution started
+2026-03-07T08:34:09.417633Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T08:34:09.417644Z ? cleanupStaleOrders: for call at
+2026-03-07T08:34:09.417650Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T08:34:09.417653Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T08:34:09.417657Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T08:34:09.417660Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T08:34:09.417664Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T08:34:09.417667Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T08:34:09.417671Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T08:34:09.417674Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T08:34:09.417678Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T08:34:09.417681Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T08:34:09.417720Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T08:34:09.417723Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T08:34:09.417727Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T08:34:09.417730Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T08:34:09.417735Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T08:34:09.417739Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T08:34:09.417743Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T08:34:09.420429421Z D cleanupStaleOrders: Function execution took 1679 ms, finished with status: 'error'
+2026-03-07T09:04:08.835630257Z D cleanupStaleOrders: Function execution started
+2026-03-07T09:04:10.391298Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T09:04:10.391304Z ? cleanupStaleOrders: for call at
+2026-03-07T09:04:10.391307Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T09:04:10.391309Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T09:04:10.391311Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T09:04:10.391314Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T09:04:10.391316Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T09:04:10.391319Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T09:04:10.391321Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T09:04:10.391323Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T09:04:10.391325Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T09:04:10.391327Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T09:04:10.391371Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T09:04:10.391373Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T09:04:10.391375Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T09:04:10.391377Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T09:04:10.391381Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T09:04:10.391383Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T09:04:10.391385Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T09:04:10.393655417Z D cleanupStaleOrders: Function execution took 1558 ms, finished with status: 'error'
+2026-03-07T09:34:08.041706121Z D cleanupStaleOrders: Function execution started
+2026-03-07T09:34:09.540697Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T09:34:09.540703Z ? cleanupStaleOrders: for call at
+2026-03-07T09:34:09.540706Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T09:34:09.540708Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T09:34:09.540710Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T09:34:09.540712Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T09:34:09.540714Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T09:34:09.540716Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T09:34:09.540718Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T09:34:09.540719Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T09:34:09.540721Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T09:34:09.540723Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T09:34:09.540762Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T09:34:09.540764Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T09:34:09.540766Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T09:34:09.540768Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T09:34:09.540771Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T09:34:09.540773Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T09:34:09.540775Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T09:34:09.543285399Z D cleanupStaleOrders: Function execution took 1501 ms, finished with status: 'error'
+2026-03-07T10:04:08.222715680Z D cleanupStaleOrders: Function execution started
+2026-03-07T10:04:09.071848Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T10:04:09.071856Z ? cleanupStaleOrders: for call at
+2026-03-07T10:04:09.071860Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T10:04:09.071862Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T10:04:09.071864Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T10:04:09.071867Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T10:04:09.071869Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T10:04:09.071872Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T10:04:09.071874Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T10:04:09.071876Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T10:04:09.071879Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T10:04:09.071881Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T10:04:09.071911Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T10:04:09.071914Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T10:04:09.071917Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T10:04:09.071920Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T10:04:09.071925Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T10:04:09.071928Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T10:04:09.071930Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T10:04:09.074125354Z D cleanupStaleOrders: Function execution took 851 ms, finished with status: 'error'
+2026-03-07T10:34:08.051685196Z D cleanupStaleOrders: Function execution started
+2026-03-07T10:34:08.904899Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T10:34:08.904906Z ? cleanupStaleOrders: for call at
+2026-03-07T10:34:08.904909Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T10:34:08.904911Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T10:34:08.904913Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T10:34:08.904915Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T10:34:08.904917Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T10:34:08.904919Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T10:34:08.904921Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T10:34:08.904923Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T10:34:08.904925Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T10:34:08.904927Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T10:34:08.904969Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T10:34:08.904971Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T10:34:08.904974Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T10:34:08.904976Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T10:34:08.904979Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T10:34:08.904982Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T10:34:08.904984Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T10:34:08.907518114Z D cleanupStaleOrders: Function execution took 855 ms, finished with status: 'error'
+2026-03-07T11:04:08.661376301Z D cleanupStaleOrders: Function execution started
+2026-03-07T11:04:09.586871Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T11:04:09.586884Z ? cleanupStaleOrders: for call at
+2026-03-07T11:04:09.586889Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T11:04:09.586892Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T11:04:09.586895Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T11:04:09.586898Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T11:04:09.586901Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T11:04:09.586904Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T11:04:09.586907Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T11:04:09.586910Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T11:04:09.586913Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T11:04:09.586916Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T11:04:09.586965Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T11:04:09.586968Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T11:04:09.586972Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T11:04:09.586975Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T11:04:09.586979Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T11:04:09.586982Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T11:04:09.586986Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T11:04:09.589184671Z D cleanupStaleOrders: Function execution took 927 ms, finished with status: 'error'
+2026-03-07T11:34:08.649837548Z D cleanupStaleOrders: Function execution started
+2026-03-07T11:34:10.193848Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T11:34:10.193859Z ? cleanupStaleOrders: for call at
+2026-03-07T11:34:10.193862Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T11:34:10.193864Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T11:34:10.193866Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T11:34:10.193869Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T11:34:10.193871Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T11:34:10.193873Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T11:34:10.193875Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T11:34:10.193877Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T11:34:10.193879Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T11:34:10.193882Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T11:34:10.193915Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T11:34:10.193917Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T11:34:10.193919Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T11:34:10.193922Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T11:34:10.193925Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T11:34:10.193927Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T11:34:10.193930Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T11:34:10.197007386Z D cleanupStaleOrders: Function execution took 1547 ms, finished with status: 'error'
+2026-03-07T12:04:07.720189331Z D cleanupStaleOrders: Function execution started
+2026-03-07T12:04:09.185069Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T12:04:09.185078Z ? cleanupStaleOrders: for call at
+2026-03-07T12:04:09.185082Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T12:04:09.185084Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T12:04:09.185086Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T12:04:09.185089Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T12:04:09.185091Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T12:04:09.185093Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T12:04:09.185096Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T12:04:09.185099Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T12:04:09.185101Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T12:04:09.185103Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T12:04:09.185149Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T12:04:09.185151Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T12:04:09.185153Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T12:04:09.185155Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T12:04:09.185159Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T12:04:09.185161Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T12:04:09.185164Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T12:04:09.187424028Z D cleanupStaleOrders: Function execution took 1467 ms, finished with status: 'error'
+2026-03-07T12:34:08.710588462Z D cleanupStaleOrders: Function execution started
+2026-03-07T12:34:10.235701Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T12:34:10.235708Z ? cleanupStaleOrders: for call at
+2026-03-07T12:34:10.235711Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T12:34:10.235713Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T12:34:10.235715Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T12:34:10.235717Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T12:34:10.235718Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T12:34:10.235720Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T12:34:10.235722Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T12:34:10.235724Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T12:34:10.235726Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T12:34:10.235727Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T12:34:10.235759Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T12:34:10.235761Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T12:34:10.235763Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T12:34:10.235764Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T12:34:10.235767Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T12:34:10.235770Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T12:34:10.235771Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T12:34:10.237737065Z D cleanupStaleOrders: Function execution took 1527 ms, finished with status: 'error'
+2026-03-07T13:04:08.034735842Z D cleanupStaleOrders: Function execution started
+2026-03-07T13:04:09.599446Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T13:04:09.599453Z ? cleanupStaleOrders: for call at
+2026-03-07T13:04:09.599456Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T13:04:09.599458Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T13:04:09.599460Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T13:04:09.599462Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T13:04:09.599464Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T13:04:09.599466Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T13:04:09.599467Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T13:04:09.599469Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T13:04:09.599471Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T13:04:09.599473Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T13:04:09.599505Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T13:04:09.599507Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T13:04:09.599509Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T13:04:09.599511Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T13:04:09.599514Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T13:04:09.599517Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T13:04:09.599519Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T13:04:09.601924668Z D cleanupStaleOrders: Function execution took 1567 ms, finished with status: 'error'
+2026-03-07T13:34:07.851460760Z D cleanupStaleOrders: Function execution started
+2026-03-07T13:34:09.421032Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T13:34:09.421044Z ? cleanupStaleOrders: for call at
+2026-03-07T13:34:09.421050Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T13:34:09.421053Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T13:34:09.421056Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T13:34:09.421060Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T13:34:09.421063Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T13:34:09.421066Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T13:34:09.421069Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T13:34:09.421072Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T13:34:09.421075Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T13:34:09.421079Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T13:34:09.421125Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T13:34:09.421128Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T13:34:09.421130Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T13:34:09.421132Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T13:34:09.421136Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T13:34:09.421138Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T13:34:09.421141Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T13:34:09.423495895Z D cleanupStaleOrders: Function execution took 1572 ms, finished with status: 'error'
+2026-03-07T14:04:08.299610696Z D cleanupStaleOrders: Function execution started
+2026-03-07T14:04:09.923635Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T14:04:09.923644Z ? cleanupStaleOrders: for call at
+2026-03-07T14:04:09.923647Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T14:04:09.923650Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T14:04:09.923651Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T14:04:09.923653Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T14:04:09.923655Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T14:04:09.923657Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T14:04:09.923659Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T14:04:09.923661Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T14:04:09.923664Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T14:04:09.923666Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T14:04:09.923697Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T14:04:09.923699Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T14:04:09.923701Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T14:04:09.923703Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T14:04:09.923707Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T14:04:09.923709Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T14:04:09.923711Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T14:04:09.927058129Z D cleanupStaleOrders: Function execution took 1627 ms, finished with status: 'error'
+2026-03-07T14:34:08.136709245Z D cleanupStaleOrders: Function execution started
+2026-03-07T14:34:09.744003Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T14:34:09.744011Z ? cleanupStaleOrders: for call at
+2026-03-07T14:34:09.744014Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T14:34:09.744016Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T14:34:09.744019Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T14:34:09.744021Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T14:34:09.744023Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T14:34:09.744025Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T14:34:09.744027Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T14:34:09.744029Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T14:34:09.744032Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T14:34:09.744034Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T14:34:09.744071Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T14:34:09.744073Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T14:34:09.744075Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T14:34:09.744077Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T14:34:09.744080Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T14:34:09.744083Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T14:34:09.744085Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T14:34:09.746737569Z D cleanupStaleOrders: Function execution took 1610 ms, finished with status: 'error'
+2026-03-07T15:04:08.338673222Z D cleanupStaleOrders: Function execution started
+2026-03-07T15:04:09.278336Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T15:04:09.278342Z ? cleanupStaleOrders: for call at
+2026-03-07T15:04:09.278344Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T15:04:09.278346Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T15:04:09.278348Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T15:04:09.278350Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T15:04:09.278352Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T15:04:09.278354Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T15:04:09.278357Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T15:04:09.278360Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T15:04:09.278363Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T15:04:09.278367Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T15:04:09.278399Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T15:04:09.278402Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T15:04:09.278404Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T15:04:09.278406Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T15:04:09.278409Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T15:04:09.278411Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T15:04:09.278413Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T15:04:09.281016821Z D cleanupStaleOrders: Function execution took 942 ms, finished with status: 'error'
+2026-03-07T15:34:08.071921491Z D cleanupStaleOrders: Function execution started
+2026-03-07T15:34:09.569760Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T15:34:09.569769Z ? cleanupStaleOrders: for call at
+2026-03-07T15:34:09.569773Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T15:34:09.569775Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T15:34:09.569777Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T15:34:09.569779Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T15:34:09.569781Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T15:34:09.569784Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T15:34:09.569786Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T15:34:09.569788Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T15:34:09.569790Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T15:34:09.569792Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T15:34:09.569825Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T15:34:09.569827Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T15:34:09.569829Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T15:34:09.569831Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T15:34:09.569835Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T15:34:09.569837Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T15:34:09.569839Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T15:34:09.571927656Z D cleanupStaleOrders: Function execution took 1500 ms, finished with status: 'error'
+2026-03-07T15:45:44.729098088Z D createStripeCheckout: Function execution started
+2026-03-07T15:45:44.838913018Z D createStripeCheckout: Function execution took 109 ms, finished with status code: 204
+2026-03-07T15:45:44.999905999Z D createStripeCheckout: Function execution started
+2026-03-07T15:45:45.085665Z D createStripeCheckout: {"verifications":{"auth":"MISSING","app":"MISSING"},"message":"Callable request verification passed"}
+2026-03-07T15:45:50.280616516Z D createStripeCheckout: Function execution took 5280 ms, finished with status code: 200
+2026-03-07T16:04:08.403857473Z D cleanupStaleOrders: Function execution started
+2026-03-07T16:04:09.960056Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T16:04:09.960063Z ? cleanupStaleOrders: for call at
+2026-03-07T16:04:09.960067Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T16:04:09.960069Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T16:04:09.960071Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T16:04:09.960073Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T16:04:09.960075Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T16:04:09.960077Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T16:04:09.960079Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T16:04:09.960082Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T16:04:09.960084Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T16:04:09.960086Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T16:04:09.960117Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T16:04:09.960120Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T16:04:09.960122Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T16:04:09.960124Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T16:04:09.960127Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T16:04:09.960130Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T16:04:09.960132Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T16:04:09.962369101Z D cleanupStaleOrders: Function execution took 1558 ms, finished with status: 'error'
+2026-03-07T16:34:09.837975453Z D cleanupStaleOrders: Function execution started
+2026-03-07T16:34:11.343478Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T16:34:11.343487Z ? cleanupStaleOrders: for call at
+2026-03-07T16:34:11.343490Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T16:34:11.343492Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T16:34:11.343494Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T16:34:11.343496Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T16:34:11.343498Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T16:34:11.343501Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T16:34:11.343503Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T16:34:11.343505Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T16:34:11.343507Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T16:34:11.343509Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T16:34:11.343541Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T16:34:11.343543Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T16:34:11.343545Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T16:34:11.343547Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T16:34:11.343550Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T16:34:11.343552Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T16:34:11.343554Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T16:34:11.345473732Z D cleanupStaleOrders: Function execution took 1507 ms, finished with status: 'error'
+2026-03-07T17:04:08.133658510Z D cleanupStaleOrders: Function execution started
+2026-03-07T17:04:09.752583Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T17:04:09.752590Z ? cleanupStaleOrders: for call at
+2026-03-07T17:04:09.752593Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T17:04:09.752595Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T17:04:09.752597Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T17:04:09.752599Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T17:04:09.752601Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T17:04:09.752603Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T17:04:09.752605Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T17:04:09.752607Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T17:04:09.752609Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T17:04:09.752611Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T17:04:09.752645Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T17:04:09.752647Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T17:04:09.752649Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T17:04:09.752651Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T17:04:09.752654Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T17:04:09.752656Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T17:04:09.752659Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T17:04:09.755137247Z D cleanupStaleOrders: Function execution took 1621 ms, finished with status: 'error'
+2026-03-07T17:34:08.743320087Z D cleanupStaleOrders: Function execution started
+2026-03-07T17:34:10.203239Z E cleanupStaleOrders: Error: 9 FAILED_PRECONDITION: The query requires an index. You can create it here: https://console.firebase.google.com/v1/r/project/naturezacura-d0f70/firestore/indexes?create_composite=ClFwcm9qZWN0cy9uYXR1cmV6YWN1cmEtZDBmNzAvZGF0YWJhc2VzLyhkZWZhdWx0KS9jb2xsZWN0aW9uR3JvdXBzL29yZGVycy9pbmRleGVzL18QARoKCgZzdGF0dXMQARoNCgljcmVhdGVkQXQQARoMCghfX25hbWVfXxAB
+    at callErrorFromStatus (/workspace/node_modules/@grpc/grpc-js/build/src/call.js:31:19)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:357:73)
+    at Object.onReceiveStatus (/workspace/node_modules/@grpc/grpc-js/build/src/client-interceptors.js:323:181)
+    at /workspace/node_modules/@grpc/grpc-js/build/src/resolving-call.js:94:78
+    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)
+2026-03-07T17:34:10.203246Z ? cleanupStaleOrders: for call at
+2026-03-07T17:34:10.203249Z ? cleanupStaleOrders:     at ServiceClientImpl.makeServerStreamRequest (/workspace/node_modules/@grpc/grpc-js/build/src/client.js:340:32)
+2026-03-07T17:34:10.203252Z ? cleanupStaleOrders:     at ServiceClientImpl.<anonymous> (/workspace/node_modules/@grpc/grpc-js/build/src/make-client.js:105:19)
+2026-03-07T17:34:10.203254Z ? cleanupStaleOrders:     at /workspace/node_modules/@google-cloud/firestore/build/src/v1/firestore_client.js:227:29
+2026-03-07T17:34:10.203256Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:38:28
+2026-03-07T17:34:10.203258Z ? cleanupStaleOrders:     at /workspace/node_modules/google-gax/build/src/normalCalls/timeout.js:44:16
+2026-03-07T17:34:10.203260Z ? cleanupStaleOrders:     at Object.request (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:130:40)
+2026-03-07T17:34:10.203262Z ? cleanupStaleOrders:     at makeRequest (/workspace/node_modules/retry-request/index.js:141:28)
+2026-03-07T17:34:10.203264Z ? cleanupStaleOrders:     at retryRequest (/workspace/node_modules/retry-request/index.js:109:5)
+2026-03-07T17:34:10.203266Z ? cleanupStaleOrders:     at StreamProxy.setStream (/workspace/node_modules/google-gax/build/src/streamingCalls/streaming.js:121:37)
+2026-03-07T17:34:10.203269Z ? cleanupStaleOrders:     at StreamingApiCaller.call (/workspace/node_modules/google-gax/build/src/streamingCalls/streamingApiCaller.js:54:16)
+2026-03-07T17:34:10.203311Z ? cleanupStaleOrders: Caused by: Error
+2026-03-07T17:34:10.203315Z ? cleanupStaleOrders:     at Query._get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1738:23)
+2026-03-07T17:34:10.203318Z ? cleanupStaleOrders:     at Query.get (/workspace/node_modules/@google-cloud/firestore/build/src/reference.js:1726:21)
+2026-03-07T17:34:10.203320Z ? cleanupStaleOrders:     at /workspace/index.js:321:10
+2026-03-07T17:34:10.203323Z ? cleanupStaleOrders:     at cloudFunction (/workspace/node_modules/firebase-functions/lib/v1/cloud-functions.js:77:23)
+2026-03-07T17:34:10.203326Z ? cleanupStaleOrders:     at /layers/google.nodejs.functions-framework/functions-framework/node_modules/@google-cloud/functions-framework/build/src/function_wrappers.js:147:25
+2026-03-07T17:34:10.203328Z ? cleanupStaleOrders:     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2026-03-07T17:34:10.205539180Z D cleanupStaleOrders: Function execution took 1462 ms, finished with status: 'error'
+2026-03-07T17:47:03.338033678Z D createStripeCheckout: Function execution started
+2026-03-07T17:47:03.416858382Z D createStripeCheckout: Function execution took 78 ms, finished with status code: 204
+2026-03-07T17:47:03.589464741Z D createStripeCheckout: Function execution started
+2026-03-07T17:47:03.657396Z D createStripeCheckout: {"message":"Callable request verification passed","verifications":{"auth":"MISSING","app":"MISSING"}}
+2026-03-07T17:47:03.660318434Z D createStripeCheckout: Function execution took 70 ms, finished with status code: 400
+2026-03-07T17:47:08.939206003Z D createStripeCheckout: Function execution started
+2026-03-07T17:47:08.942563263Z D createStripeCheckout: Function execution took 3 ms, finished with status code: 204
+2026-03-07T17:47:09.097899810Z D createStripeCheckout: Function execution started
+2026-03-07T17:47:09.102612Z D createStripeCheckout: {"message":"Callable request verification passed","verifications":{"app":"MISSING","auth":"MISSING"}}
+2026-03-07T17:47:09.103467381Z D createStripeCheckout: Function execution took 5 ms, finished with status code: 400
+2026-03-07T17:47:13.007383995Z D createStripeCheckout: Function execution started
+2026-03-07T17:47:13.348108Z D createStripeCheckout: {"verifications":{"app":"MISSING","auth":"MISSING"},"message":"Callable request verification passed"}
+2026-03-07T17:47:13.349427656Z D createStripeCheckout: Function execution took 342 ms, finished with status code: 400
+2026-03-07T17:47:20.555592387Z D createStripeCheckout: Function execution started
+2026-03-07T17:47:20.745359014Z D createStripeCheckout: Function execution took 189 ms, finished with status code: 204
+2026-03-07T17:47:20.997224554Z D createStripeCheckout: Function execution started
+2026-03-07T17:47:21.003092Z D createStripeCheckout: {"message":"Callable request verification passed","verifications":{"auth":"MISSING","app":"MISSING"}}
+2026-03-07T17:47:21.004665424Z D createStripeCheckout: Function execution took 7 ms, finished with status code: 400
+2026-03-07T17:56:19.419533Z I undefined: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T17:56:19.948671Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.GenerateUploadUrl","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1","permission":"cloudfunctions.functions.sourceCodeSet","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1","request":{"parent":"projects/naturezacura-d0f70/locations/us-central1","@type":"type.googleapis.com/google.cloud.functions.v1.GenerateUploadUrlRequest"},"response":{"@type":"type.googleapis.com/google.cloud.functions.v1.GenerateUploadUrlResponse","uploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/0e3544ce-5ebd-46ba-9495-586ab8d3dcd4.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772907979&Signature=Fa4xr3ic3RV0aQDlU1dqhklObmJz5WM0uPEqOOkCBOWf%2BkGewj6schmMGKT6CgcsFx1lZ3uvpGV0ofbaWEQlx5ycS9k8kwfGPaWLE%2Bov6BUUHiGETnmomSiW8VqYQHTq4y5JWjkmgqtPD14Erk7Rs%2FktPYtddAejBJJgPUmCNvn3uZs2GtVLa1fOlIXK7fxAdXF%2BBJpoo8esTTe%2F%2BwQj7etolnKrUBq4207GpuBop%2FfkV9K%2FGTP5oKX8a8jHeNW1z6TtFpr2LYUUvmpLY4WD2pwl%2BoLnrQ8nrgnViEKfGMhP87RuzlT9tHT08jLk1uHCRFA6iGlnNkdsfxXt2NZJrw%3D%3D"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T17:56:19.547037Z I undefined: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"requestAttributes":{"time":"2026-03-07T17:56:19.874318Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.GenerateUploadUrl","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1","permission":"cloudfunctions.functions.sourceCodeSet","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1","resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T17:56:21.194295Z N createStripeCheckout: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T17:56:21.792459Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/createStripeCheckout","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/createStripeCheckout","request":{"function":{"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"labels":{"firebase-functions-hash":"2e8711591c7236514783e2d004bbea3c1252d3f9","deployment-callable":"true","deployment-tool":"cli-firebase"},"entryPoint":"createStripeCheckout","sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/0e3544ce-5ebd-46ba-9495-586ab8d3dcd4.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772907979&Signature=Fa4xr3ic3RV0aQDlU1dqhklObmJz5WM0uPEqOOkCBOWf%2BkGewj6schmMGKT6CgcsFx1lZ3uvpGV0ofbaWEQlx5ycS9k8kwfGPaWLE%2Bov6BUUHiGETnmomSiW8VqYQHTq4y5JWjkmgqtPD14Erk7Rs%2FktPYtddAejBJJgPUmCNvn3uZs2GtVLa1fOlIXK7fxAdXF%2BBJpoo8esTTe%2F%2BwQj7etolnKrUBq4207GpuBop%2FfkV9K%2FGTP5oKX8a8jHeNW1z6TtFpr2LYUUvmpLY4WD2pwl%2BoLnrQ8nrgnViEKfGMhP87RuzlT9tHT08jLk1uHCRFA6iGlnNkdsfxXt2NZJrw%3D%3D","runtime":"nodejs22","name":"projects/naturezacura-d0f70/locations/us-central1/functions/createStripeCheckout","dockerRegistry":"ARTIFACT_REGISTRY"},"updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,httpsTrigger.securityLevel,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables","@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T17:57:23.799398Z N verifyPayment: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T17:57:24.373681Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/verifyPayment","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/verifyPayment","request":{"updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,httpsTrigger.securityLevel,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables","function":{"runtime":"nodejs22","entryPoint":"verifyPayment","name":"projects/naturezacura-d0f70/locations/us-central1/functions/verifyPayment","labels":{"firebase-functions-hash":"2e8711591c7236514783e2d004bbea3c1252d3f9","deployment-tool":"cli-firebase","deployment-callable":"true"},"sourceToken":"e36b2a9d-c620-4d0c-8907-4c287ba4c0de","sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/0e3544ce-5ebd-46ba-9495-586ab8d3dcd4.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772907979&Signature=Fa4xr3ic3RV0aQDlU1dqhklObmJz5WM0uPEqOOkCBOWf%2BkGewj6schmMGKT6CgcsFx1lZ3uvpGV0ofbaWEQlx5ycS9k8kwfGPaWLE%2Bov6BUUHiGETnmomSiW8VqYQHTq4y5JWjkmgqtPD14Erk7Rs%2FktPYtddAejBJJgPUmCNvn3uZs2GtVLa1fOlIXK7fxAdXF%2BBJpoo8esTTe%2F%2BwQj7etolnKrUBq4207GpuBop%2FfkV9K%2FGTP5oKX8a8jHeNW1z6TtFpr2LYUUvmpLY4WD2pwl%2BoLnrQ8nrgnViEKfGMhP87RuzlT9tHT08jLk1uHCRFA6iGlnNkdsfxXt2NZJrw%3D%3D","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"dockerRegistry":"ARTIFACT_REGISTRY"},"@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T17:57:23.827892Z N cleanupStaleOrders: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T17:57:24.360825Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/cleanupStaleOrders","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/cleanupStaleOrders","request":{"function":{"sourceToken":"e36b2a9d-c620-4d0c-8907-4c287ba4c0de","sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/0e3544ce-5ebd-46ba-9495-586ab8d3dcd4.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772907979&Signature=Fa4xr3ic3RV0aQDlU1dqhklObmJz5WM0uPEqOOkCBOWf%2BkGewj6schmMGKT6CgcsFx1lZ3uvpGV0ofbaWEQlx5ycS9k8kwfGPaWLE%2Bov6BUUHiGETnmomSiW8VqYQHTq4y5JWjkmgqtPD14Erk7Rs%2FktPYtddAejBJJgPUmCNvn3uZs2GtVLa1fOlIXK7fxAdXF%2BBJpoo8esTTe%2F%2BwQj7etolnKrUBq4207GpuBop%2FfkV9K%2FGTP5oKX8a8jHeNW1z6TtFpr2LYUUvmpLY4WD2pwl%2BoLnrQ8nrgnViEKfGMhP87RuzlT9tHT08jLk1uHCRFA6iGlnNkdsfxXt2NZJrw%3D%3D","labels":{"firebase-functions-hash":"2e8711591c7236514783e2d004bbea3c1252d3f9","deployment-scheduled":"true","deployment-tool":"cli-firebase"},"eventTrigger":{"resource":"projects/naturezacura-d0f70/topics/firebase-schedule-cleanupStaleOrders-us-central1","eventType":"google.pubsub.topic.publish"},"dockerRegistry":"ARTIFACT_REGISTRY","runtime":"nodejs22","entryPoint":"cleanupStaleOrders","name":"projects/naturezacura-d0f70/locations/us-central1/functions/cleanupStaleOrders"},"@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest","updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,eventTrigger.eventType,eventTrigger.resource,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T17:57:24.006953Z N getAvailableSlots: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T17:57:24.491867Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/getAvailableSlots","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/getAvailableSlots","request":{"updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,httpsTrigger.securityLevel,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables","function":{"runtime":"nodejs22","entryPoint":"getAvailableSlots","name":"projects/naturezacura-d0f70/locations/us-central1/functions/getAvailableSlots","sourceToken":"e36b2a9d-c620-4d0c-8907-4c287ba4c0de","sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/0e3544ce-5ebd-46ba-9495-586ab8d3dcd4.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772907979&Signature=Fa4xr3ic3RV0aQDlU1dqhklObmJz5WM0uPEqOOkCBOWf%2BkGewj6schmMGKT6CgcsFx1lZ3uvpGV0ofbaWEQlx5ycS9k8kwfGPaWLE%2Bov6BUUHiGETnmomSiW8VqYQHTq4y5JWjkmgqtPD14Erk7Rs%2FktPYtddAejBJJgPUmCNvn3uZs2GtVLa1fOlIXK7fxAdXF%2BBJpoo8esTTe%2F%2BwQj7etolnKrUBq4207GpuBop%2FfkV9K%2FGTP5oKX8a8jHeNW1z6TtFpr2LYUUvmpLY4WD2pwl%2BoLnrQ8nrgnViEKfGMhP87RuzlT9tHT08jLk1uHCRFA6iGlnNkdsfxXt2NZJrw%3D%3D","labels":{"deployment-callable":"true","firebase-functions-hash":"2e8711591c7236514783e2d004bbea3c1252d3f9","deployment-tool":"cli-firebase"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"dockerRegistry":"ARTIFACT_REGISTRY"},"@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T17:57:24.007250Z N bookAppointment: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T17:57:24.454757Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/bookAppointment","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/bookAppointment","request":{"function":{"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"dockerRegistry":"ARTIFACT_REGISTRY","sourceToken":"e36b2a9d-c620-4d0c-8907-4c287ba4c0de","sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/0e3544ce-5ebd-46ba-9495-586ab8d3dcd4.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772907979&Signature=Fa4xr3ic3RV0aQDlU1dqhklObmJz5WM0uPEqOOkCBOWf%2BkGewj6schmMGKT6CgcsFx1lZ3uvpGV0ofbaWEQlx5ycS9k8kwfGPaWLE%2Bov6BUUHiGETnmomSiW8VqYQHTq4y5JWjkmgqtPD14Erk7Rs%2FktPYtddAejBJJgPUmCNvn3uZs2GtVLa1fOlIXK7fxAdXF%2BBJpoo8esTTe%2F%2BwQj7etolnKrUBq4207GpuBop%2FfkV9K%2FGTP5oKX8a8jHeNW1z6TtFpr2LYUUvmpLY4WD2pwl%2BoLnrQ8nrgnViEKfGMhP87RuzlT9tHT08jLk1uHCRFA6iGlnNkdsfxXt2NZJrw%3D%3D","labels":{"deployment-callable":"true","firebase-functions-hash":"2e8711591c7236514783e2d004bbea3c1252d3f9","deployment-tool":"cli-firebase"},"runtime":"nodejs22","entryPoint":"bookAppointment","name":"projects/naturezacura-d0f70/locations/us-central1/functions/bookAppointment"},"@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest","updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,httpsTrigger.securityLevel,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T17:57:24.095992Z N stripeWebhook: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T17:57:24.502628Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/stripeWebhook","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/stripeWebhook","request":{"updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,httpsTrigger.securityLevel,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables","function":{"dockerRegistry":"ARTIFACT_REGISTRY","labels":{"firebase-functions-hash":"2e8711591c7236514783e2d004bbea3c1252d3f9","deployment-tool":"cli-firebase"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/0e3544ce-5ebd-46ba-9495-586ab8d3dcd4.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772907979&Signature=Fa4xr3ic3RV0aQDlU1dqhklObmJz5WM0uPEqOOkCBOWf%2BkGewj6schmMGKT6CgcsFx1lZ3uvpGV0ofbaWEQlx5ycS9k8kwfGPaWLE%2Bov6BUUHiGETnmomSiW8VqYQHTq4y5JWjkmgqtPD14Erk7Rs%2FktPYtddAejBJJgPUmCNvn3uZs2GtVLa1fOlIXK7fxAdXF%2BBJpoo8esTTe%2F%2BwQj7etolnKrUBq4207GpuBop%2FfkV9K%2FGTP5oKX8a8jHeNW1z6TtFpr2LYUUvmpLY4WD2pwl%2BoLnrQ8nrgnViEKfGMhP87RuzlT9tHT08jLk1uHCRFA6iGlnNkdsfxXt2NZJrw%3D%3D","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"entryPoint":"stripeWebhook","runtime":"nodejs22","sourceToken":"e36b2a9d-c620-4d0c-8907-4c287ba4c0de","name":"projects/naturezacura-d0f70/locations/us-central1/functions/stripeWebhook"},"@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T17:57:51.435836Z N createStripeCheckout: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/createStripeCheckout"}
+2026-03-07T17:57:51.529980Z N verifyPayment: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/verifyPayment"}
+2026-03-07T17:57:52.231900Z N stripeWebhook: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/stripeWebhook"}
+2026-03-07T17:57:52.452068Z N getAvailableSlots: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/getAvailableSlots"}
+2026-03-07T17:57:54.064156Z N bookAppointment: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/bookAppointment"}
+2026-03-07T17:57:55.580830Z N cleanupStaleOrders: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/cleanupStaleOrders"}
+2026-03-07T18:00:03.883078857Z D createStripeCheckout: Function execution started
+2026-03-07T18:00:03.942390931Z D createStripeCheckout: Function execution took 59 ms, finished with status code: 204
+2026-03-07T18:00:04.094157366Z D createStripeCheckout: Function execution started
+2026-03-07T18:00:04.133534Z D createStripeCheckout: {"message":"Callable request verification passed","verifications":{"auth":"MISSING","app":"MISSING"}}
+2026-03-07T18:00:09.874502111Z D createStripeCheckout: Function execution took 5780 ms, finished with status code: 200
+2026-03-07T18:09:06.877618Z I undefined: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T18:09:07.992406Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.GenerateUploadUrl","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1","permission":"cloudfunctions.functions.sourceCodeSet","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1","request":{"parent":"projects/naturezacura-d0f70/locations/us-central1","@type":"type.googleapis.com/google.cloud.functions.v1.GenerateUploadUrlRequest"},"response":{"uploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/142a8830-15d8-4949-b7bb-ed5abd794759.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772908747&Signature=8POXkh5L33wME5SvmFZCmAiU1j3wjA5yQ5OQQQRs44iO00H8IZ8qo6J%2B0G0JYZ6DUExp7IvIamdznoCZB9k%2B0%2FcEa2A2q0oBmPZTWlO1JVeAh%2BVjF29Yk4XJohnKoOAj%2BGup9OwL9S%2FCqZ9ckfm4S%2BXAvFlf7QQNjSkIOzVzXQljCtFFyUFvFXaUu5%2FASWqsGnuN8NSPWoW8kdiXpwzoOmAc7OLufr1exdeg%2Bg%2BUHMe4jJVgRfpoehvaFTUkb0qk7G%2BuCy1%2BPfVoiZtKLPCvGO3uYpW%2BtDqPhgb6l1LvndDQt7xeoCzOAFohQEEEsFdD%2F31lcD%2BW7608rQ2TuwTxvQ%3D%3D","@type":"type.googleapis.com/google.cloud.functions.v1.GenerateUploadUrlResponse"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T18:09:07.552559Z I undefined: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"requestAttributes":{"time":"2026-03-07T18:09:07.919482Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.GenerateUploadUrl","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1","permission":"cloudfunctions.functions.sourceCodeSet","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1","resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T18:09:08.865Z N createStripeCheckout: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T18:09:09.421121Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/createStripeCheckout","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/createStripeCheckout","request":{"updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,httpsTrigger.securityLevel,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables","function":{"runtime":"nodejs22","name":"projects/naturezacura-d0f70/locations/us-central1/functions/createStripeCheckout","dockerRegistry":"ARTIFACT_REGISTRY","entryPoint":"createStripeCheckout","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"labels":{"firebase-functions-hash":"2774849723e4aff770e1cad6709fc50cdb3ca5b9","deployment-tool":"cli-firebase","deployment-callable":"true"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/142a8830-15d8-4949-b7bb-ed5abd794759.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772908747&Signature=8POXkh5L33wME5SvmFZCmAiU1j3wjA5yQ5OQQQRs44iO00H8IZ8qo6J%2B0G0JYZ6DUExp7IvIamdznoCZB9k%2B0%2FcEa2A2q0oBmPZTWlO1JVeAh%2BVjF29Yk4XJohnKoOAj%2BGup9OwL9S%2FCqZ9ckfm4S%2BXAvFlf7QQNjSkIOzVzXQljCtFFyUFvFXaUu5%2FASWqsGnuN8NSPWoW8kdiXpwzoOmAc7OLufr1exdeg%2Bg%2BUHMe4jJVgRfpoehvaFTUkb0qk7G%2BuCy1%2BPfVoiZtKLPCvGO3uYpW%2BtDqPhgb6l1LvndDQt7xeoCzOAFohQEEEsFdD%2F31lcD%2BW7608rQ2TuwTxvQ%3D%3D"},"@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T18:10:11.847886Z N stripeWebhook: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T18:10:12.402621Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/stripeWebhook","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/stripeWebhook","request":{"function":{"runtime":"nodejs22","sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/142a8830-15d8-4949-b7bb-ed5abd794759.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772908747&Signature=8POXkh5L33wME5SvmFZCmAiU1j3wjA5yQ5OQQQRs44iO00H8IZ8qo6J%2B0G0JYZ6DUExp7IvIamdznoCZB9k%2B0%2FcEa2A2q0oBmPZTWlO1JVeAh%2BVjF29Yk4XJohnKoOAj%2BGup9OwL9S%2FCqZ9ckfm4S%2BXAvFlf7QQNjSkIOzVzXQljCtFFyUFvFXaUu5%2FASWqsGnuN8NSPWoW8kdiXpwzoOmAc7OLufr1exdeg%2Bg%2BUHMe4jJVgRfpoehvaFTUkb0qk7G%2BuCy1%2BPfVoiZtKLPCvGO3uYpW%2BtDqPhgb6l1LvndDQt7xeoCzOAFohQEEEsFdD%2F31lcD%2BW7608rQ2TuwTxvQ%3D%3D","entryPoint":"stripeWebhook","sourceToken":"303128dd-a3e9-48a1-a89e-14851953eb0f","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"2774849723e4aff770e1cad6709fc50cdb3ca5b9"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"name":"projects/naturezacura-d0f70/locations/us-central1/functions/stripeWebhook"},"updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,httpsTrigger.securityLevel,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables","@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T18:10:11.982048Z N bookAppointment: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T18:10:12.468203Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/bookAppointment","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/bookAppointment","request":{"updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,httpsTrigger.securityLevel,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables","function":{"runtime":"nodejs22","sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/142a8830-15d8-4949-b7bb-ed5abd794759.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772908747&Signature=8POXkh5L33wME5SvmFZCmAiU1j3wjA5yQ5OQQQRs44iO00H8IZ8qo6J%2B0G0JYZ6DUExp7IvIamdznoCZB9k%2B0%2FcEa2A2q0oBmPZTWlO1JVeAh%2BVjF29Yk4XJohnKoOAj%2BGup9OwL9S%2FCqZ9ckfm4S%2BXAvFlf7QQNjSkIOzVzXQljCtFFyUFvFXaUu5%2FASWqsGnuN8NSPWoW8kdiXpwzoOmAc7OLufr1exdeg%2Bg%2BUHMe4jJVgRfpoehvaFTUkb0qk7G%2BuCy1%2BPfVoiZtKLPCvGO3uYpW%2BtDqPhgb6l1LvndDQt7xeoCzOAFohQEEEsFdD%2F31lcD%2BW7608rQ2TuwTxvQ%3D%3D","entryPoint":"bookAppointment","sourceToken":"303128dd-a3e9-48a1-a89e-14851953eb0f","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"firebase-functions-hash":"2774849723e4aff770e1cad6709fc50cdb3ca5b9","deployment-callable":"true","deployment-tool":"cli-firebase"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"name":"projects/naturezacura-d0f70/locations/us-central1/functions/bookAppointment"},"@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T18:10:11.985914Z N verifyPayment: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T18:10:12.479821Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/verifyPayment","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/verifyPayment","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest","updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,httpsTrigger.securityLevel,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables","function":{"entryPoint":"verifyPayment","name":"projects/naturezacura-d0f70/locations/us-central1/functions/verifyPayment","sourceToken":"303128dd-a3e9-48a1-a89e-14851953eb0f","labels":{"deployment-callable":"true","firebase-functions-hash":"2774849723e4aff770e1cad6709fc50cdb3ca5b9","deployment-tool":"cli-firebase"},"dockerRegistry":"ARTIFACT_REGISTRY","runtime":"nodejs22","sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/142a8830-15d8-4949-b7bb-ed5abd794759.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772908747&Signature=8POXkh5L33wME5SvmFZCmAiU1j3wjA5yQ5OQQQRs44iO00H8IZ8qo6J%2B0G0JYZ6DUExp7IvIamdznoCZB9k%2B0%2FcEa2A2q0oBmPZTWlO1JVeAh%2BVjF29Yk4XJohnKoOAj%2BGup9OwL9S%2FCqZ9ckfm4S%2BXAvFlf7QQNjSkIOzVzXQljCtFFyUFvFXaUu5%2FASWqsGnuN8NSPWoW8kdiXpwzoOmAc7OLufr1exdeg%2Bg%2BUHMe4jJVgRfpoehvaFTUkb0qk7G%2BuCy1%2BPfVoiZtKLPCvGO3uYpW%2BtDqPhgb6l1LvndDQt7xeoCzOAFohQEEEsFdD%2F31lcD%2BW7608rQ2TuwTxvQ%3D%3D","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"}}},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T18:10:11.991789Z N getAvailableSlots: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T18:10:12.477794Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/getAvailableSlots","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/getAvailableSlots","request":{"@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest","function":{"sourceToken":"303128dd-a3e9-48a1-a89e-14851953eb0f","dockerRegistry":"ARTIFACT_REGISTRY","entryPoint":"getAvailableSlots","runtime":"nodejs22","sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/142a8830-15d8-4949-b7bb-ed5abd794759.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772908747&Signature=8POXkh5L33wME5SvmFZCmAiU1j3wjA5yQ5OQQQRs44iO00H8IZ8qo6J%2B0G0JYZ6DUExp7IvIamdznoCZB9k%2B0%2FcEa2A2q0oBmPZTWlO1JVeAh%2BVjF29Yk4XJohnKoOAj%2BGup9OwL9S%2FCqZ9ckfm4S%2BXAvFlf7QQNjSkIOzVzXQljCtFFyUFvFXaUu5%2FASWqsGnuN8NSPWoW8kdiXpwzoOmAc7OLufr1exdeg%2Bg%2BUHMe4jJVgRfpoehvaFTUkb0qk7G%2BuCy1%2BPfVoiZtKLPCvGO3uYpW%2BtDqPhgb6l1LvndDQt7xeoCzOAFohQEEEsFdD%2F31lcD%2BW7608rQ2TuwTxvQ%3D%3D","httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"name":"projects/naturezacura-d0f70/locations/us-central1/functions/getAvailableSlots","labels":{"deployment-tool":"cli-firebase","deployment-callable":"true","firebase-functions-hash":"2774849723e4aff770e1cad6709fc50cdb3ca5b9"}},"updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,httpsTrigger.securityLevel,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T18:10:12.012630Z N cleanupStaleOrders: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","authenticationInfo":{"principalEmail":"vmcarrao@gmail.com","principalSubject":"user:vmcarrao@gmail.com","oauthInfo":{"oauthClientId":"563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com"}},"requestMetadata":{"callerIp":"2804:1b1:8ac2:ecb0:45f8:8794:9b5:5550","callerSuppliedUserAgent":"FirebaseCLI/15.2.1,gzip(gfe),gzip(gfe)","requestAttributes":{"time":"2026-03-07T18:10:12.470106Z","auth":{}},"destinationAttributes":{}},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","authorizationInfo":[{"resource":"projects/naturezacura-d0f70/locations/us-central1/functions/cleanupStaleOrders","permission":"cloudfunctions.functions.update","granted":true,"resourceAttributes":{},"permissionType":"ADMIN_WRITE"}],"resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/cleanupStaleOrders","request":{"function":{"sourceToken":"303128dd-a3e9-48a1-a89e-14851953eb0f","labels":{"deployment-scheduled":"true","firebase-functions-hash":"2774849723e4aff770e1cad6709fc50cdb3ca5b9","deployment-tool":"cli-firebase"},"dockerRegistry":"ARTIFACT_REGISTRY","name":"projects/naturezacura-d0f70/locations/us-central1/functions/cleanupStaleOrders","runtime":"nodejs22","eventTrigger":{"resource":"projects/naturezacura-d0f70/topics/firebase-schedule-cleanupStaleOrders-us-central1","eventType":"google.pubsub.topic.publish"},"entryPoint":"cleanupStaleOrders","sourceUploadUrl":"https://storage.googleapis.com/uploads-1003634802413.us-central1.cloudfunctions.appspot.com/142a8830-15d8-4949-b7bb-ed5abd794759.zip?GoogleAccessId=service-421753901082@gcf-admin-robot.iam.gserviceaccount.com&Expires=1772908747&Signature=8POXkh5L33wME5SvmFZCmAiU1j3wjA5yQ5OQQQRs44iO00H8IZ8qo6J%2B0G0JYZ6DUExp7IvIamdznoCZB9k%2B0%2FcEa2A2q0oBmPZTWlO1JVeAh%2BVjF29Yk4XJohnKoOAj%2BGup9OwL9S%2FCqZ9ckfm4S%2BXAvFlf7QQNjSkIOzVzXQljCtFFyUFvFXaUu5%2FASWqsGnuN8NSPWoW8kdiXpwzoOmAc7OLufr1exdeg%2Bg%2BUHMe4jJVgRfpoehvaFTUkb0qk7G%2BuCy1%2BPfVoiZtKLPCvGO3uYpW%2BtDqPhgb6l1LvndDQt7xeoCzOAFohQEEEsFdD%2F31lcD%2BW7608rQ2TuwTxvQ%3D%3D"},"updateMask":"name,sourceUploadUrl,entryPoint,runtime,dockerRegistry,labels,eventTrigger.eventType,eventTrigger.resource,minInstances,maxInstances,ingressSettings,environmentVariables,serviceAccountEmail,availableMemoryMb,timeout,vpcConnector,vpcConnectorEgressSettings,sourceToken,buildEnvironmentVariables","@type":"type.googleapis.com/google.cloud.functions.v1.UpdateFunctionRequest"},"resourceLocation":{"currentLocations":["us-central1"]}}
+2026-03-07T18:10:51.768678Z N cleanupStaleOrders: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/cleanupStaleOrders"}
+2026-03-07T18:10:51.897961Z N getAvailableSlots: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/getAvailableSlots"}
+2026-03-07T18:10:51.993275Z N bookAppointment: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/bookAppointment"}
+2026-03-07T18:10:52.245231Z N createStripeCheckout: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/createStripeCheckout"}
+2026-03-07T18:10:52.664564Z N verifyPayment: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/verifyPayment"}
+2026-03-07T18:10:52.678012Z N stripeWebhook: {"@type":"type.googleapis.com/google.cloud.audit.AuditLog","status":{},"authenticationInfo":{},"serviceName":"cloudfunctions.googleapis.com","methodName":"google.cloud.functions.v1.CloudFunctionsService.UpdateFunction","resourceName":"projects/naturezacura-d0f70/locations/us-central1/functions/stripeWebhook"}
+2026-03-07T18:11:03.021475131Z D createStripeCheckout: Function execution started
+2026-03-07T18:11:03.389705116Z D createStripeCheckout: Function execution took 368 ms, finished with status code: 204
+2026-03-07T18:11:03.544953926Z D createStripeCheckout: Function execution started
+2026-03-07T18:11:03.571513Z D createStripeCheckout: {"verifications":{"auth":"MISSING","app":"MISSING"},"message":"Callable request verification passed"}
+2026-03-07T18:11:09.697233791Z D createStripeCheckout: Function execution took 6152 ms, finished with status code: 200
+2026-03-07T18:11:20.542280767Z D stripeWebhook: Function execution started
+2026-03-07T18:11:21.187376Z ? stripeWebhook: Payment successful for session: cs_live_a1Lf61jQEfH5WFpypblbskedeFMN2NF8atYqYJwiOazwVkMszZtIjcAFUw
+2026-03-07T18:11:25.899115Z ? stripeWebhook: Order iHoVrKGyj9dMt1IfCN4p marked as paid.
+2026-03-07T18:11:25.901947949Z D stripeWebhook: Function execution took 5359 ms, finished with status code: 200
+2026-03-07T18:19:39.394565774Z D createStripeCheckout: Function execution started
+2026-03-07T18:19:39.472037874Z D createStripeCheckout: Function execution took 77 ms, finished with status code: 204
+2026-03-07T18:19:39.631005616Z D createStripeCheckout: Function execution started
+2026-03-07T18:19:39.635531Z D createStripeCheckout: {"message":"Callable request verification passed","verifications":{"app":"MISSING","auth":"MISSING"}}
+2026-03-07T18:19:41.000046187Z D createStripeCheckout: Function execution took 1369 ms, finished with status code: 200

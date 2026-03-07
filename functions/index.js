@@ -1,4 +1,4 @@
-const functions = require("firebase-functions");
+const functions = require("firebase-functions/v1");
 const admin = require("firebase-admin");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const { getAvailableSlots, createEvent } = require("./calendar");
@@ -26,7 +26,7 @@ const PRODUCTS = {
 // ============================================================
 // 1. CREATE STRIPE CHECKOUT SESSION
 // ============================================================
-exports.createStripeCheckout = functions.https.onCall(async (data, context) => {
+exports.createStripeCheckout = functions.runWith({ invoker: "public" }).https.onCall(async (data, context) => {
     const { serviceKey, inviteeEmail, inviteeName } = data;
 
     // Security Fix: Do NOT trust the client for price or product name!
@@ -97,7 +97,7 @@ exports.createStripeCheckout = functions.https.onCall(async (data, context) => {
 // ============================================================
 // 2. VERIFY PAYMENT (called from agendar.html)
 // ============================================================
-exports.verifyPayment = functions.https.onCall(async (data, context) => {
+exports.verifyPayment = functions.runWith({ invoker: "public" }).https.onCall(async (data, context) => {
     const { sessionId } = data;
 
     if (!sessionId) {
@@ -162,7 +162,7 @@ exports.getAvailableSlots = functions.https.onCall(async (data, context) => {
 // ============================================================
 // 4. BOOK APPOINTMENT (Google Calendar + Email + Firestore)
 // ============================================================
-exports.bookAppointment = functions.https.onCall(async (data, context) => {
+exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(async (data, context) => {
     const { sessionId, slotStart, slotEnd, clientName, clientEmail, clientPhone } = data;
 
     // Validate inputs
