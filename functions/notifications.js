@@ -63,22 +63,42 @@ async function sendConfirmationEmail(details) {
  * Send notification email to the therapist (owner).
  */
 async function sendOwnerNotification(details) {
-    const { clientEmail, clientName, clientPhone, serviceName, date, time } = details;
+    const { clientEmail, clientName, clientPhone, serviceName, date, time, anamnesis } = details;
     const transporter = getTransporter();
+
+    let anamnesisHtml = "";
+    if (anamnesis) {
+        anamnesisHtml = `
+            <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #ccc;">
+                <h3>📝 Informações Pessoais</h3>
+                <p><strong>Nascimento:</strong> ${anamnesis.birthDate} às ${anamnesis.birthTime}</p>
+                <p><strong>Local de Nasc:</strong> ${anamnesis.birthPlace}</p>
+
+                <h3 style="margin-top: 16px;">🌿 Breve Anamnese</h3>
+                <p><strong>Chamado:</strong><br/>${anamnesis.reason}</p>
+                <p><strong>Histórico Terapêutico:</strong><br/>${anamnesis.history}</p>
+                <p><strong>Saúde Física:</strong><br/>${anamnesis.health}</p>
+                <p><strong>Familiaridade:</strong><br/>${anamnesis.familiarity}</p>
+            </div>
+        `;
+    }
 
     const mailOptions = {
         from: `"Natureza Cura" <${process.env.GMAIL_USER}>`,
         to: process.env.GMAIL_USER,
         subject: `📅 Novo Agendamento — ${serviceName}`,
         html: `
-            <div style="font-family: sans-serif; padding: 16px;">
-                <h2>Novo agendamento recebido!</h2>
-                <p><strong>Cliente:</strong> ${clientName}</p>
-                <p><strong>Email:</strong> ${clientEmail}</p>
-                <p><strong>Telefone (WhatsApp):</strong> ${clientPhone || "Não informado"}</p>
-                <p><strong>Serviço:</strong> ${serviceName}</p>
-                <p><strong>Data:</strong> ${date}</p>
-                <p><strong>Horário:</strong> ${time}</p>
+            <div style="font-family: sans-serif; padding: 16px; max-width: 600px; margin: auto;">
+                <h2 style="color: #14532d;">Novo agendamento recebido!</h2>
+                <div style="background: #f0fdf4; padding: 16px; border-radius: 8px; border-left: 4px solid #14532d;">
+                    <p><strong>Cliente:</strong> ${clientName}</p>
+                    <p><strong>Email:</strong> ${clientEmail}</p>
+                    <p><strong>Telefone (WhatsApp):</strong> ${clientPhone || "Não informado"}</p>
+                    <p><strong>Serviço:</strong> ${serviceName}</p>
+                    <p><strong>Data da Sessão:</strong> ${date}</p>
+                    <p><strong>Horário da Sessão:</strong> ${time}</p>
+                </div>
+                ${anamnesisHtml}
             </div>
         `,
     };

@@ -163,10 +163,10 @@ exports.getAvailableSlots = functions.https.onCall(async (data, context) => {
 // 4. BOOK APPOINTMENT (Google Calendar + Email + Firestore)
 // ============================================================
 exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(async (data, context) => {
-    const { sessionId, slotStart, slotEnd, clientName, clientEmail, clientPhone } = data;
+    const { sessionId, slotStart, slotEnd, clientName, clientEmail, clientPhone, anamnesis } = data;
 
     // Validate inputs
-    if (!sessionId || !slotStart || !slotEnd || !clientName || !clientEmail) {
+    if (!sessionId || !slotStart || !slotEnd || !clientName || !clientEmail || !anamnesis) {
         throw new functions.https.HttpsError("invalid-argument", "Missing required booking fields.");
     }
 
@@ -225,6 +225,7 @@ exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(
             serviceName: trueServiceName,
             date: dateStr,
             time: timeStr,
+            anamnesis, // Pass down to notifications
         };
 
         await Promise.all([
@@ -243,6 +244,7 @@ exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(
                 calendarEventId: calendarEvent.id || null,
                 appointmentStart: slotStart,
                 appointmentEnd: slotEnd,
+                anamnesis,
                 bookedAt: admin.firestore.FieldValue.serverTimestamp(),
             });
         }
@@ -257,6 +259,7 @@ exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(
             serviceName: trueServiceName,
             appointmentStart: slotStart,
             appointmentEnd: slotEnd,
+            anamnesis,
             status: "Confirmed",
             paymentStatus: "Paid",
             createdAt: admin.firestore.FieldValue.serverTimestamp(),
