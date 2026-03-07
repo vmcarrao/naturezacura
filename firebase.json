@@ -1,4 +1,10 @@
 {
+  "firestore": {
+    "rules": "firestore.rules"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  },
   "hosting": {
     "public": ".",
     "ignore": [
@@ -10,7 +16,9 @@
       "tailwind.config.js",
       "input.css",
       "setup_guide.md",
-      "functions/**"
+      "functions/**",
+      "**/.env*",
+      "**/serviceAccountKey.json"
     ]
   },
   "functions": {

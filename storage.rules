@@ -1,0 +1,9 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    // DEFAULT DENY — nothing is accessible from the client unless explicitly allowed.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

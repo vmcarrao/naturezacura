@@ -8,3 +8,5 @@ style.css
 functions/node_modules/
 functions/.runtimeconfig.json
 functions/.env
+.env.local
+serviceAccountKey.json
