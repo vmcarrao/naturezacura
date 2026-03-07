@@ -124,11 +124,18 @@ async function createEvent(details) {
                 { method: "popup", minutes: 1440 },  // 1 day before
             ],
         },
+        conferenceData: {
+            createRequest: {
+                requestId: `meet_${Date.now()}_${Math.random().toString(36).substring(7)}`,
+                conferenceSolutionKey: { type: "hangoutsMeet" },
+            },
+        },
     };
 
     const response = await calendar.events.insert({
         calendarId: CALENDAR_ID,
         resource: event,
+        conferenceDataVersion: 1,
     });
 
     return response.data;

@@ -181,6 +181,20 @@
                                     <input id="client-birthplace" type="text" placeholder="Cidade/Estado/País"
                                         class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition">
                                 </div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-bold text-gray-700 mb-1" for="client-cpf">CPF
+                                            *</label>
+                                        <input id="client-cpf" type="text" placeholder="000.000.000-00"
+                                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-bold text-gray-700 mb-1"
+                                            for="client-address">Endereço Completo *</label>
+                                        <input id="client-address" type="text" placeholder="Rua, Número, Bairro, CEP"
+                                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition">
+                                    </div>
+                                </div>
                             </div>
 
                             <button type="button" onclick="goToFormStep(2)"
@@ -487,8 +501,10 @@
                 const birthdate = document.getElementById("client-birthdate").value.trim();
                 const birthtime = document.getElementById("client-birthtime").value.trim();
                 const birthplace = document.getElementById("client-birthplace").value.trim();
-                
-                if (!name || !email || !phone || !birthdate || !birthtime || !birthplace) {
+                const cpf = document.getElementById("client-cpf").value.trim();
+                const address = document.getElementById("client-address").value.trim();
+
+                if (!name || !email || !phone || !birthdate || !birthtime || !birthplace || !cpf || !address) {
                     alert("Por favor, preencha todos os campos das Informações Pessoais.");
                     return;
                 }
@@ -505,13 +521,15 @@
             const birthdate = document.getElementById("client-birthdate").value.trim();
             const birthtime = document.getElementById("client-birthtime").value.trim();
             const birthplace = document.getElementById("client-birthplace").value.trim();
-            
+            const cpf = document.getElementById("client-cpf").value.trim();
+            const address = document.getElementById("client-address").value.trim();
+
             const reason = document.getElementById("client-reason").value.trim();
             const history = document.getElementById("client-history").value.trim();
             const health = document.getElementById("client-health").value.trim();
             const familiarity = document.getElementById("client-familiarity").value.trim();
 
-            if (!name || !email || !phone || !birthdate || !birthtime || !birthplace) {
+            if (!name || !email || !phone || !birthdate || !birthtime || !birthplace || !cpf || !address) {
                 alert("Por favor, preencha todas as Informações Pessoais na etapa 1.");
                 goToFormStep(1);
                 return;
@@ -532,6 +550,8 @@
                 birthDate: birthdate,
                 birthTime: birthtime,
                 birthPlace: birthplace,
+                cpf,
+                address,
                 reason,
                 history,
                 health,

@@ -217,6 +217,8 @@ exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(
         });
 
         // 4. Send confirmation emails
+        const meetLink = calendarEvent.hangoutLink || null;
+
         const emailDetails = {
             clientEmail,
             clientName,
@@ -225,6 +227,7 @@ exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(
             date: dateStr,
             time: timeStr,
             anamnesis, // Pass down to notifications
+            meetLink,
         };
 
         await Promise.all([
@@ -241,6 +244,7 @@ exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(
                 clientEmail,
                 clientPhone: clientPhone || null,
                 calendarEventId: calendarEvent.id || null,
+                meetLink,
                 appointmentStart: slotStart,
                 appointmentEnd: slotEnd,
                 anamnesis,
@@ -252,6 +256,7 @@ exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(
         await db.collection("appointments").add({
             stripeSessionId: sessionId,
             calendarEventId: calendarEvent.id || null,
+            meetLink,
             clientName,
             clientEmail,
             clientPhone: clientPhone || null,

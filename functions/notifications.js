@@ -19,8 +19,10 @@ function getTransporter() {
  * Send appointment confirmation email to the client.
  */
 async function sendConfirmationEmail(details) {
-    const { clientEmail, clientName, serviceName, date, time } = details;
+    const { clientEmail, clientName, serviceName, date, time, meetLink } = details;
     const transporter = getTransporter();
+
+    const meetLinkHtml = meetLink ? `<p style="margin: 4px 0; color: #374151;"><strong>Local da Sessão:</strong> <a href="${meetLink}" style="color: #16a34a; text-decoration: none; font-weight: bold;"> Entrar no Google Meet</a></p>` : '';
 
     const mailOptions = {
         from: `"Natureza Cura" <${process.env.GMAIL_USER}>`,
@@ -41,6 +43,7 @@ async function sendConfirmationEmail(details) {
                     <p style="margin: 4px 0; color: #374151;"><strong>Serviço:</strong> ${serviceName}</p>
                     <p style="margin: 4px 0; color: #374151;"><strong>Data:</strong> ${date}</p>
                     <p style="margin: 4px 0; color: #374151;"><strong>Horário:</strong> ${time}</p>
+                    ${meetLinkHtml}
                 </div>
 
                 <p style="color: #6b7280; font-size: 14px;">
@@ -63,7 +66,7 @@ async function sendConfirmationEmail(details) {
  * Send notification email to the therapist (owner).
  */
 async function sendOwnerNotification(details) {
-    const { clientEmail, clientName, clientPhone, serviceName, date, time, anamnesis } = details;
+    const { clientEmail, clientName, clientPhone, serviceName, date, time, anamnesis, meetLink } = details;
     const transporter = getTransporter();
 
     let anamnesisHtml = "";
@@ -73,6 +76,8 @@ async function sendOwnerNotification(details) {
                 <h3>📝 Informações Pessoais</h3>
                 <p><strong>Nascimento:</strong> ${anamnesis.birthDate} às ${anamnesis.birthTime}</p>
                 <p><strong>Local de Nasc:</strong> ${anamnesis.birthPlace}</p>
+                <p><strong>CPF:</strong> ${anamnesis.cpf || "Não informado"}</p>
+                <p><strong>Endereço:</strong> ${anamnesis.address || "Não informado"}</p>
 
                 <h3 style="margin-top: 16px;">🌿 Breve Anamnese</h3>
                 <p><strong>Chamado:</strong><br/>${anamnesis.reason}</p>
@@ -97,6 +102,7 @@ async function sendOwnerNotification(details) {
                     <p><strong>Serviço:</strong> ${serviceName}</p>
                     <p><strong>Data da Sessão:</strong> ${date}</p>
                     <p><strong>Horário da Sessão:</strong> ${time}</p>
+                    <p><strong>Google Meet Link:</strong> <a href="${meetLink || '#'}">${meetLink || "Não gerado"}</a></p>
                 </div>
                 ${anamnesisHtml}
             </div>
