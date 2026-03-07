@@ -52,19 +52,21 @@ async function getAvailableSlots(startDate, endDate, slotDurationMinutes = 60) {
     const end = new Date(endDate + "T23:59:59-03:00");
 
     while (current <= end) {
-        const dayOfWeek = current.getDay(); // 0=Sun, 6=Sat
+        // Since current is e.g. 03:00Z (midnight BRT), .toISOString() correctly reflects the BRT date
+        const dateString = current.toISOString().slice(0, 10);
+
+        // Safely determine day of week using noon BRT
+        const safeNoon = new Date(`${dateString}T12:00:00-03:00`);
+        const dayOfWeek = safeNoon.getDay(); // 0=Sun, 6=Sat
 
         // Skip weekends
         if (dayOfWeek >= 1 && dayOfWeek <= 5) {
             for (let hour = WORK_START_HOUR; hour < WORK_END_HOUR; hour++) {
-                const slotStart = new Date(current);
-                slotStart.setHours(hour, 0, 0, 0);
+                const h = String(hour).padStart(2, "0");
 
-                const slotEnd = new Date(slotStart);
-                slotEnd.setMinutes(slotEnd.getMinutes() + slotDurationMinutes);
-
-                // Skip if slot ends after working hours
-                if (slotEnd.getHours() > WORK_END_HOUR) continue;
+                // Create explicitly in UTC-3
+                const slotStart = new Date(`${dateString}T${h}:00:00-03:00`);
+                const slotEnd = new Date(slotStart.getTime() + slotDurationMinutes * 60000);
 
                 // Skip past times
                 if (slotStart <= new Date()) continue;
@@ -78,8 +80,8 @@ async function getAvailableSlots(startDate, endDate, slotDurationMinutes = 60) {
 
                 if (!isConflict) {
                     availableSlots.push({
-                        date: slotStart.toISOString().split("T")[0],
-                        startTime: `${String(hour).padStart(2, "0")}:00`,
+                        date: dateString,
+                        startTime: `${h}:00`,
                         endTime: `${String(hour + Math.floor(slotDurationMinutes / 60)).padStart(2, "0")}:${String(slotDurationMinutes % 60).padStart(2, "0")}`,
                         isoStart: slotStart.toISOString(),
                         isoEnd: slotEnd.toISOString(),
@@ -88,8 +90,8 @@ async function getAvailableSlots(startDate, endDate, slotDurationMinutes = 60) {
             }
         }
 
-        // Move to next day
-        current.setDate(current.getDate() + 1);
+        // Move to next day (add 24 hours safely in UTC arithmetic)
+        current.setTime(current.getTime() + 24 * 60 * 60 * 1000);
     }
 
     return availableSlots;
