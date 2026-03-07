@@ -20,6 +20,7 @@ const AppConfig = {
         "revolucao-solar": { name: "Leitura do Mapa da Revolução Solar + Sinastria", price: 56600, duration: 80, buffer: 20, blockDuration: 100 },
         "tarot": { name: "Tarot Terapêutico", price: 33200, duration: 50, buffer: 15, blockDuration: 65 },
         "mapa-astral-infantil": { name: "Leitura de Mapa Astral Infantil", price: 51200, duration: 80, buffer: 20, blockDuration: 100 },
+        "amor": { name: "Amor", price: 100, duration: 1, buffer: 1, blockDuration: 2 },
     },
     // Firebase Config
     firebase: {
