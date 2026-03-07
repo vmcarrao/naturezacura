@@ -115,7 +115,6 @@ async function createEvent(details) {
             dateTime: endTime,
             timeZone: "America/Sao_Paulo",
         },
-        attendees: [{ email: clientEmail }],
         reminders: {
             useDefault: false,
             overrides: [
@@ -128,7 +127,6 @@ async function createEvent(details) {
     const response = await calendar.events.insert({
         calendarId: CALENDAR_ID,
         resource: event,
-        sendUpdates: "all", // Sends invite email to attendee
     });
 
     return response.data;
