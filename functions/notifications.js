@@ -63,7 +63,7 @@ async function sendConfirmationEmail(details) {
  * Send notification email to the therapist (owner).
  */
 async function sendOwnerNotification(details) {
-    const { clientEmail, clientName, serviceName, date, time } = details;
+    const { clientEmail, clientName, clientPhone, serviceName, date, time } = details;
     const transporter = getTransporter();
 
     const mailOptions = {
@@ -75,6 +75,7 @@ async function sendOwnerNotification(details) {
                 <h2>Novo agendamento recebido!</h2>
                 <p><strong>Cliente:</strong> ${clientName}</p>
                 <p><strong>Email:</strong> ${clientEmail}</p>
+                <p><strong>Telefone (WhatsApp):</strong> ${clientPhone || "Não informado"}</p>
                 <p><strong>Serviço:</strong> ${serviceName}</p>
                 <p><strong>Data:</strong> ${date}</p>
                 <p><strong>Horário:</strong> ${time}</p>

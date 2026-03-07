@@ -14,9 +14,12 @@ const AppConfig = {
     },
     // Service configurations (appointments)
     services: {
-        "terapia-natural": { name: "Terapia Natural", price: 18000, duration: 90 },   // R$ 180,00
-        "astrologia": { name: "Astrologia", price: 22000, duration: 60 },        // R$ 220,00
-        "tarot": { name: "Tarot Terapêutico", price: 15000, duration: 50 },  // R$ 150,00
+        "mapa-astral": { name: "Leitura de Mapa Astral", price: 51200, duration: 80, buffer: 20, blockDuration: 100 },
+        "mapa-astral-transitos": { name: "Leitura de Mapa Astral com Trânsitos", price: 40400, duration: 60, buffer: 15, blockDuration: 75 },
+        "terapia-natural": { name: "Sessão de Terapia Natural", price: 23300, duration: 50, buffer: 15, blockDuration: 65 },
+        "revolucao-solar": { name: "Leitura do Mapa da Revolução Solar + Sinastria", price: 56600, duration: 80, buffer: 20, blockDuration: 100 },
+        "tarot": { name: "Tarot Terapêutico", price: 33200, duration: 50, buffer: 15, blockDuration: 65 },
+        "mapa-astral-infantil": { name: "Leitura de Mapa Astral Infantil", price: 51200, duration: 80, buffer: 20, blockDuration: 100 },
     },
     // Firebase Config
     firebase: {

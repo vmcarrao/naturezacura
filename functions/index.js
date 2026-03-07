@@ -13,10 +13,13 @@ const PRODUCTS = {
     "cristais": { name: "Curso de Cristais", price: 19700, type: "course" },
     "chakras": { name: "Jornada dos Chakras", price: 25900, type: "course" },
 
-    // Services
-    "terapia-natural": { name: "Terapia Natural", price: 18000, type: "appointment" },
-    "astrologia": { name: "Astrologia", price: 22000, type: "appointment" },
-    "tarot": { name: "Tarot Terapêutico", price: 15000, type: "appointment" },
+    // Services (appointments)
+    "mapa-astral": { name: "Leitura de Mapa Astral", price: 51200, type: "appointment", duration: 80, buffer: 20, blockDuration: 100 },
+    "mapa-astral-transitos": { name: "Leitura de Mapa Astral com Trânsitos", price: 40400, type: "appointment", duration: 60, buffer: 15, blockDuration: 75 },
+    "terapia-natural": { name: "Sessão de Terapia Natural", price: 23300, type: "appointment", duration: 50, buffer: 15, blockDuration: 65 },
+    "revolucao-solar": { name: "Leitura do Mapa da Revolução Solar + Sinastria", price: 56600, type: "appointment", duration: 80, buffer: 20, blockDuration: 100 },
+    "tarot": { name: "Tarot Terapêutico", price: 33200, type: "appointment", duration: 50, buffer: 15, blockDuration: 65 },
+    "mapa-astral-infantil": { name: "Leitura de Mapa Astral Infantil", price: 51200, type: "appointment", duration: 80, buffer: 20, blockDuration: 100 },
 };
 
 // ============================================================
@@ -127,6 +130,7 @@ exports.verifyPayment = functions.https.onCall(async (data, context) => {
             customerEmail: session.customer_details?.email || null,
             customerName: session.customer_details?.name || null,
             serviceName: trueProductName,
+            serviceKey: serviceKey,
             type: session.metadata?.type || "appointment",
         };
     } catch (error) {
@@ -139,14 +143,14 @@ exports.verifyPayment = functions.https.onCall(async (data, context) => {
 // 3. GET AVAILABLE SLOTS (Google Calendar free/busy)
 // ============================================================
 exports.getAvailableSlots = functions.https.onCall(async (data, context) => {
-    const { startDate, endDate, durationMinutes } = data;
+    const { startDate, endDate, durationMinutes, blockDurationMinutes } = data;
 
     if (!startDate || !endDate) {
         throw new functions.https.HttpsError("invalid-argument", "startDate and endDate are required.");
     }
 
     try {
-        const slots = await getAvailableSlots(startDate, endDate, durationMinutes || 60);
+        const slots = await getAvailableSlots(startDate, endDate, blockDurationMinutes || durationMinutes || 60);
         return { slots };
     } catch (error) {
         console.error("Error fetching available slots:", error);
@@ -185,12 +189,17 @@ exports.bookAppointment = functions.https.onCall(async (data, context) => {
 
         // Determine true service name from secure session metadata
         const serviceKey = session.metadata?.serviceKey || "unknown";
-        const trueServiceName = PRODUCTS[serviceKey] ? PRODUCTS[serviceKey].name : "Sessão Terapêutica";
+        const product = PRODUCTS[serviceKey];
+        const trueServiceName = product ? product.name : "Sessão Terapêutica";
 
-        // 2. Create Google Calendar event
+        // Calculate calendar block end time (session + buffer)
+        const blockDuration = product?.blockDuration || 60;
+        const calendarEndTime = new Date(new Date(slotStart).getTime() + blockDuration * 60000).toISOString();
+
+        // 2. Create Google Calendar event (blocks full duration including buffer)
         const calendarEvent = await createEvent({
             startTime: slotStart,
-            endTime: slotEnd,
+            endTime: calendarEndTime,
             clientName,
             clientEmail,
             serviceName: trueServiceName,
@@ -211,6 +220,7 @@ exports.bookAppointment = functions.https.onCall(async (data, context) => {
         const emailDetails = {
             clientEmail,
             clientName,
+            clientPhone: clientPhone || null,
             serviceName: trueServiceName,
             date: dateStr,
             time: timeStr,

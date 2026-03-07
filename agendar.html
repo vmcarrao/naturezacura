@@ -86,7 +86,7 @@
 
     <!-- Main Content -->
     <main class="min-h-screen pt-24 pb-16">
-        <div class="max-w-3xl mx-auto px-4">
+        <div class="max-w-5xl mx-auto px-4">
 
             <!-- Step Indicators -->
             <div class="flex items-center justify-center mb-12 space-x-4">
@@ -97,21 +97,13 @@
                     </span>
                     <span class="text-sm text-gray-500">Pagamento</span>
                 </div>
-                <div class="w-12 h-px bg-gray-300"></div>
+                <div class="w-16 h-px bg-gray-300"></div>
                 <div class="flex items-center space-x-2">
                     <span id="step2-indicator"
                         class="step-indicator active w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 border-green-900">
                         2
                     </span>
                     <span class="text-sm text-gray-500">Agendamento</span>
-                </div>
-                <div class="w-12 h-px bg-gray-300"></div>
-                <div class="flex items-center space-x-2">
-                    <span id="step3-indicator"
-                        class="step-indicator w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 border-gray-300 text-gray-400">
-                        3
-                    </span>
-                    <span class="text-sm text-gray-500">Confirmação</span>
                 </div>
             </div>
 
@@ -134,71 +126,80 @@
                 </a>
             </div>
 
-            <!-- Step 2: Scheduling -->
+            <!-- Step 2: Scheduling (Form + Slot Selection Unified) -->
             <div id="scheduling-state" class="hidden fade-in">
                 <div class="text-center mb-10">
-                    <h1 class="text-3xl md:text-4xl font-serif text-green-900 mb-3">Escolha seu horário</h1>
-                    <p class="text-gray-500">Selecione a data e horário que melhor se encaixa na sua rotina.</p>
+                    <h1 class="text-3xl md:text-4xl font-serif text-green-900 mb-3">Agende sua sessão</h1>
+                    <p class="text-gray-500">Preencha seus dados e escolha o melhor horário.</p>
                 </div>
 
-                <!-- Week Navigation -->
-                <div class="flex items-center justify-between mb-6">
-                    <button id="prev-week-btn" onclick="changeWeek(-1)"
-                        class="p-2 rounded-full hover:bg-green-50 transition text-green-900">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <h3 id="week-label" class="font-serif text-lg text-green-900"></h3>
-                    <button onclick="changeWeek(1)"
-                        class="p-2 rounded-full hover:bg-green-50 transition text-green-900">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Left Column: Client Info Form -->
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h3 class="text-xl font-serif text-green-900 mb-1">Seus dados</h3>
+                        <p class="text-sm text-gray-400 mb-6">Informações para contato e confirmação.</p>
 
-                <!-- Slots Grid -->
-                <div id="slots-loading" class="text-center py-8 hidden">
-                    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-green-900 mx-auto mb-2"></div>
-                    <p class="text-sm text-gray-400">Carregando horários...</p>
-                </div>
-
-                <div id="slots-container" class="space-y-4 mb-8"></div>
-
-                <div id="no-slots" class="hidden text-center py-8">
-                    <p class="text-gray-400">Nenhum horário disponível nesta semana. Tente a próxima.</p>
-                </div>
-
-                <!-- Client Info Form (shown after selecting a slot) -->
-                <div id="booking-form" class="hidden bg-white rounded-xl shadow-lg p-8 mt-8 fade-in">
-                    <h3 class="text-xl font-serif text-green-900 mb-1">Seus dados</h3>
-                    <p class="text-sm text-gray-400 mb-6">Preencha para confirmar o agendamento.</p>
-
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1" for="client-name">Nome
-                                completo</label>
-                            <input id="client-name" type="text" placeholder="Seu nome"
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1" for="client-email">Email</label>
-                            <input id="client-email" type="email" placeholder="seu@email.com"
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-1" for="client-phone">Telefone
-                                (WhatsApp)</label>
-                            <input id="client-phone" type="tel" placeholder="(11) 99999-9999"
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition">
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1" for="client-name">Nome
+                                    completo</label>
+                                <input id="client-name" type="text" placeholder="Seu nome"
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1"
+                                    for="client-email">Email</label>
+                                <input id="client-email" type="email" placeholder="seu@email.com"
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-1" for="client-phone">Telefone
+                                    (WhatsApp)</label>
+                                <input id="client-phone" type="tel" placeholder="(11) 99999-9999"
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition">
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Selected Slot Summary -->
-                    <div id="selected-summary" class="mt-6 p-4 bg-green-50 rounded-lg border border-green-100">
+                    <!-- Right Column: Slot Picker -->
+                    <div>
+                        <!-- Week Navigation -->
+                        <div class="flex items-center justify-between mb-6">
+                            <button id="prev-week-btn" onclick="changeWeek(-1)"
+                                class="p-2 rounded-full hover:bg-green-50 transition text-green-900">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <h3 id="week-label" class="font-serif text-lg text-green-900"></h3>
+                            <button onclick="changeWeek(1)"
+                                class="p-2 rounded-full hover:bg-green-50 transition text-green-900">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+
+                        <!-- Slots Grid -->
+                        <div id="slots-loading" class="text-center py-8 hidden">
+                            <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-green-900 mx-auto mb-2">
+                            </div>
+                            <p class="text-sm text-gray-400">Carregando horários...</p>
+                        </div>
+
+                        <div id="slots-container" class="space-y-4"></div>
+
+                        <div id="no-slots" class="hidden text-center py-8">
+                            <p class="text-gray-400">Nenhum horário disponível nesta semana. Tente a próxima.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Selected Slot Summary + Confirm Button (full width below the grid) -->
+                <div id="booking-actions" class="hidden mt-8 fade-in">
+                    <div id="selected-summary" class="p-4 bg-green-50 rounded-lg border border-green-100 mb-4">
                         <p class="text-sm text-green-900"><strong>Horário selecionado:</strong> <span
                                 id="summary-text"></span></p>
                     </div>
 
                     <button id="confirm-btn" onclick="confirmBooking()"
-                        class="w-full mt-6 bg-rose-400 text-white font-bold py-4 rounded-lg hover:bg-rose-500 transition shadow-lg transform hover:-translate-y-0.5 uppercase tracking-widest text-sm">
+                        class="w-full bg-rose-400 text-white font-bold py-4 rounded-lg hover:bg-rose-500 transition shadow-lg transform hover:-translate-y-0.5 uppercase tracking-widest text-sm">
                         Confirmar Agendamento
                     </button>
                 </div>
@@ -310,11 +311,16 @@
             document.getElementById("prev-week-btn").classList.toggle("opacity-30", currentWeekOffset === 0);
 
             try {
+                // Look up service config for correct block duration
+                const serviceKey = paymentData?.serviceKey || "";
+                const serviceConfig = window.AppConfig?.services?.[serviceKey];
+                const blockDuration = serviceConfig?.blockDuration || 60;
+
                 const fn = firebase.functions().httpsCallable("getAvailableSlots");
                 const result = await fn({
                     startDate: toISODate(start),
                     endDate: toISODate(end),
-                    durationMinutes: 60,
+                    blockDurationMinutes: blockDuration,
                 });
 
                 slotsLoading.classList.add("hidden");
@@ -373,9 +379,9 @@
 
             selectedSlot = { isoStart, isoEnd, timeLabel, dateLabel };
 
-            // Show form
-            const form = document.getElementById("booking-form");
-            form.classList.remove("hidden");
+            // Show confirm button area
+            const actions = document.getElementById("booking-actions");
+            actions.classList.remove("hidden");
 
             // Update summary
             const dateObj = new Date(dateLabel + "T12:00:00");
@@ -384,8 +390,8 @@
             });
             document.getElementById("summary-text").textContent = `${formatted} às ${timeLabel}`;
 
-            // Scroll to form
-            form.scrollIntoView({ behavior: "smooth", block: "center" });
+            // Scroll to confirm area
+            actions.scrollIntoView({ behavior: "smooth", block: "center" });
         }
 
         // ---- STEP 3: Confirm Booking ----
@@ -449,20 +455,17 @@
             document.getElementById("confirm-date").textContent = date;
             document.getElementById("confirm-time").textContent = time;
 
-            // Update step indicators
+            // Update step indicator
             document.getElementById("step2-indicator").classList.remove("active");
             document.getElementById("step2-indicator").classList.add("completed");
             document.getElementById("step2-indicator").innerHTML = '<i class="fas fa-check text-xs"></i>';
-            document.getElementById("step3-indicator").classList.add("active");
-            document.getElementById("step3-indicator").classList.remove("text-gray-400", "border-gray-300");
-            document.getElementById("step3-indicator").classList.add("border-green-900");
         }
 
         function changeWeek(direction) {
             currentWeekOffset += direction;
             if (currentWeekOffset < 0) currentWeekOffset = 0;
             selectedSlot = null;
-            document.getElementById("booking-form").classList.add("hidden");
+            document.getElementById("booking-actions").classList.add("hidden");
             loadSlots();
         }
 
