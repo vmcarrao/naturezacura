@@ -59,7 +59,6 @@ async function sendConfirmationEmail(details) {
     };
 
     await transporter.sendMail(mailOptions);
-    console.log(`Confirmation email sent to ${clientEmail}`);
 }
 
 /**
@@ -110,7 +109,6 @@ async function sendOwnerNotification(details) {
     };
 
     await transporter.sendMail(mailOptions);
-    console.log("Owner notification email sent.");
 }
 
 module.exports = { sendConfirmationEmail, sendOwnerNotification };

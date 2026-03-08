@@ -23,10 +23,40 @@ const PRODUCTS = {
 };
 
 // ============================================================
+// RATE LIMITER — max 10 checkout attempts per IP per hour
+// ============================================================
+async function checkRateLimit(ip) {
+    if (!ip) return; // Skip if IP unavailable
+    const ref = db.collection("rateLimits").doc(ip.replace(/[.:]/g, "_"));
+    const now = Date.now();
+    const windowMs = 60 * 60 * 1000; // 1 hour
+    const maxRequests = 10;
+
+    await db.runTransaction(async (tx) => {
+        const doc = await tx.get(ref);
+        if (!doc.exists) {
+            tx.set(ref, { count: 1, windowStart: now });
+            return;
+        }
+        const { count, windowStart } = doc.data();
+        if (now - windowStart > windowMs) {
+            tx.update(ref, { count: 1, windowStart: now });
+            return;
+        }
+        if (count >= maxRequests) {
+            throw new functions.https.HttpsError("resource-exhausted", "Muitas tentativas. Tente novamente em 1 hora.");
+        }
+        tx.update(ref, { count: count + 1 });
+    });
+}
+
+// ============================================================
 // 1. CREATE STRIPE CHECKOUT SESSION
 // ============================================================
 exports.createStripeCheckout = functions.runWith({ invoker: "public" }).https.onCall(async (data, context) => {
     const { serviceKey, inviteeEmail, inviteeName } = data;
+
+    await checkRateLimit(context.rawRequest?.ip);
 
     // Security Fix: Do NOT trust the client for price or product name!
     const product = PRODUCTS[serviceKey];
@@ -89,7 +119,7 @@ exports.createStripeCheckout = functions.runWith({ invoker: "public" }).https.on
         return { url: session.url };
     } catch (error) {
         console.error("Error creating stripe checkout:", error);
-        throw new functions.https.HttpsError("internal", "Unable to create checkout session: " + error.message);
+        throw new functions.https.HttpsError("internal", "Não foi possível criar a sessão de pagamento. Tente novamente.");
     }
 });
 
@@ -100,7 +130,7 @@ exports.verifyPayment = functions.runWith({ invoker: "public" }).https.onCall(as
     const { sessionId } = data;
 
     if (!sessionId) {
-        throw new functions.https.HttpsError("invalid-argument", "Session ID is required.");
+        throw new functions.https.HttpsError("invalid-argument", "ID da sessão é obrigatório.");
     }
 
     try {
@@ -135,7 +165,7 @@ exports.verifyPayment = functions.runWith({ invoker: "public" }).https.onCall(as
         };
     } catch (error) {
         console.error("Error verifying payment:", error);
-        throw new functions.https.HttpsError("internal", "Unable to verify payment: " + error.message);
+        throw new functions.https.HttpsError("internal", "Não foi possível verificar o pagamento. Tente novamente.");
     }
 });
 
@@ -146,7 +176,7 @@ exports.getAvailableSlots = functions.https.onCall(async (data, context) => {
     const { startDate, endDate, durationMinutes, blockDurationMinutes } = data;
 
     if (!startDate || !endDate) {
-        throw new functions.https.HttpsError("invalid-argument", "startDate and endDate are required.");
+        throw new functions.https.HttpsError("invalid-argument", "Data de início e data de fim são obrigatórias.");
     }
 
     try {
@@ -154,7 +184,7 @@ exports.getAvailableSlots = functions.https.onCall(async (data, context) => {
         return { slots };
     } catch (error) {
         console.error("Error fetching available slots:", error);
-        throw new functions.https.HttpsError("internal", "Unable to fetch available slots: " + error.message);
+        throw new functions.https.HttpsError("internal", "Não foi possível carregar os horários disponíveis. Tente novamente.");
     }
 });
 
@@ -166,7 +196,7 @@ exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(
 
     // Validate inputs
     if (!sessionId || !slotStart || !slotEnd || !clientName || !clientEmail || !anamnesis) {
-        throw new functions.https.HttpsError("invalid-argument", "Missing required booking fields.");
+        throw new functions.https.HttpsError("invalid-argument", "Campos obrigatórios do agendamento estão incompletos.");
     }
 
     try {
@@ -278,7 +308,7 @@ exports.bookAppointment = functions.runWith({ invoker: "public" }).https.onCall(
     } catch (error) {
         console.error("Error booking appointment:", error);
         if (error instanceof functions.https.HttpsError) throw error;
-        throw new functions.https.HttpsError("internal", "Erro ao agendar: " + error.message);
+        throw new functions.https.HttpsError("internal", "Não foi possível realizar o agendamento. Tente novamente.");
     }
 });
 
@@ -303,7 +333,6 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
 
     if (event.type === "checkout.session.completed") {
         const session = event.data.object;
-        console.log(`Payment successful for session: ${session.id}`);
 
         // Update order status to paid
         const snapshot = await db.collection("orders")
@@ -319,7 +348,6 @@ exports.stripeWebhook = functions.https.onRequest(async (req, res) => {
                 customerName: session.customer_details?.name || null,
                 updatedAt: admin.firestore.FieldValue.serverTimestamp(),
             });
-            console.log(`Order ${docId} marked as paid.`);
         }
     }
 
@@ -339,14 +367,12 @@ exports.cleanupStaleOrders = functions.pubsub.schedule("every 30 minutes").onRun
         .get();
 
     if (snapshot.empty) {
-        console.log("No stale orders found.");
         return null;
     }
 
     const batch = db.batch();
 
     for (const doc of snapshot.docs) {
-        console.log(`Marking stale order as expired: ${doc.id}`);
         batch.update(doc.ref, {
             status: "expired",
             updatedAt: admin.firestore.FieldValue.serverTimestamp(),
@@ -354,6 +380,5 @@ exports.cleanupStaleOrders = functions.pubsub.schedule("every 30 minutes").onRun
     }
 
     await batch.commit();
-    console.log(`Cleanup complete. ${snapshot.size} orders expired.`);
     return null;
 });

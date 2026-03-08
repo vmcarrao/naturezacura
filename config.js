@@ -28,8 +28,7 @@ const AppConfig = {
         projectId: "naturezacura-d0f70",
         storageBucket: "naturezacura-d0f70.firebasestorage.app",
         messagingSenderId: "421753901082",
-        appId: "1:421753901082:web:08990ab830bcd7160141a3",
-        measurementId: "G-995927BJNK"
+        appId: "1:421753901082:web:08990ab830bcd7160141a3"
     },
     // Stripe Publishable Key
     stripe: {

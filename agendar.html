@@ -605,9 +605,13 @@
             document.getElementById("confirm-time").textContent = time;
 
             // Update step indicator
-            document.getElementById("step2-indicator").classList.remove("active");
-            document.getElementById("step2-indicator").classList.add("completed");
-            document.getElementById("step2-indicator").innerHTML = '<i class="fas fa-check text-xs"></i>';
+            const indicator = document.getElementById("step2-indicator");
+            indicator.classList.remove("active");
+            indicator.classList.add("completed");
+            indicator.textContent = "";
+            const checkIcon = document.createElement("i");
+            checkIcon.className = "fas fa-check text-xs";
+            indicator.appendChild(checkIcon);
         }
 
         function changeWeek(direction) {
