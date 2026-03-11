@@ -4,21 +4,15 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                green: {
-                    50: '#f0fdf4', // very pale pastel green
-                    900: '#14532d', // deep forest green
-                },
-                rose: {
-                    50: '#fff1f2', // soft misty rose
-                    400: '#fb7185', // muted clay/terracotta (approx)
-                },
-                stone: {
-                    50: '#fafaf9', // soft cream/off-white
+                brand: {
+                    green: '#1A3C34', // primary text and backgrounds
+                    beige: '#F2F0E6', // soft background
+                    white: '#FFFFFF', // standard white
                 }
             },
             fontFamily: {
                 serif: ['"Playfair Display"', 'serif'],
-                sans: ['Lato', 'sans-serif'],
+                sans: ['Inter', 'sans-serif'],
             }
         },
     },

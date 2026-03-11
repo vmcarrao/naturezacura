@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS -->
@@ -74,31 +74,31 @@
 <body class="bg-stone-50 text-gray-700 font-sans antialiased overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 glass-nav py-4" id="navbar">
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-brand-beige py-4" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
             <!-- Logo -->
-            <a href="#" class="text-2xl font-serif font-bold text-green-900 tracking-wide hover:opacity-80 transition">
+            <a href="#" class="text-2xl font-serif font-bold text-brand-green tracking-wide hover:opacity-80 transition">
                 Natureza Cura
             </a>
 
             <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8 items-center">
                 <a href="#inicio"
-                    class="text-green-900 hover:text-rose-400 font-medium transition duration-300">Início</a>
+                    class="text-brand-green hover:opacity-70 font-sans text-sm tracking-wide transition duration-300">Início</a>
                 <a href="#sobre"
-                    class="text-green-900 hover:text-rose-400 font-medium transition duration-300">Sobre</a>
+                    class="text-brand-green hover:opacity-70 font-sans text-sm tracking-wide transition duration-300">Sobre</a>
                 <a href="#servicos"
-                    class="text-green-900 hover:text-rose-400 font-medium transition duration-300">Serviços</a>
+                    class="text-brand-green hover:opacity-70 font-sans text-sm tracking-wide transition duration-300">Serviços</a>
 
                 <a href="#meditacoes"
-                    class="text-green-900 hover:text-rose-400 font-medium transition duration-300">Meditações</a>
+                    class="text-brand-green hover:opacity-70 font-sans text-sm tracking-wide transition duration-300">Meditações</a>
                 <a href="#contato"
-                    class="px-5 py-2 rounded-full border border-green-900 text-green-900 hover:bg-green-900 hover:text-white transition duration-300 text-sm uppercase tracking-wider">Contato</a>
+                    class="px-6 py-2.5 rounded-full bg-brand-green text-brand-white hover:bg-opacity-90 transition duration-300 font-sans text-sm tracking-wide">Agendar</a>
             </div>
 
             <!-- Mobile Menu Button -->
             <div class="md:hidden flex items-center">
-                <button id="mobile-menu-btn" class="text-green-900 focus:outline-none">
+                <button id="mobile-menu-btn" class="text-brand-green focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
@@ -106,61 +106,56 @@
 
         <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu"
-            class="hidden md:hidden bg-white/95 backdrop-blur-md absolute w-full left-0 top-full border-t border-gray-100 shadow-lg">
+            class="hidden md:hidden bg-brand-beige absolute w-full left-0 top-full shadow-lg">
             <div class="flex flex-col space-y-4 px-6 py-6 text-center">
-                <a href="#inicio" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Início</a>
-                <a href="#sobre" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Sobre</a>
-                <a href="#servicos" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Serviços</a>
+                <a href="#inicio" class="text-brand-green text-lg hover:opacity-70 mobile-link">Início</a>
+                <a href="#sobre" class="text-brand-green text-lg hover:opacity-70 mobile-link">Sobre</a>
+                <a href="#servicos" class="text-brand-green text-lg hover:opacity-70 mobile-link">Serviços</a>
 
-                <a href="#meditacoes" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Meditações</a>
-                <a href="#contato" class="text-green-900 text-lg hover:text-rose-400 mobile-link">Contato</a>
+                <a href="#meditacoes" class="text-brand-green text-lg hover:opacity-70 mobile-link">Meditações</a>
+                <a href="#contato" class="text-brand-green text-lg hover:opacity-70 mobile-link">Contato</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="inicio" class="relative min-h-screen pt-20 flex flex-col md:flex-row">
-        <!-- Left Content -->
-        <div class="w-full md:w-1/2 flex items-center justify-center p-8 md:p-16 bg-green-50/50">
-            <div class="max-w-lg space-y-6 animate-fade-in-up">
-                <span
-                    class="inline-block text-rose-400 uppercase tracking-[0.2em] text-sm font-semibold mb-2">Renascimento
-                    & Cura</span>
-                <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-green-900 leading-tight">
-                    Um retorno a si.<br>
-                    Um chamado <span class="italic text-rose-400">à alma.</span>
+    <section id="inicio" class="relative min-h-screen pt-24 pb-12 flex flex-col md:flex-row bg-brand-beige">
+        <!-- Top Announcement Bar (Optional, following Figma) -->
+        <div class="absolute top-0 w-full bg-brand-green text-brand-beige text-center py-2 text-xs font-sans tracking-wide z-40">
+            A Natureza Cura é para você? <a href="#servicos" class="underline ml-2">Descubra</a>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col md:flex-row items-center justify-between mt-12">
+            <!-- Left Content -->
+            <div class="w-full md:w-1/2 flex flex-col justify-center animate-fade-in-up pr-0 md:pr-12 text-center md:text-left z-10">
+                <h1 class="text-6xl md:text-7xl lg:text-8xl font-serif text-brand-green leading-[1.1] mb-8">
+                    Uma mente<br>
+                    saudável<br>
+                    muda a vida.
                 </h1>
-                <p class="text-lg text-gray-600 leading-relaxed font-light">
-                    Silencie o ruído externo e desperte o potencial que existe em você. A natureza sussurra sabedoria e
-                    o corpo se torna sua bússola.
+                <p class="text-lg md:text-xl text-brand-green/80 font-sans max-w-md mx-auto md:mx-0 mb-10">
+                    Silencie o ruído externo e desperte o potencial que existe em você através de terapias naturais e autoconhecimento.
                 </p>
-                <div class="pt-4">
+                <div>
                     <a href="#servicos"
-                        class="inline-block bg-rose-400 text-white px-8 py-4 rounded-none hover:bg-rose-500 transition duration-300 font-serif text-lg tracking-wide shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                        Iniciar Jornada
+                        class="inline-block bg-brand-green text-brand-beige px-10 py-4 rounded-full hover:bg-brand-green/90 transition duration-300 font-sans font-medium text-lg min-w-[200px] text-center">
+                        Ver Serviços
                     </a>
                 </div>
             </div>
-        </div>
 
-        <!-- Right Carousel -->
-        <div class="w-full md:w-1/2 h-[50vh] md:h-screen relative overflow-hidden bg-gray-200">
-            <!-- Slides -->
-            <div
-                class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out active-slide">
-                <img src="/images/mapa_astral_placeholder_1772921311383.png" alt="Natureza"
-                    class="w-full h-full object-cover opacity-60 transition duration-1000 ease-in-out transform scale-105">
-                <div class="absolute inset-0 bg-black/10"></div>
-            </div>
-            <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                <img src="/images/terapia_natural_placeholder_1772921343194.png" alt="Meditação"
-                    class="w-full h-full object-cover opacity-60 transition duration-1000 ease-in-out transform scale-105">
-                <div class="absolute inset-0 bg-green-900/10"></div>
-            </div>
-            <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                <img src="/images/tarot_terapeutico_placeholder_1772921369896.png" alt="Floresta"
-                    class="w-full h-full object-cover opacity-60 transition duration-1000 ease-in-out transform scale-105">
-                <div class="absolute inset-0 bg-black/10"></div>
+            <!-- Right Circular Image (Figma vibe) -->
+            <div class="w-full md:w-1/2 flex justify-center items-center mt-12 md:mt-0 relative">
+                <!-- Decorative Circle Frame -->
+                <div class="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden border border-brand-green/20">
+                    <img src="/images/terapia_natural_placeholder_1772921343194.png" alt="Natureza Cura Hero"
+                        class="w-full h-full object-cover transform hover:scale-105 transition duration-1000 ease-in-out">
+                    <!-- Subtle overlay tint -->
+                    <div class="absolute inset-0 bg-brand-green/5 mix-blend-multiply"></div>
+                </div>
+                
+                <!-- Floating geometric elements (optional figma touch) -->
+                <div class="absolute -z-10 w-[400px] h-[400px] bg-brand-green/5 rounded-full blur-3xl -top-10 -right-10"></div>
             </div>
         </div>
     </section>
@@ -189,233 +184,186 @@
         </div>
     </section>
 
-    <!-- Services Section (Zig-Zag) -->
-    <section id="servicos" class="py-24 bg-stone-50">
+    <!-- Services Section (Grid) -->
+    <section id="servicos" class="py-24 bg-brand-green scroll-mt-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-20">
-                <h2 class="text-4xl font-serif text-green-900">Caminhos de Cura</h2>
-                <div class="w-24 h-px bg-rose-400 mx-auto mt-4"></div>
+                <h2 class="text-4xl md:text-5xl font-serif text-brand-beige">Caminhos de Cura</h2>
+                <div class="w-16 h-px bg-brand-beige mx-auto mt-6 opacity-30"></div>
+                <p class="text-brand-beige/80 mt-6 max-w-2xl mx-auto font-sans font-light">
+                    Meus serviços terapêuticos são um convite para liberar bloqueios, quebrar padrões e curar feridas. Encontre a jornada certa para você.
+                </p>
             </div>
 
-            <div class="grid grid-cols-1 gap-0 space-y-0">
-                <!-- Row 1: Leitura de Mapa Astral -->
-                <a href="astrologia.html" class="flex flex-col md:flex-row group cursor-pointer">
-                    <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Leitura de Mapa Astral -->
+                <div class="bg-brand-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500 flex flex-col h-full transform hover:-translate-y-2">
+                    <div class="h-64 relative overflow-hidden">
                         <img src="/images/mapa_astral_placeholder_1772921311383.png"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-out"
+                            class="w-full h-full object-cover"
                             alt="Mapa Astral">
                     </div>
-                    <div
-                        class="w-full md:w-1/2 flex items-center bg-white p-10 md:p-16 transition-colors duration-300 group-hover:bg-green-50/30">
-                        <div class="max-w-md">
-                            <div
-                                class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-900 mb-4 group-hover:bg-white group-hover:shadow-sm transition">
-                                <i class="fas fa-star-and-crescent"></i>
-                            </div>
-                            <h3 class="text-3xl font-serif text-green-900 mb-4 group-hover:text-rose-400 transition">
-                                Leitura de Mapa Astral</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Seu mapa astral é a bússola da alma. Revela seus potenciais, desafios e as energias
-                                que te acompanham nesta jornada.
-                            </p>
-                            <p
-                                class="text-sm font-semibold text-rose-400 tracking-wider uppercase border-l-2 border-rose-400 pl-4 group-hover:border-green-900 group-hover:text-green-900 transition">
-                                Ver mais detalhes <i
-                                    class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </p>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green mb-6">
+                            <i class="fas fa-star-and-crescent text-xl"></i>
                         </div>
+                        <h3 class="text-2xl font-serif text-brand-green mb-3">Leitura de Mapa Astral</h3>
+                        <p class="text-gray-600 mb-8 font-sans leading-relaxed text-sm flex-grow">
+                            Seu mapa astral é a bússola da alma. Revela seus potenciais, desafios e as energias que te acompanham nesta jornada.
+                        </p>
+                        <a href="astrologia.html" class="inline-block w-full text-center bg-brand-beige text-brand-green border border-brand-green/20 hover:bg-brand-green hover:text-brand-beige py-3.5 rounded-full font-sans text-sm tracking-wide font-medium transition duration-300">
+                            Learn More
+                        </a>
                     </div>
-                </a>
+                </div>
 
-                <!-- Row 2: Mapa Astral com Trânsitos (Reversed) -->
-                <a href="mapa-astral-transitos.html" class="flex flex-col md:flex-row-reverse group cursor-pointer">
-                    <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+                <!-- Card 2: Mapa Astral com Trânsitos -->
+                <div class="bg-brand-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500 flex flex-col h-full transform hover:-translate-y-2">
+                    <div class="h-64 relative overflow-hidden">
                         <img src="/images/transitos_astrais_placeholder_1772921328291.png"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-out"
+                            class="w-full h-full object-cover"
                             alt="Mapa Astral com Trânsitos">
                     </div>
-                    <div
-                        class="w-full md:w-1/2 flex items-center bg-green-50/50 p-10 md:p-16 transition-colors duration-300 group-hover:bg-white">
-                        <div class="max-w-md">
-                            <div
-                                class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-green-900 mb-4 group-hover:shadow-sm transition">
-                                <i class="fas fa-moon"></i>
-                            </div>
-                            <h3 class="text-3xl font-serif text-green-900 mb-4 group-hover:text-rose-400 transition">
-                                Mapa Astral com Trânsitos</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Uma leitura do seu mapa natal com os trânsitos atuais, revelando o momento
-                                energético que você está vivendo agora.
-                            </p>
-                            <p
-                                class="text-sm font-semibold text-rose-400 tracking-wider uppercase border-l-2 border-rose-400 pl-4 group-hover:border-green-900 group-hover:text-green-900 transition">
-                                Ver mais detalhes <i
-                                    class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </p>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green mb-6">
+                            <i class="fas fa-moon text-xl"></i>
                         </div>
+                        <h3 class="text-2xl font-serif text-brand-green mb-3">Mapa Astral com Trânsitos</h3>
+                        <p class="text-gray-600 mb-8 font-sans leading-relaxed text-sm flex-grow">
+                            Uma leitura do seu mapa natal com os trânsitos atuais, revelando o momento energético que você está vivendo agora.
+                        </p>
+                        <a href="mapa-astral-transitos.html" class="inline-block w-full text-center bg-brand-beige text-brand-green border border-brand-green/20 hover:bg-brand-green hover:text-brand-beige py-3.5 rounded-full font-sans text-sm tracking-wide font-medium transition duration-300">
+                            Saiba Mais
+                        </a>
                     </div>
-                </a>
+                </div>
 
-                <!-- Row 3: Sessão de Terapia Natural -->
-                <a href="terapia-natural.html" class="flex flex-col md:flex-row group cursor-pointer">
-                    <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+                <!-- Card 3: Sessão de Terapia Natural -->
+                <div class="bg-brand-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500 flex flex-col h-full transform hover:-translate-y-2">
+                    <div class="h-64 relative overflow-hidden">
                         <img src="/images/terapia_natural_placeholder_1772921343194.png"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-out"
+                            class="w-full h-full object-cover"
                             alt="Terapia Natural">
                     </div>
-                    <div
-                        class="w-full md:w-1/2 flex items-center bg-white p-10 md:p-16 transition-colors duration-300 group-hover:bg-green-50/30">
-                        <div class="max-w-md">
-                            <div
-                                class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-900 mb-4 group-hover:bg-white group-hover:shadow-sm transition">
-                                <i class="fas fa-mortar-pestle"></i>
-                            </div>
-                            <h3 class="text-3xl font-serif text-green-900 mb-4 group-hover:text-rose-400 transition">
-                                Sessão de Terapia Natural</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Baseada na Naturopatia. Um espaço de escuta e nutrição com Aromaterapia, Fitoterapia e
-                                Ayurveda.
-                            </p>
-                            <p
-                                class="text-sm font-semibold text-rose-400 tracking-wider uppercase border-l-2 border-rose-400 pl-4 group-hover:border-green-900 group-hover:text-green-900 transition">
-                                Ver mais detalhes <i
-                                    class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </p>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green mb-6">
+                            <i class="fas fa-mortar-pestle text-xl"></i>
                         </div>
+                        <h3 class="text-2xl font-serif text-brand-green mb-3">Sessão de Terapia Natural</h3>
+                        <p class="text-gray-600 mb-8 font-sans leading-relaxed text-sm flex-grow">
+                            Baseada na Naturopatia. Um espaço de escuta e nutrição com Aromaterapia, Fitoterapia e Ayurveda.
+                        </p>
+                        <a href="terapia-natural.html" class="inline-block w-full text-center bg-brand-beige text-brand-green border border-brand-green/20 hover:bg-brand-green hover:text-brand-beige py-3.5 rounded-full font-sans text-sm tracking-wide font-medium transition duration-300">
+                            Saiba Mais
+                        </a>
                     </div>
-                </a>
+                </div>
 
-                <!-- Row 4: Revolução Solar + Sinastria (Reversed) -->
-                <a href="revolucao-solar.html" class="flex flex-col md:flex-row-reverse group cursor-pointer">
-                    <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+                <!-- Card 4: Revolução Solar + Sinastria -->
+                <div class="bg-brand-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500 flex flex-col h-full transform hover:-translate-y-2">
+                    <div class="h-64 relative overflow-hidden">
                         <img src="/images/revolucao_solar_placeholder_1772921355357.png"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-out"
+                            class="w-full h-full object-cover"
                             alt="Revolução Solar">
                     </div>
-                    <div
-                        class="w-full md:w-1/2 flex items-center bg-green-50/50 p-10 md:p-16 transition-colors duration-300 group-hover:bg-white">
-                        <div class="max-w-md">
-                            <div
-                                class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-green-900 mb-4 group-hover:shadow-sm transition">
-                                <i class="fas fa-sun"></i>
-                            </div>
-                            <h3 class="text-3xl font-serif text-green-900 mb-4 group-hover:text-rose-400 transition">
-                                Revolução Solar + Sinastria</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Descubra os caminhos e aprendizados que o novo ciclo solar traz para a sua vida,
-                                com análise de sinastria para iluminar suas relações.
-                            </p>
-                            <p
-                                class="text-sm font-semibold text-rose-400 tracking-wider uppercase border-l-2 border-rose-400 pl-4 group-hover:border-green-900 group-hover:text-green-900 transition">
-                                Ver mais detalhes <i
-                                    class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </p>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green mb-6">
+                            <i class="fas fa-sun text-xl"></i>
                         </div>
+                        <h3 class="text-2xl font-serif text-brand-green mb-3">Revolução Solar + Sinastria</h3>
+                        <p class="text-gray-600 mb-8 font-sans leading-relaxed text-sm flex-grow">
+                            Descubra os caminhos e aprendizados que o novo ciclo solar traz para a sua vida, com análise de sinastria para iluminar suas relações.
+                        </p>
+                        <a href="revolucao-solar.html" class="inline-block w-full text-center bg-brand-beige text-brand-green border border-brand-green/20 hover:bg-brand-green hover:text-brand-beige py-3.5 rounded-full font-sans text-sm tracking-wide font-medium transition duration-300">
+                            Saiba Mais
+                        </a>
                     </div>
-                </a>
+                </div>
 
-                <!-- Row 5: Tarot Terapêutico -->
-                <a href="tarot.html" class="flex flex-col md:flex-row group cursor-pointer">
-                    <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+                <!-- Card 5: Tarot Terapêutico -->
+                <div class="bg-brand-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500 flex flex-col h-full transform hover:-translate-y-2">
+                    <div class="h-64 relative overflow-hidden">
                         <img src="/images/tarot_terapeutico_placeholder_1772921369896.png"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-out"
+                            class="w-full h-full object-cover"
                             alt="Tarot">
                     </div>
-                    <div
-                        class="w-full md:w-1/2 flex items-center bg-white p-10 md:p-16 transition-colors duration-300 group-hover:bg-green-50/30">
-                        <div class="max-w-md">
-                            <div
-                                class="w-10 h-10 rounded-full bg-green-50 flex items-center justify-center text-green-900 mb-4 group-hover:bg-white group-hover:shadow-sm transition">
-                                <i class="fas fa-hands"></i>
-                            </div>
-                            <h3 class="text-3xl font-serif text-green-900 mb-4 group-hover:text-rose-400 transition">
-                                Tarot Terapêutico</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Um espelho da alma que revela o oculto e traz clareza para o presente através de
-                                mensagens simbólicas.
-                            </p>
-                            <p
-                                class="text-sm font-semibold text-rose-400 tracking-wider uppercase border-l-2 border-rose-400 pl-4 group-hover:border-green-900 group-hover:text-green-900 transition">
-                                Ver mais detalhes <i
-                                    class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </p>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green mb-6">
+                            <i class="fas fa-hands text-xl"></i>
                         </div>
+                        <h3 class="text-2xl font-serif text-brand-green mb-3">Tarot Terapêutico</h3>
+                        <p class="text-gray-600 mb-8 font-sans leading-relaxed text-sm flex-grow">
+                            Um espelho da alma que revela o oculto e traz clareza para o presente através de mensagens simbólicas.
+                        </p>
+                        <a href="tarot.html" class="inline-block w-full text-center bg-brand-beige text-brand-green border border-brand-green/20 hover:bg-brand-green hover:text-brand-beige py-3.5 rounded-full font-sans text-sm tracking-wide font-medium transition duration-300">
+                            Saiba Mais
+                        </a>
                     </div>
-                </a>
+                </div>
 
-                <!-- Row 6: Mapa Astral Infantil (Reversed) -->
-                <a href="mapa-astral-infantil.html" class="flex flex-col md:flex-row-reverse group cursor-pointer">
-                    <div class="w-full md:w-1/2 h-80 md:h-auto relative overflow-hidden">
+                <!-- Card 6: Mapa Astral Infantil -->
+                <div class="bg-brand-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition duration-500 flex flex-col h-full transform hover:-translate-y-2">
+                    <div class="h-64 relative overflow-hidden">
                         <img src="/images/mapa_astral_infantil_placeholder_1772921517809.png"
-                            class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 ease-out"
+                            class="w-full h-full object-cover"
                             alt="Mapa Astral Infantil">
                     </div>
-                    <div
-                        class="w-full md:w-1/2 flex items-center bg-green-50/50 p-10 md:p-16 transition-colors duration-300 group-hover:bg-white">
-                        <div class="max-w-md">
-                            <div
-                                class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-green-900 mb-4 group-hover:shadow-sm transition">
-                                <i class="fas fa-child"></i>
-                            </div>
-                            <h3 class="text-3xl font-serif text-green-900 mb-4 group-hover:text-rose-400 transition">
-                                Mapa Astral Infantil</h3>
-                            <p class="text-gray-600 mb-6 leading-relaxed">
-                                Uma leitura do mapa astral voltada para crianças, ajudando pais a compreender
-                                talentos, desafios e a essência única dos seus filhos.
-                            </p>
-                            <p
-                                class="text-sm font-semibold text-rose-400 tracking-wider uppercase border-l-2 border-rose-400 pl-4 group-hover:border-green-900 group-hover:text-green-900 transition">
-                                Ver mais detalhes <i
-                                    class="fas fa-arrow-right ml-2 opacity-0 group-hover:opacity-100 transition-opacity"></i>
-                            </p>
+                    <div class="p-8 flex flex-col flex-grow">
+                        <div class="w-12 h-12 rounded-full bg-brand-green/10 flex items-center justify-center text-brand-green mb-6">
+                            <i class="fas fa-child text-xl"></i>
                         </div>
+                        <h3 class="text-2xl font-serif text-brand-green mb-3">Mapa Astral Infantil</h3>
+                        <p class="text-gray-600 mb-8 font-sans leading-relaxed text-sm flex-grow">
+                            Uma leitura do mapa astral voltada para crianças, ajudando pais a compreender talentos, desafios e a essência dos seus filhos.
+                        </p>
+                        <a href="mapa-astral-infantil.html" class="inline-block w-full text-center bg-brand-beige text-brand-green border border-brand-green/20 hover:bg-brand-green hover:text-brand-beige py-3.5 rounded-full font-sans text-sm tracking-wide font-medium transition duration-300">
+                            Saiba Mais
+                        </a>
                     </div>
-                </a>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Meditações e Playlists Section -->
-    <section id="meditacoes" class="py-24 bg-white">
+    <section id="meditacoes" class="py-24 bg-brand-beige">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-16">
-                <span class="text-rose-400 font-serif italic text-lg mb-2 block">Ouça & Medite</span>
-                <h2 class="text-4xl font-serif text-green-900">Meditações e Playlists</h2>
+                <span class="text-brand-green/80 font-sans tracking-widest uppercase text-sm mb-2 block">Ouça & Medite</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-brand-green">Meditações e Playlists</h2>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- YouTube Video 1 -->
-                <div class="bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+                <div class="bg-brand-white rounded-3xl overflow-hidden shadow-lg border border-brand-green/10">
                     <iframe class="w-full h-64" src="https://www.youtube.com/embed/inpok4MKVLM"
                         title="Meditação Relaxante" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
-                    <div class="p-4 bg-white">
-                        <h3 class="font-serif text-green-900 text-lg">Meditação Relaxante</h3>
+                    <div class="p-6 bg-brand-white text-center">
+                        <h3 class="font-serif text-brand-green text-xl">Meditação Relaxante</h3>
                     </div>
                 </div>
 
                 <!-- Comunidade WhatsApp -->
                 <a href="https://chat.whatsapp.com/FTsKNExRPlmDyiM4Zt0PMr" target="_blank" rel="noopener noreferrer"
-                    class="bg-green-900 rounded-lg overflow-hidden shadow-lg flex flex-col items-center justify-center h-full hover:bg-green-800 transition duration-300 group cursor-pointer min-h-[352px]">
+                    class="bg-brand-green rounded-3xl overflow-hidden shadow-lg flex flex-col items-center justify-center h-full hover:bg-brand-green/90 transition duration-300 group cursor-pointer min-h-[352px]">
                     <div class="relative flex flex-col items-center justify-center p-8 text-center pt-12">
                         <div
-                            class="bg-white rounded-full p-6 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300 relative">
-                            <i class="fab fa-whatsapp text-6xl text-green-600"></i>
-                            <i
-                                class="fas fa-leaf text-2xl text-green-900 absolute -bottom-1 -right-1 bg-white rounded-full p-2 shadow"></i>
+                            class="bg-brand-white rounded-full p-6 mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300 relative">
+                            <i class="fab fa-whatsapp text-6xl text-brand-green"></i>
                         </div>
-                        <h3 class="font-serif text-white text-2xl mb-2">Comunidade<br>Natureza Cura</h3>
-                        <p class="text-green-100/80 text-sm mt-3">Faça parte do grupo e receba novidades e conteúdos
-                            exclusivos.</p>
+                        <h3 class="font-serif text-brand-white text-3xl mb-3">Comunidade<br>Natureza Cura</h3>
+                        <p class="text-brand-beige/80 font-sans text-sm mt-2 max-w-[200px]">Faça parte do grupo e receba novidades e conteúdos exclusivos.</p>
                     </div>
                 </a>
 
                 <!-- Spotify Playlist -->
-                <div class="rounded-lg overflow-hidden shadow-lg">
-                    <iframe style="border-radius:12px"
+                <div class="bg-brand-white rounded-3xl overflow-hidden shadow-lg border border-brand-green/10 p-2">
+                    <iframe style="border-radius:20px"
                         src="https://open.spotify.com/embed/playlist/70nWNkiHLH3MwneAKKoduA?utm_source=generator&theme=0"
-                        width="100%" height="352" frameBorder="0" allowfullscreen=""
+                        width="100%" height="336" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
                 </div>
@@ -424,78 +372,100 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contato" class="py-24 bg-green-900 relative">
-        <!-- Texture overlay -->
-        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]">
-        </div>
-
+    <section id="contato" class="py-24 bg-brand-white relative">
         <div class="max-w-4xl mx-auto px-4 relative z-10">
-            <div class="bg-white rounded-xl shadow-2xl p-8 md:p-16">
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl md:text-4xl font-serif text-green-900 mb-4">Entre em Contato</h2>
-                    <p class="text-gray-500">Tem alguma dúvida ou gostaria de agendar um atendimento? Escreva para mim.
-                    </p>
+            <div class="bg-brand-beige rounded-3xl p-8 md:p-16 border border-brand-green/10">
+                <div class="text-center mb-12">
+                    <span class="text-brand-green/80 font-sans tracking-widest uppercase text-sm mb-2 block">Fale Comigo</span>
+                    <h2 class="text-3xl md:text-5xl font-serif text-brand-green mb-4">Entre em Contato</h2>
+                    <p class="text-brand-green/70 font-sans max-w-lg mx-auto">Tem alguma dúvida ou gostaria de agendar um atendimento? Escreva para mim.</p>
                 </div>
 
                 <form action="#" class="space-y-6">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2" for="nome">Nome</label>
+                            <label class="block text-xs font-sans tracking-wide text-brand-green mb-2 uppercase" for="nome">Nome</label>
                             <input
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition duration-200"
+                                class="w-full px-4 py-3.5 rounded-xl bg-brand-white border border-brand-green/20 focus:border-brand-green focus:outline-none transition duration-200 font-sans text-brand-green"
                                 id="nome" type="text" placeholder="Seu nome">
                         </div>
                         <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2" for="email">Email</label>
+                            <label class="block text-xs font-sans tracking-wide text-brand-green mb-2 uppercase" for="email">E-mail</label>
                             <input
-                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition duration-200"
+                                class="w-full px-4 py-3.5 rounded-xl bg-brand-white border border-brand-green/20 focus:border-brand-green focus:outline-none transition duration-200 font-sans text-brand-green"
                                 id="email" type="email" placeholder="seu@email.com">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2" for="mensagem">Mensagem</label>
+                        <label class="block text-xs font-sans tracking-wide text-brand-green mb-2 uppercase" for="mensagem">Mensagem</label>
                         <textarea
-                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-green-900 focus:bg-white focus:outline-none transition duration-200 h-32"
+                            class="w-full px-4 py-3.5 rounded-xl bg-brand-white border border-brand-green/20 focus:border-brand-green focus:outline-none transition duration-200 h-32 font-sans text-brand-green"
                             id="mensagem" placeholder="Sua mensagem..."></textarea>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center pt-4">
                         <button
-                            class="bg-rose-400 text-white font-bold py-4 px-10 rounded-lg hover:bg-rose-500 transition duration-300 shadow-lg transform hover:-translate-y-1 w-full md:w-auto uppercase tracking-widest text-sm">
+                            class="bg-brand-green text-brand-beige font-sans font-medium py-4 px-12 rounded-full hover:bg-brand-green/90 transition duration-300 w-full md:w-auto tracking-wide">
                             Enviar Mensagem
                         </button>
                     </div>
                 </form>
 
-                <div class="mt-10 text-center border-t border-gray-100 pt-8">
-                    <p class="text-gray-500 mb-2">Ou envie um email direto:</p>
+                <div class="mt-12 text-center border-t border-brand-green/10 pt-8">
+                    <p class="text-brand-green/60 font-sans text-sm mb-2">Ou envie um email direto:</p>
                     <a href="mailto:naturezacura@naturezacura.net"
-                        class="text-green-900 font-bold hover:text-rose-400 transition text-lg">naturezacura@naturezacura.net</a>
+                        class="text-brand-green font-serif text-xl hover:opacity-70 transition border-b border-brand-green/30 pb-1">naturezacura@naturezacura.net</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-green-950 text-green-100/60 py-12 text-center text-sm">
-        <div class="max-w-7xl mx-auto px-4">
-            <p class="font-serif text-xl text-green-50 mb-4 opacity-90">Natureza Cura</p>
-            <p>&copy; 2026 Natureza Cura. Todos os direitos reservados.</p>
-            <div class="flex justify-center space-x-6 mt-6 text-lg">
-                <a href="https://www.instagram.com/natureza.cura" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/5532988623920" target="_blank" rel="noopener noreferrer"
-                    class="hover:text-white transition"><i class="fab fa-whatsapp"></i></a>
+    <footer class="bg-brand-green pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2 space-y-6">
+                    <h3 class="text-3xl font-serif text-brand-beige">Conecte-se com a sua essência.</h3>
+                    <p class="text-brand-beige/70 font-sans text-sm max-w-sm">Inscreva-se em nossa newsletter para receber reflexões sobre cura natural e saúde holística.</p>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Seu E-mail" class="bg-brand-white text-brand-green px-4 py-3 rounded-full flex-grow focus:outline-none font-sans text-sm">
+                        <button class="bg-brand-beige text-brand-green px-6 py-3 rounded-full font-sans font-medium text-sm hover:bg-brand-beige/90 transition">Inscrever</button>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <h4 class="font-sans text-brand-beige font-semibold tracking-wide uppercase text-xs mb-6">Navegue</h4>
+                    <ul class="space-y-4 font-sans text-sm text-brand-beige/70">
+                        <li><a href="#inicio" class="hover:text-brand-beige transition">Início</a></li>
+                        <li><a href="#sobre" class="hover:text-brand-beige transition">Sobre</a></li>
+                        <li><a href="#servicos" class="hover:text-brand-beige transition">Serviços</a></li>
+                        <li><a href="#meditacoes" class="hover:text-brand-beige transition">Meditações</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-1">
+                    <h4 class="font-sans text-brand-beige font-semibold tracking-wide uppercase text-xs mb-6">Conexão</h4>
+                    <div class="flex space-x-6 text-xl text-brand-beige/70">
+                        <a href="https://www.instagram.com/natureza.cura" target="_blank" rel="noopener noreferrer" class="hover:text-brand-beige transition"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/5532988623920" target="_blank" rel="noopener noreferrer" class="hover:text-brand-beige transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-brand-beige/20 pt-8 flex flex-col md:flex-row justify-between items-center text-xs font-sans text-brand-beige/50">
+                <p>&copy; 2026 Natureza Cura. Todos os direitos reservados.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-brand-beige transition">Política de Privacidade</a>
+                    <a href="#" class="hover:text-brand-beige transition">Termos de Uso</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- FAB: Agendar Consulta -->
     <a href="#servicos"
-        class="fixed bottom-6 right-6 bg-green-900 text-white p-4 rounded-full shadow-2xl hover:bg-rose-400 transition duration-300 z-50 flex items-center justify-center group"
+        class="fixed bottom-6 right-6 bg-brand-green text-brand-beige px-5 py-4 rounded-full shadow-2xl hover:bg-brand-green/90 transition duration-300 z-50 flex items-center justify-center group border border-brand-beige/20"
         title="Agendar Consulta">
-        <i class="fas fa-calendar-alt text-xl group-hover:rotate-12 transition transform"></i>
+        <i class="fas fa-calendar-alt text-lg group-hover:rotate-12 transition transform"></i>
         <span
-            class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-300 ease-in-out whitespace-nowrap font-medium">Agendar
+            class="max-w-0 overflow-hidden group-hover:max-w-xs group-hover:ml-3 transition-all duration-300 ease-in-out whitespace-nowrap font-sans font-medium text-sm">Agendar
             Consulta</span>
     </a>
 
