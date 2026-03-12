@@ -146,16 +146,23 @@
 
             <!-- Right Circular Image (Figma vibe) -->
             <div class="w-full md:w-1/2 flex justify-center items-center mt-12 md:mt-0 relative">
-                <!-- Decorative Circle Frame -->
+                <!-- Decorative Circle Frame (Carousel Container) -->
                 <div class="relative w-[320px] h-[320px] md:w-[450px] md:h-[450px] lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden border border-brand-green/20">
-                    <img src="/images/terapia_natural_placeholder_1772921343194.png" alt="Natureza Cura Hero"
-                        class="w-full h-full object-cover transform hover:scale-105 transition duration-1000 ease-in-out">
-                    <!-- Subtle overlay tint -->
-                    <div class="absolute inset-0 bg-brand-green/5 mix-blend-multiply"></div>
+                    <img src="images/hero_carousel_1.jpg" alt="Natureza Cura Hero"
+                        class="carousel-item absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-all duration-1000 ease-in-out opacity-100 z-10">
+                    <img src="images/hero_carousel_2.jpg" alt="Natureza Cura Hero"
+                        class="carousel-item absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-all duration-1000 ease-in-out opacity-0">
+                    <img src="images/hero_carousel_3.jpg" alt="Natureza Cura Hero"
+                        class="carousel-item absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-all duration-1000 ease-in-out opacity-0">
+                    <img src="images/hero_carousel_4.jpg" alt="Natureza Cura Hero"
+                        class="carousel-item absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-all duration-1000 ease-in-out opacity-0">
+                    
+                    <!-- Foggy overlay tint -->
+                    <div class="absolute inset-0 bg-white/30 z-20 pointer-events-none"></div>
                 </div>
                 
                 <!-- Floating geometric elements (optional figma touch) -->
-                <div class="absolute -z-10 w-[400px] h-[400px] bg-brand-green/5 rounded-full blur-3xl -top-10 -right-10"></div>
+                <div class="absolute -z-10 w-[400px] h-[400px] bg-brand-green/5 rounded-full blur-3xl -top-10 -right-10 pointer-events-none"></div>
             </div>
         </div>
     </section>
@@ -212,7 +219,7 @@
                             Seu mapa astral é a bússola da alma. Revela seus potenciais, desafios e as energias que te acompanham nesta jornada.
                         </p>
                         <a href="astrologia.html" class="inline-block w-full text-center bg-brand-beige text-brand-green border border-brand-green/20 hover:bg-brand-green hover:text-brand-beige py-3.5 rounded-full font-sans text-sm tracking-wide font-medium transition duration-300">
-                            Learn More
+                            Saiba Mais
                         </a>
                     </div>
                 </div>
