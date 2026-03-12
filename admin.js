@@ -249,7 +249,8 @@ document.addEventListener("DOMContentLoaded", () => {
         } 
         else if (currentTab === "calendar") {
             const container = document.getElementById("tab-calendar");
-            container.innerHTML = ""; // Clear existing table structure
+            container.innerHTML = ""; // Clear existing table structure completely
+            
             let data = cachedCalendar;
             if (q) data = data.filter(ev => ev.summary.toLowerCase().includes(q) || ev.description.toLowerCase().includes(q));
 
