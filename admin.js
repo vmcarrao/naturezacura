@@ -56,7 +56,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- Tabs Logic ---
     let currentTab = "clients";
     const tabBtns = document.querySelectorAll(".tab-btn");
-    const currentTabTitle = document.getElementById("current-tab-title");
     
     // Store requested data to enable fast local searching
     let cachedClients = [];
@@ -80,8 +79,9 @@ document.addEventListener("DOMContentLoaded", () => {
             currentTab = btn.getAttribute("data-tab");
             document.getElementById(`tab-${currentTab}`).classList.remove("hidden");
             
-            // Update Title
-            currentTabTitle.textContent = currentTab === "clients" ? "Clientes" : currentTab === "payments" ? "Pagamentos" : "Agenda";
+            // Setup content selection
+            currentTab = btn.getAttribute("data-tab");
+            document.getElementById(`tab-${currentTab}`).classList.remove("hidden");
             
             // Clear Search
             searchInput.value = "";
