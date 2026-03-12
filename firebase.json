@@ -19,13 +19,6 @@
       "functions/**",
       "**/.env*",
       "**/serviceAccountKey.json"
-    ],
-    "redirects": [
-      {
-        "destination": "https://www.naturezacura.net/:1",
-        "type": 301,
-        "regex": "^/(.*)$"
-      }
     ]
   },
   "functions": {
