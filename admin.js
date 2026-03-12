@@ -248,27 +248,84 @@ document.addEventListener("DOMContentLoaded", () => {
             if(data.length === 0) tbody.innerHTML = `<tr><td colspan="5" class="px-6 py-8 text-center text-gray-400">Nenhum pagamento encontrado.</td></tr>`;
         } 
         else if (currentTab === "calendar") {
-            const tbody = document.getElementById("calendar-tbody");
-            tbody.innerHTML = "";
+            const container = document.getElementById("tab-calendar");
+            container.innerHTML = ""; // Clear existing table structure
             let data = cachedCalendar;
             if (q) data = data.filter(ev => ev.summary.toLowerCase().includes(q) || ev.description.toLowerCase().includes(q));
 
+            if(data.length === 0) {
+                container.innerHTML = `<div class="bg-white border border-gray-100 rounded-xl p-8 text-center text-gray-400 shadow-sm">Nenhum evento futuro encontrado.</div>`;
+                return;
+            }
+
+            // Group events by date (YYYY-MM-DD string)
+            const grouped = {};
             data.forEach(ev => {
-                const tr = document.createElement("tr");
-                const meetBtn = ev.meetLink ? `<a href="${ev.meetLink}" target="_blank" class="mt-2 inline-block text-xs text-blue-600 hover:underline"><i class="fa-solid fa-video mr-1"></i> Entrar na Reunião</a>` : '';
-                tr.innerHTML = `
-                    <td class="px-6 py-4 align-top whitespace-nowrap">
-                        <div class="font-medium text-brand-green">${ev.dateStr}</div>
-                    </td>
-                    <td class="px-6 py-4 align-top">
-                        <div class="font-medium text-brand-green">${ev.summary}</div>
-                        ${meetBtn}
-                    </td>
-                    <td class="px-6 py-4 align-top text-gray-600 text-xs whitespace-pre-wrap">${ev.description}</td>
-                `;
-                tbody.appendChild(tr);
+                const dateKey = ev.sortDate.toLocaleDateString("pt-BR");
+                if(!grouped[dateKey]) grouped[dateKey] = [];
+                grouped[dateKey].push(ev);
             });
-            if(data.length === 0) tbody.innerHTML = `<tr><td colspan="3" class="px-6 py-8 text-center text-gray-400">Nenhum evento futuro encontrado.</td></tr>`;
+
+            // Build Google-Calendar style layout
+            const calendarWrapper = document.createElement("div");
+            calendarWrapper.className = "space-y-6 max-w-5xl mx-auto";
+
+            for (const [dateStr, events] of Object.entries(grouped)) {
+                // Determine day of week
+                const dList = dateStr.split('/');
+                const dObj = new Date(dList[2], dList[1]-1, dList[0]);
+                const weekDay = dObj.toLocaleDateString("pt-BR", { weekday: 'long' });
+                const capitalizedWeekDay = weekDay.charAt(0).toUpperCase() + weekDay.slice(1);
+
+                const daySection = document.createElement("div");
+                daySection.className = "flex flex-col md:flex-row gap-4"; // Left column for date, right for events
+
+                // Left Column: Date Label
+                const dateHeader = document.createElement("div");
+                dateHeader.className = "w-full md:w-32 flex-shrink-0 pt-2 border-l-4 border-transparent";
+                dateHeader.innerHTML = `
+                    <div class="text-xs text-gray-500 uppercase tracking-wider">${capitalizedWeekDay}</div>
+                    <div class="text-2xl font-light text-brand-green">${dList[0]}</div>
+                    <div class="text-sm text-gray-400">${dObj.toLocaleDateString("pt-BR", {month:'short'})}</div>
+                `;
+
+                // Right Column: Event Blocks
+                const eventsWrapper = document.createElement("div");
+                eventsWrapper.className = "flex-1 space-y-3";
+
+                events.forEach(ev => {
+                    const timeStr = ev.sortDate.toLocaleTimeString("pt-BR", {hour:'2-digit', minute:'2-digit'});
+                    const isAllDay = timeStr === "00:00"; // Assuming 00:00 is all day for this simple view
+                    
+                    const meetBtn = ev.meetLink ? `<a href="${ev.meetLink}" target="_blank" class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-md text-xs font-medium text-blue-600 hover:bg-blue-50 transition w-full md:w-auto shadow-sm"><i class="fa-solid fa-video"></i> Entrar na Reunião</a>` : '';
+                    
+                    const eventCard = document.createElement("div");
+                    // Styling like a Google Calendar block (colored left border, soft background)
+                    eventCard.className = "bg-brand-green/5 border-l-4 border-brand-green p-4 rounded-r-lg shadow-sm hover:shadow-md transition relative group overflow-hidden";
+                    
+                    eventCard.innerHTML = `
+                        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
+                            <div class="flex-1">
+                                <h3 class="font-semibold text-brand-green text-base">${ev.summary}</h3>
+                                <div class="text-sm text-gray-500 mt-1 font-medium flex items-center gap-2">
+                                    <i class="fa-regular fa-clock text-xs"></i> 
+                                    ${isAllDay ? 'O dia todo' : timeStr}
+                                </div>
+                                ${ev.description && ev.description !== "-" ? `<p class="text-sm text-gray-600 mt-3 whitespace-pre-wrap leading-relaxed">${ev.description}</p>` : ''}
+                                ${meetBtn}
+                            </div>
+                        </div>
+                    `;
+                    eventsWrapper.appendChild(eventCard);
+                });
+
+                daySection.appendChild(dateHeader);
+                daySection.appendChild(eventsWrapper);
+                calendarWrapper.appendChild(daySection);
+                calendarWrapper.appendChild(document.createElement("hr"));
+            }
+
+            container.appendChild(calendarWrapper);
         }
     }
 
