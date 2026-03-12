@@ -54,13 +54,17 @@ document.addEventListener("DOMContentLoaded", () => {
     logoutBtnDesktop.addEventListener("click", logout);
 
     // --- Tabs Logic ---
-    let currentTab = "clients";
+    let currentTab = "dashboard";
     const tabBtns = document.querySelectorAll(".tab-btn");
     
     // Store requested data to enable fast local searching
     let cachedClients = [];
     let cachedPayments = [];
     let cachedCalendar = [];
+
+    // Charts States
+    let revenueChartInstance = null;
+    let bookingsChartInstance = null;
 
     // --- Sort & Filter State ---
     let sortState = {
@@ -100,6 +104,20 @@ document.addEventListener("DOMContentLoaded", () => {
             renderCurrentTab();
         });
     });
+
+    // Dashboard Filter Listeners
+    const dashboardDateFilter = document.getElementById("dashboard-date-filter");
+    const dashboardFutureFilter = document.getElementById("dashboard-future-filter");
+    if(dashboardDateFilter) {
+        dashboardDateFilter.addEventListener("change", () => {
+            if (currentTab === "dashboard") renderCurrentTab();
+        });
+    }
+    if(dashboardFutureFilter) {
+        dashboardFutureFilter.addEventListener("change", () => {
+            if (currentTab === "dashboard") renderCurrentTab();
+        });
+    }
 
     // --- Data Loaders ---
     async function loadData() {
@@ -360,13 +378,174 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('[id^="filter-dropdown-"]').forEach(d => d.classList.add('hidden'));
     });
 
+    // --- Analytics Dashboard Logic ---
+    function getFilterStartDate(filterVal) {
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        
+        if (filterVal === "this_month") {
+            return new Date(today.getFullYear(), today.getMonth(), 1);
+        } else if (filterVal === "last_month") {
+            return new Date(today.getFullYear(), today.getMonth() - 1, 1);
+        } else {
+            const days = parseInt(filterVal);
+            const start = new Date(today);
+            start.setDate(today.getDate() - days);
+            return start;
+        }
+    }
+
+    function getFilterEndDate(filterVal) {
+        const today = new Date();
+        today.setHours(23,59,59,999);
+        
+        if (filterVal === "last_month") {
+            return new Date(today.getFullYear(), today.getMonth(), 0, 23, 59, 59);
+        }
+        return today;
+    }
+
+    function renderDashboard() {
+        const dateFilter = document.getElementById("dashboard-date-filter").value;
+        const futureFilter = parseInt(document.getElementById("dashboard-future-filter").value);
+
+        const startDate = getFilterStartDate(dateFilter);
+        const endDate = getFilterEndDate(dateFilter);
+
+        // 1. Total Money Earned & Paying Clients
+        let totalRevenue = 0;
+        const payingClientsSet = new Set();
+        const revenueByDate = {}; // { 'DD/MM/YYYY': value }
+
+        cachedPayments.forEach(p => {
+            if (p.date >= startDate && p.date <= endDate) {
+                if (p.status === "paid" || p.status === "Paid" || p.status === "booked") {
+                    const val = parseFloat(p.amount.replace("R$ ", "").replace(".", "").replace(",", "."));
+                    if (!isNaN(val)) {
+                        totalRevenue += val;
+                        const dStr = p.date.toLocaleDateString("pt-BR");
+                        revenueByDate[dStr] = (revenueByDate[dStr] || 0) + val;
+                    }
+                    payingClientsSet.add(p.client); 
+                }
+            }
+        });
+
+        document.getElementById("kpi-clients").innerText = payingClientsSet.size;
+        document.getElementById("kpi-revenue").innerText = `R$ ${totalRevenue.toFixed(2).replace('.', ',')}`;
+
+        // Render Revenue Chart
+        if (revenueChartInstance) revenueChartInstance.destroy();
+        const revCtx = document.getElementById('revenueChart').getContext('2d');
+        
+        // Sort dates chronologically for the chart
+        const revDates = Object.keys(revenueByDate).sort((a,b) => {
+            const pa = a.split('/');
+            const pb = b.split('/');
+            return new Date(pa[2], pa[1]-1, pa[0]) - new Date(pb[2], pb[1]-1, pb[0]);
+        });
+        const revData = revDates.map(d => revenueByDate[d]);
+
+        revenueChartInstance = new Chart(revCtx, {
+            type: 'line',
+            data: {
+                labels: revDates.length > 0 ? revDates : ['Sem Dados'],
+                datasets: [{
+                    label: 'Receita Diária (R$)',
+                    data: revData.length > 0 ? revData : [0],
+                    borderColor: '#1A3C34',
+                    backgroundColor: 'rgba(26, 60, 52, 0.05)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.3,
+                    pointBackgroundColor: '#1A3C34'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, grid: { borderDash: [2,4] } },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+
+        // 2. Future Bookings
+        const today = new Date();
+        today.setHours(0,0,0,0);
+        const futureEnd = new Date(today);
+        futureEnd.setDate(today.getDate() + futureFilter);
+
+        let futureCount = 0;
+        const bookingsByDate = {}; 
+        
+        // Pre-fill days to show zero-book days explicitly
+        for(let i=0; i<=futureFilter; i++) {
+            let d = new Date(today);
+            d.setDate(today.getDate() + i);
+            bookingsByDate[d.toLocaleDateString("pt-BR")] = 0;
+        }
+
+        cachedCalendar.forEach(ev => {
+            if (ev.sortDate >= today && ev.sortDate <= futureEnd) {
+                futureCount++;
+                const dStr = ev.sortDate.toLocaleDateString("pt-BR");
+                if (bookingsByDate[dStr] !== undefined) {
+                    bookingsByDate[dStr]++;
+                } else {
+                    bookingsByDate[dStr] = 1;
+                }
+            }
+        });
+
+        document.getElementById("kpi-future-bookings").innerText = futureCount;
+
+        // Render Bookings Chart
+        if (bookingsChartInstance) bookingsChartInstance.destroy();
+        const bookCtx = document.getElementById('bookingsChart').getContext('2d');
+        
+        const bookDates = Object.keys(bookingsByDate).sort((a,b) => {
+            const pa = a.split('/');
+            const pb = b.split('/');
+            return new Date(pa[2], pa[1]-1, pa[0]) - new Date(pb[2], pb[1]-1, pb[0]);
+        });
+        const bookData = bookDates.map(d => bookingsByDate[d]);
+
+        bookingsChartInstance = new Chart(bookCtx, {
+            type: 'bar',
+            data: {
+                labels: bookDates,
+                datasets: [{
+                    label: 'Agendamentos',
+                    data: bookData,
+                    backgroundColor: '#1A3C34',
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { beginAtZero: true, ticks: { stepSize: 1 }, grid: { borderDash: [2,4] } },
+                    x: { grid: { display: false }, ticks: { maxTicksLimit: 7 } }
+                }
+            }
+        });
+    }
+
     // --- Rendering ---
     function renderCurrentTab(filterQuery = "") {
         const q = filterQuery.toLowerCase();
         setupInteractiveHeaders();
         setupFilters();
         
-        if (currentTab === "clients") {
+        if (currentTab === "dashboard") {
+            renderDashboard();
+        }
+        else if (currentTab === "clients") {
             const tbody = document.getElementById("clients-tbody");
             tbody.innerHTML = "";
             let data = [...cachedClients]; // Clone to sort safely
