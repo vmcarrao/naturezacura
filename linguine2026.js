@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return {
                     id: ev.id,
                     sortDate: sDate,
-                    dateStr: sDate.toLocaleDateString("pt-BR") + " " + sDate.toLocaleTimeString("pt-BR", {hour:'2-digit', minute:'2-digit'}),
+                    dateStr: sDate.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" }) + " " + sDate.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo", hour:'2-digit', minute:'2-digit' }),
                     summary: ev.summary || "Evento sem título",
                     description: ev.description || "-",
                     meetLink: ev.hangoutLink || ""
@@ -423,7 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const val = parseFloat(p.amount.replace("R$ ", "").replace(".", "").replace(",", "."));
                     if (!isNaN(val)) {
                         totalRevenue += val;
-                        const dStr = p.date.toLocaleDateString("pt-BR");
+                        const dStr = p.date.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" });
                         revenueByDate[dStr] = (revenueByDate[dStr] || 0) + val;
                     }
                     payingClientsSet.add(p.client); 
@@ -485,13 +485,13 @@ document.addEventListener("DOMContentLoaded", () => {
         for(let i=0; i<=futureFilter; i++) {
             let d = new Date(today);
             d.setDate(today.getDate() + i);
-            bookingsByDate[d.toLocaleDateString("pt-BR")] = 0;
+            bookingsByDate[d.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" })] = 0;
         }
 
         cachedCalendar.forEach(ev => {
             if (ev.sortDate >= today && ev.sortDate <= futureEnd) {
                 futureCount++;
-                const dStr = ev.sortDate.toLocaleDateString("pt-BR");
+                const dStr = ev.sortDate.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" });
                 if (bookingsByDate[dStr] !== undefined) {
                     bookingsByDate[dStr]++;
                 } else {
@@ -571,7 +571,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     </td>
                     <td class="px-6 py-4 text-gray-600">${c.origin}</td>
-                    <td class="px-6 py-4 text-gray-400 text-xs">${c.date.toLocaleDateString("pt-BR")}</td>
+                    <td class="px-6 py-4 text-gray-400 text-xs">${c.date.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" })}</td>
                 `;
 
                 // Hidden Expansion Row
@@ -632,7 +632,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 const tr = document.createElement("tr");
                 tr.innerHTML = `
-                    <td class="px-6 py-4 text-gray-500 text-xs">${p.date.toLocaleDateString("pt-BR")}</td>
+                    <td class="px-6 py-4 text-gray-500 text-xs">${p.date.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" })}</td>
                     <td class="px-6 py-4 font-medium text-brand-green">${p.client}</td>
                     <td class="px-6 py-4 text-gray-600">${p.service}</td>
                     <td class="px-6 py-4 font-medium">${p.amount}</td>
@@ -659,20 +659,20 @@ document.addEventListener("DOMContentLoaded", () => {
             // Group events by date (YYYY-MM-DD string)
             const grouped = {};
             data.forEach(ev => {
-                const dateKey = ev.sortDate.toLocaleDateString("pt-BR");
+                const dateKey = ev.sortDate.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" });
                 if(!grouped[dateKey]) grouped[dateKey] = [];
                 grouped[dateKey].push(ev);
             });
 
-            // Build Google-Calendar style layout
+            // Build robust List/Grid layout
             const calendarWrapper = document.createElement("div");
-            calendarWrapper.className = "space-y-6 max-w-5xl mx-auto";
+            calendarWrapper.className = "bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden divide-y divide-gray-100 max-w-6xl mx-auto";
 
             for (const [dateStr, events] of Object.entries(grouped)) {
                 // Determine day of week
                 const dList = dateStr.split('/');
                 const dObj = new Date(dList[2], dList[1]-1, dList[0]);
-                const weekDay = dObj.toLocaleDateString("pt-BR", { weekday: 'long' });
+                const weekDay = dObj.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo", weekday: 'long' });
                 const capitalizedWeekDay = weekDay.charAt(0).toUpperCase() + weekDay.slice(1);
 
                 // Calculate daily revenue from matching payments
@@ -681,7 +681,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 
                 cachedPayments.forEach(p => {
                     if (p.status === "paid" || p.status === "Paid" || p.status === "booked") {
-                        const payDateStr = p.date.toLocaleDateString("pt-BR");
+                        const payDateStr = p.date.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" });
                         if (payDateStr === dateStr) {
                             const val = parseFloat(p.amount.replace("R$ ", "").replace(".", "").replace(",", "."));
                             if (!isNaN(val)) {
@@ -693,48 +693,49 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 const revenueTag = hasRevenue 
-                    ? `<div class="mt-4 inline-block px-3 py-1 bg-red-50 text-red-600 font-semibold rounded-full text-xs border border-red-100">R$ ${dailyRevenue.toFixed(2).replace('.', ',')}</div>`
+                    ? `<div class="mt-3 inline-flex items-center gap-1.5 px-2.5 py-1 bg-brand-green/10 text-brand-green font-medium rounded-md text-xs border border-brand-green/20"><i class="fa-solid fa-money-bill-wave"></i> R$ ${dailyRevenue.toFixed(2).replace('.', ',')}</div>`
                     : '';
 
                 const daySection = document.createElement("div");
-                daySection.className = "flex flex-col md:flex-row gap-4"; // Left column for date, right for events
+                daySection.className = "flex flex-col lg:flex-row gap-6 p-6 lg:p-8 hover:bg-gray-50/50 transition duration-300";
 
                 // Left Column: Date Label
                 const dateHeader = document.createElement("div");
-                dateHeader.className = "w-full md:w-32 flex-shrink-0 pt-2 border-l-4 border-transparent";
+                dateHeader.className = "w-full lg:w-48 flex-shrink-0 flex flex-col items-start";
                 dateHeader.innerHTML = `
-                    <div class="text-xs text-gray-500 uppercase tracking-wider">${capitalizedWeekDay}</div>
-                    <div class="text-2xl font-light text-brand-green">${dList[0]}</div>
-                    <div class="text-sm text-gray-400">${dObj.toLocaleDateString("pt-BR", {month:'short'})}</div>
+                    <div class="text-xs text-brand-green uppercase tracking-widest font-semibold mb-1">${capitalizedWeekDay}</div>
+                    <div class="text-3xl font-serif text-gray-900 flex items-baseline gap-2">
+                        ${dList[0]}
+                        <span class="text-sm font-sans text-gray-400 font-medium lowercase">${dObj.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo", month:'short' }).replace('.', '')}</span>
+                    </div>
                     ${revenueTag}
                 `;
 
-                // Right Column: Event Blocks
+                // Right Column: Event Blocks (CSS Grid)
                 const eventsWrapper = document.createElement("div");
-                eventsWrapper.className = "flex-1 space-y-3";
+                eventsWrapper.className = "flex-1 grid grid-cols-1 xl:grid-cols-2 gap-4";
 
                 events.forEach(ev => {
-                    const timeStr = ev.sortDate.toLocaleTimeString("pt-BR", {hour:'2-digit', minute:'2-digit'});
-                    const isAllDay = timeStr === "00:00"; // Assuming 00:00 is all day for this simple view
+                    const timeStr = ev.sortDate.toLocaleTimeString("pt-BR", { timeZone: "America/Sao_Paulo", hour:'2-digit', minute:'2-digit' });
+                    const isAllDay = timeStr === "00:00"; 
                     
-                    const meetBtn = ev.meetLink ? `<a href="${ev.meetLink}" target="_blank" class="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-gray-200 rounded-md text-xs font-medium text-blue-600 hover:bg-blue-50 transition w-full md:w-auto shadow-sm"><i class="fa-solid fa-video"></i> Entrar na Reunião</a>` : '';
+                    const meetBtn = ev.meetLink ? `<a href="${ev.meetLink}" target="_blank" class="mt-4 inline-flex items-center justify-center gap-2 px-3 py-2 bg-blue-50 border border-blue-100 rounded-md text-xs font-semibold text-blue-700 hover:bg-blue-100 transition w-full md:w-auto shadow-sm"><i class="fa-solid fa-video"></i> Entrar na Reunião</a>` : '';
                     
                     const eventCard = document.createElement("div");
-                    // Styling like a Google Calendar block (colored left border, soft background)
-                    eventCard.className = "bg-brand-green/5 border-l-4 border-brand-green p-4 rounded-r-lg shadow-sm hover:shadow-md transition relative group overflow-hidden";
+                    eventCard.className = "bg-white border border-gray-100 p-5 rounded-xl shadow-sm hover:shadow-md transition flex flex-col justify-between relative group";
                     
                     eventCard.innerHTML = `
-                        <div class="flex flex-col md:flex-row md:items-start justify-between gap-4">
-                            <div class="flex-1">
-                                <h3 class="font-semibold text-brand-green text-base">${ev.summary}</h3>
-                                <div class="text-sm text-gray-500 mt-1 font-medium flex items-center gap-2">
-                                    <i class="fa-regular fa-clock text-xs"></i> 
-                                    ${isAllDay ? 'O dia todo' : timeStr}
-                                </div>
-                                ${ev.description && ev.description !== "-" ? `<p class="text-sm text-gray-600 mt-3 whitespace-pre-wrap leading-relaxed">${ev.description}</p>` : ''}
-                                ${meetBtn}
+                        <div class="absolute top-0 left-0 w-1 h-full bg-brand-green rounded-l-xl"></div>
+                        <div class="pl-2">
+                            <div class="flex items-center justify-between gap-2 mb-2">
+                                <span class="inline-flex text-xs font-medium text-brand-green bg-brand-green/5 px-2 py-1 rounded gap-1.5 items-center">
+                                    <i class="fa-regular fa-clock"></i> ${isAllDay ? 'O dia todo' : timeStr}
+                                </span>
                             </div>
+                            <h3 class="font-semibold text-gray-800 text-base leading-snug">${ev.summary}</h3>
+                            ${ev.description && ev.description !== "-" ? `<p class="text-sm text-gray-500 mt-2 line-clamp-3 leading-relaxed">${ev.description}</p>` : ''}
                         </div>
+                        <div class="pl-2">${meetBtn}</div>
                     `;
                     eventsWrapper.appendChild(eventCard);
                 });
@@ -742,7 +743,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 daySection.appendChild(dateHeader);
                 daySection.appendChild(eventsWrapper);
                 calendarWrapper.appendChild(daySection);
-                calendarWrapper.appendChild(document.createElement("hr"));
             }
 
             container.appendChild(calendarWrapper);

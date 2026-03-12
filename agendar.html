@@ -623,7 +623,7 @@
         }
 
         function formatDateShort(date) {
-            return date.toLocaleDateString("pt-BR", { day: "numeric", month: "short" });
+            return date.toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo", day: "numeric", month: "short" });
         }
 
         function toISODate(date) {
