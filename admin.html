@@ -112,11 +112,17 @@
                 <div id="tab-clients" class="tab-content">
                     <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm">
                         <table class="w-full text-left text-sm">
-                            <thead class="bg-gray-50 text-gray-500 border-b border-gray-100">
+                            <thead class="bg-gray-50 text-gray-500 border-b border-gray-100 select-none">
                                 <tr>
-                                    <th class="px-6 py-4 font-medium">Nome / Email</th>
-                                    <th class="px-6 py-4 font-medium">Origem</th>
-                                    <th class="px-6 py-4 font-medium">Data Adição</th>
+                                    <th data-sort="name" data-order="asc" class="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100 transition group w-2/5">
+                                        Nome / Email <i class="fa-solid fa-sort ml-1 text-gray-300 group-hover:text-gray-500 transition sort-icon"></i>
+                                    </th>
+                                    <th data-sort="origin" data-order="asc" class="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100 transition group w-2/5">
+                                        Origem <i class="fa-solid fa-sort ml-1 text-gray-300 group-hover:text-gray-500 transition sort-icon"></i>
+                                    </th>
+                                    <th data-sort="date" data-order="desc" class="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100 transition group w-1/5">
+                                        Data Adição <i class="fa-solid fa-sort-down ml-1 text-brand-green sort-icon"></i>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody id="clients-tbody" class="divide-y divide-gray-100">
@@ -130,13 +136,33 @@
                 <div id="tab-payments" class="tab-content hidden">
                     <div class="bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm">
                         <table class="w-full text-left text-sm">
-                            <thead class="bg-gray-50 text-gray-500 border-b border-gray-100">
+                            <thead class="bg-gray-50 text-gray-500 border-b border-gray-100 select-none">
                                 <tr>
-                                    <th class="px-6 py-4 font-medium">Data</th>
-                                    <th class="px-6 py-4 font-medium">Cliente</th>
-                                    <th class="px-6 py-4 font-medium">Serviço/Curso</th>
-                                    <th class="px-6 py-4 font-medium">Valor</th>
-                                    <th class="px-6 py-4 font-medium">Status</th>
+                                    <th data-sort="date" data-order="desc" class="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100 transition group">
+                                        Data <i class="fa-solid fa-sort-down ml-1 text-brand-green sort-icon relative z-0"></i>
+                                    </th>
+                                    <th data-sort="client" data-order="asc" class="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100 transition group">
+                                        Cliente <i class="fa-solid fa-sort ml-1 text-gray-300 group-hover:text-gray-500 transition sort-icon relative z-0"></i>
+                                    </th>
+                                    <th class="px-6 py-4 font-medium relative group">
+                                        <div class="flex items-center justify-between cursor-pointer hover:bg-gray-100 transition rounded px-2 -mx-2 -my-2 py-2" id="filter-btn-service">
+                                            <span>Serviço/Curso</span>
+                                            <i class="fa-solid fa-filter text-gray-300 group-hover:text-gray-500 text-xs"></i>
+                                        </div>
+                                        <!-- Dropdown injected by JS -->
+                                        <div id="filter-dropdown-service" class="hidden absolute top-full left-0 mt-1 w-56 bg-white border border-gray-200 rounded-lg shadow-lg z-10 p-2 max-h-64 overflow-y-auto"></div>
+                                    </th>
+                                    <th data-sort="amount" data-order="asc" class="px-6 py-4 font-medium cursor-pointer hover:bg-gray-100 transition group">
+                                        Valor <i class="fa-solid fa-sort ml-1 text-gray-300 group-hover:text-gray-500 transition sort-icon relative z-0"></i>
+                                    </th>
+                                    <th class="px-6 py-4 font-medium relative group">
+                                        <div class="flex items-center justify-between cursor-pointer hover:bg-gray-100 transition rounded px-2 -mx-2 -my-2 py-2" id="filter-btn-status">
+                                            <span>Status</span>
+                                            <i class="fa-solid fa-filter text-gray-300 group-hover:text-gray-500 text-xs"></i>
+                                        </div>
+                                        <!-- Dropdown injected by JS -->
+                                        <div id="filter-dropdown-status" class="hidden absolute top-full right-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-10 p-2"></div>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody id="payments-tbody" class="divide-y divide-gray-100">

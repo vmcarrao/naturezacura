@@ -62,6 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let cachedPayments = [];
     let cachedCalendar = [];
 
+    // --- Sort & Filter State ---
+    let sortState = {
+        clients: { column: "date", dir: "desc" },
+        payments: { column: "date", dir: "desc" }
+    };
+    let filterState = {
+        paymentsService: new Set(),
+        paymentsStatus: new Set()
+    };
+
     tabBtns.forEach(btn => {
         btn.addEventListener("click", () => {
             // Update Active State
@@ -125,7 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 name: "-",
                 email: data.email,
                 origin: "Newsletter",
-                date: data.subscribedAt ? data.subscribedAt.toDate() : new Date()
+                date: data.subscribedAt ? data.subscribedAt.toDate() : new Date(),
+                raw: data
             });
         });
 
@@ -148,7 +159,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     name: data.customerName || data.clientName || "-",
                     email: em,
                     origin: origin,
-                    date: data.createdAt ? data.createdAt.toDate() : new Date()
+                    date: data.createdAt ? data.createdAt.toDate() : new Date(),
+                    raw: data
                 });
             }
         });
@@ -196,35 +208,241 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // --- Sorting & Filtering Logic ---
+    function setupInteractiveHeaders() {
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            // Prevent multiple bindings
+            th.removeEventListener('click', handleSortClick);
+            th.addEventListener('click', handleSortClick);
+        });
+    }
+
+    function handleSortClick(e) {
+        // Find closest TH in case they clicked the icon
+        const th = e.target.closest('th');
+        if (!th) return;
+
+        const column = th.getAttribute("data-sort");
+        const tab = currentTab;
+        
+        // Toggle direction
+        if (sortState[tab].column === column) {
+            sortState[tab].dir = sortState[tab].dir === "asc" ? "desc" : "asc";
+        } else {
+            sortState[tab].column = column;
+            sortState[tab].dir = "asc"; // Default new sort to asc
+        }
+
+        // Update visual icons
+        updateSortIcons(tab);
+        renderCurrentTab(searchInput.value);
+    }
+
+    function updateSortIcons(tab) {
+        const tableId = tab === "clients" ? "tab-clients" : "tab-payments";
+        const headers = document.querySelectorAll(`#${tableId} th[data-sort]`);
+        
+        headers.forEach(th => {
+            const icon = th.querySelector('.sort-icon');
+            if (!icon) return;
+
+            const col = th.getAttribute("data-sort");
+            // Reset all to base neutral state
+            icon.className = "fa-solid fa-sort ml-1 text-gray-300 group-hover:text-gray-500 transition sort-icon relative z-0";
+            
+            // Highlight active sort
+            if (col === sortState[tab].column) {
+                if (sortState[tab].dir === "asc") {
+                    icon.className = "fa-solid fa-sort-up ml-1 text-brand-green sort-icon relative z-0";
+                } else {
+                    icon.className = "fa-solid fa-sort-down ml-1 text-brand-green sort-icon relative z-0";
+                }
+            }
+        });
+    }
+
+    function applySorting(dataArray, tab) {
+        const { column, dir } = sortState[tab];
+        return dataArray.sort((a, b) => {
+            let valA = a[column];
+            let valB = b[column];
+
+            // Handle amount string parsing "R$ 150,00" -> 150.00
+            if (column === "amount") {
+                valA = parseFloat(valA.replace("R$ ", "").replace(".", "").replace(",", "."));
+                valB = parseFloat(valB.replace("R$ ", "").replace(".", "").replace(",", "."));
+            }
+
+            // Handle strings
+            if (typeof valA === "string") valA = valA.toLowerCase();
+            if (typeof valB === "string") valB = valB.toLowerCase();
+
+            if (valA < valB) return dir === "asc" ? -1 : 1;
+            if (valA > valB) return dir === "asc" ? 1 : -1;
+            return 0;
+        });
+    }
+
+    // --- Excel-Style Checkbox Filters ---
+    function setupFilters() {
+        if (currentTab !== "payments") return;
+        
+        // Extract unique options from current data
+        const services = [...new Set(cachedPayments.map(p => p.service))].sort();
+        const statuses = [...new Set(cachedPayments.map(p => p.status))].sort();
+
+        renderFilterDropdown("service", services, filterState.paymentsService);
+        renderFilterDropdown("status", statuses, filterState.paymentsStatus);
+    }
+
+    function renderFilterDropdown(filterKey, options, activeSet) {
+        const btn = document.getElementById(`filter-btn-${filterKey}`);
+        const dropdown = document.getElementById(`filter-dropdown-${filterKey}`);
+        if (!btn || !dropdown) return;
+
+        let html = `<div class="flex flex-col gap-1">`;
+        options.forEach(opt => {
+            const isChecked = activeSet.has(opt) ? "checked" : "";
+            const optId = `filter-${filterKey}-${opt.replace(/\\s+/g, '-')}`;
+            html += `
+                <label for="${optId}" class="flex items-center gap-2 px-2 py-1 text-xs text-gray-600 hover:bg-green-50 rounded cursor-pointer transition">
+                    <input type="checkbox" id="${optId}" value="${opt}" class="filter-checkbox-${filterKey} rounded border-gray-300 text-brand-green focus:ring-brand-green" ${isChecked}>
+                    ${opt}
+                </label>
+            `;
+        });
+        html += `
+            </div>
+            <div class="mt-2 pt-2 border-t border-gray-100 flex justify-between">
+                <button type="button" class="text-xs text-gray-500 hover:text-gray-700" id="clear-${filterKey}-btn">Limpar</button>
+                <button type="button" class="text-xs bg-brand-green text-white px-3 py-1 rounded" id="apply-${filterKey}-btn">Aplicar</button>
+            </div>
+        `;
+        dropdown.innerHTML = html;
+
+        // Toggle dropdown listener (removing old ones to prevent stacking)
+        const toggleDropdown = (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('[id^="filter-dropdown-"]').forEach(d => {
+                if (d.id !== dropdown.id) d.classList.add('hidden'); // Close others
+            });
+            dropdown.classList.toggle('hidden');
+        };
+        
+        // Remove old listener if exists, then attach
+        btn.removeEventListener('click', btn._toggleHandler);
+        btn._toggleHandler = toggleDropdown;
+        btn.addEventListener('click', toggleDropdown);
+
+        // Prevent clicking inside dropdown from closing it
+        dropdown.addEventListener('click', e => e.stopPropagation());
+
+        // Button Actions
+        document.getElementById(`apply-${filterKey}-btn`).addEventListener('click', () => {
+            activeSet.clear();
+            document.querySelectorAll(`.filter-checkbox-${filterKey}:checked`).forEach(cb => {
+                activeSet.add(cb.value);
+            });
+            dropdown.classList.add('hidden');
+            renderCurrentTab(searchInput.value); // Re-render table!
+        });
+
+        document.getElementById(`clear-${filterKey}-btn`).addEventListener('click', () => {
+            activeSet.clear();
+            document.querySelectorAll(`.filter-checkbox-${filterKey}`).forEach(cb => cb.checked = false);
+            dropdown.classList.add('hidden');
+            renderCurrentTab(searchInput.value);
+        });
+    }
+
+    // Close dropdowns if clicking outside
+    document.addEventListener('click', () => {
+        document.querySelectorAll('[id^="filter-dropdown-"]').forEach(d => d.classList.add('hidden'));
+    });
+
     // --- Rendering ---
     function renderCurrentTab(filterQuery = "") {
         const q = filterQuery.toLowerCase();
+        setupInteractiveHeaders();
+        setupFilters();
         
         if (currentTab === "clients") {
             const tbody = document.getElementById("clients-tbody");
             tbody.innerHTML = "";
-            let data = cachedClients;
+            let data = [...cachedClients]; // Clone to sort safely
             if (q) data = data.filter(c => c.name.toLowerCase().includes(q) || c.email.toLowerCase().includes(q) || c.origin.toLowerCase().includes(q));
             
-            data.forEach(c => {
+            data = applySorting(data, "clients");
+            
+            data.forEach((c, index) => {
                 const tr = document.createElement("tr");
+                tr.className = "cursor-pointer hover:bg-gray-50 transition group";
+                
+                // Provide a safe JSON string for rendering
+                const safeJson = JSON.stringify(c.raw, null, 2).replace(/</g, '\\u003c');
+
                 tr.innerHTML = `
                     <td class="px-6 py-4">
-                        <div class="font-medium text-brand-green">${c.name}</div>
-                        <div class="text-xs text-gray-500">${c.email}</div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-chevron-right text-xs text-gray-300 group-hover:text-brand-green transition transform" id="chevron-client-${index}"></i>
+                            <div>
+                                <div class="font-medium text-brand-green">${c.name}</div>
+                                <div class="text-xs text-gray-500">${c.email}</div>
+                            </div>
+                        </div>
                     </td>
                     <td class="px-6 py-4 text-gray-600">${c.origin}</td>
                     <td class="px-6 py-4 text-gray-400 text-xs">${c.date.toLocaleDateString("pt-BR")}</td>
                 `;
+
+                // Hidden Expansion Row
+                const expTr = document.createElement("tr");
+                expTr.id = `expand-client-${index}`;
+                expTr.className = "hidden bg-gray-50/50 border-b border-gray-100";
+                expTr.innerHTML = `
+                    <td colspan="3" class="px-6 py-4">
+                        <div class="p-4 bg-white border border-gray-200 rounded text-xs text-gray-600 font-mono overflow-x-auto whitespace-pre-wrap">
+                            ${safeJson}
+                        </div>
+                    </td>
+                `;
+
+                // Toggle Logic
+                tr.addEventListener("click", () => {
+                    const isHidden = expTr.classList.contains("hidden");
+                    const icon = document.getElementById(`chevron-client-${index}`);
+                    
+                    if(isHidden) {
+                        expTr.classList.remove("hidden");
+                        icon.classList.add("rotate-90");
+                    } else {
+                        expTr.classList.add("hidden");
+                        icon.classList.remove("rotate-90");
+                    }
+                });
+
                 tbody.appendChild(tr);
+                tbody.appendChild(expTr);
             });
             if(data.length === 0) tbody.innerHTML = `<tr><td colspan="3" class="px-6 py-8 text-center text-gray-400">Nenhum cliente encontrado.</td></tr>`;
         } 
         else if (currentTab === "payments") {
             const tbody = document.getElementById("payments-tbody");
             tbody.innerHTML = "";
-            let data = cachedPayments;
+            let data = [...cachedPayments];
+            
+            // Text Search
             if (q) data = data.filter(p => p.client.toLowerCase().includes(q) || p.service.toLowerCase().includes(q) || p.status.toLowerCase().includes(q));
+            
+            // Excel Checkbox Filters
+            if (filterState.paymentsService.size > 0) {
+                data = data.filter(p => filterState.paymentsService.has(p.service));
+            }
+            if (filterState.paymentsStatus.size > 0) {
+                data = data.filter(p => filterState.paymentsStatus.has(p.status));
+            }
+
+            data = applySorting(data, "payments");
 
             data.forEach(p => {
                 const statusColor = p.status === "paid" || p.status === "Paid" ? "bg-green-100 text-green-700" : 
@@ -278,6 +496,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 const weekDay = dObj.toLocaleDateString("pt-BR", { weekday: 'long' });
                 const capitalizedWeekDay = weekDay.charAt(0).toUpperCase() + weekDay.slice(1);
 
+                // Calculate daily revenue from matching payments
+                let dailyRevenue = 0;
+                let hasRevenue = false;
+                
+                cachedPayments.forEach(p => {
+                    if (p.status === "paid" || p.status === "Paid" || p.status === "booked") {
+                        const payDateStr = p.date.toLocaleDateString("pt-BR");
+                        if (payDateStr === dateStr) {
+                            const val = parseFloat(p.amount.replace("R$ ", "").replace(".", "").replace(",", "."));
+                            if (!isNaN(val)) {
+                                dailyRevenue += val;
+                                hasRevenue = true;
+                            }
+                        }
+                    }
+                });
+
+                const revenueTag = hasRevenue 
+                    ? `<div class="mt-4 inline-block px-3 py-1 bg-red-50 text-red-600 font-semibold rounded-full text-xs border border-red-100">R$ ${dailyRevenue.toFixed(2).replace('.', ',')}</div>`
+                    : '';
+
                 const daySection = document.createElement("div");
                 daySection.className = "flex flex-col md:flex-row gap-4"; // Left column for date, right for events
 
@@ -288,6 +527,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="text-xs text-gray-500 uppercase tracking-wider">${capitalizedWeekDay}</div>
                     <div class="text-2xl font-light text-brand-green">${dList[0]}</div>
                     <div class="text-sm text-gray-400">${dObj.toLocaleDateString("pt-BR", {month:'short'})}</div>
+                    ${revenueTag}
                 `;
 
                 // Right Column: Event Blocks
