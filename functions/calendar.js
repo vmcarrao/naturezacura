@@ -141,4 +141,21 @@ async function createEvent(details) {
     return response.data;
 }
 
-module.exports = { getAvailableSlots, createEvent };
+/**
+ * Get upcoming calendar events with details (for admin dashboard).
+ * @param {string} timeMin - ISO date string
+ * @returns {Array} List of events
+ */
+async function getUpcomingEvents(timeMin) {
+    const calendar = await getCalendarClient();
+    const response = await calendar.events.list({
+        calendarId: CALENDAR_ID,
+        timeMin: timeMin || new Date().toISOString(),
+        maxResults: 50,
+        singleEvents: true,
+        orderBy: 'startTime',
+    });
+    return response.data.items || [];
+}
+
+module.exports = { getAvailableSlots, createEvent, getUpcomingEvents };

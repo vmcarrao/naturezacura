@@ -1,7 +1,7 @@
 const functions = require("firebase-functions/v1");
 const admin = require("firebase-admin");
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
-const { getAvailableSlots, createEvent } = require("./calendar");
+const { getAvailableSlots, createEvent, getUpcomingEvents } = require("./calendar");
 const { sendConfirmationEmail, sendOwnerNotification } = require("./notifications");
 
 admin.initializeApp();
@@ -381,4 +381,26 @@ exports.cleanupStaleOrders = functions.pubsub.schedule("every 30 minutes").onRun
 
     await batch.commit();
     return null;
+});
+
+// ============================================================
+// 7. ADMIN DASHBOARD - GET CALENDAR EVENTS
+// ============================================================
+exports.getAdminCalendarEvents = functions.https.onCall(async (data, context) => {
+    // 1. Verify Authentication & Authorization
+    if (!context.auth || context.auth.token.email !== "naturezacura@naturezacura.net") {
+        throw new functions.https.HttpsError(
+            "permission-denied",
+            "Acesso negado. Apenas o administrador pode visualizar a agenda."
+        );
+    }
+
+    try {
+        // Fetch upcoming events from Google Calendar (via ADC service account)
+        const events = await getUpcomingEvents(new Date().toISOString());
+        return { events };
+    } catch (error) {
+        console.error("Error fetching admin calendar events:", error);
+        throw new functions.https.HttpsError("internal", "Erro ao carregar os eventos da agenda.");
+    }
 });

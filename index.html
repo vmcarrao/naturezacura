@@ -434,9 +434,10 @@
                     <h3 class="text-3xl font-serif text-brand-beige">Conecte-se com a sua essência.</h3>
                     <p class="text-brand-beige/70 font-sans text-sm max-w-sm">Inscreva-se em nossa newsletter para receber reflexões sobre cura natural e saúde holística.</p>
                     <div class="flex gap-2">
-                        <input type="email" placeholder="Seu E-mail" class="bg-brand-white text-brand-green px-4 py-3 rounded-full flex-grow focus:outline-none font-sans text-sm">
-                        <button class="bg-brand-beige text-brand-green px-6 py-3 rounded-full font-sans font-medium text-sm hover:bg-brand-beige/90 transition">Inscrever</button>
+                        <input id="newsletter-email" type="email" placeholder="Seu E-mail" class="bg-brand-white text-brand-green px-4 py-3 rounded-full flex-grow focus:outline-none font-sans text-sm">
+                        <button id="newsletter-btn" class="bg-brand-beige text-brand-green px-6 py-3 rounded-full font-sans font-medium text-sm hover:bg-brand-beige/90 transition">Inscrever</button>
                     </div>
+                    <p id="newsletter-msg" class="text-xs mt-2 hidden"></p>
                 </div>
                 <div class="col-span-1">
                     <h4 class="font-sans text-brand-beige font-semibold tracking-wide uppercase text-xs mb-6">Navegue</h4>
@@ -535,6 +536,44 @@
                 navbar.classList.replace('py-2', 'py-4');
             }
         });
+
+        // --- Newsletter Subscription Logic ---
+        const newsletterBtn = document.getElementById('newsletter-btn');
+        const newsletterEmail = document.getElementById('newsletter-email');
+        const newsletterMsg = document.getElementById('newsletter-msg');
+
+        if (newsletterBtn && newsletterEmail) {
+            newsletterBtn.addEventListener('click', async () => {
+                const email = newsletterEmail.value.trim();
+                if (!email) {
+                    newsletterMsg.textContent = "Por favor, insira um e-mail válido.";
+                    newsletterMsg.className = "text-xs mt-2 text-red-500 block";
+                    return;
+                }
+
+                newsletterBtn.disabled = true;
+                newsletterBtn.textContent = "Enviando...";
+
+                try {
+                    const db = firebase.firestore();
+                    await db.collection("newsletter").doc(email.toLowerCase()).set({
+                        email: email.toLowerCase(),
+                        subscribedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    });
+
+                    newsletterEmail.value = "";
+                    newsletterMsg.textContent = "Inscrição realizada com sucesso! Obrigado.";
+                    newsletterMsg.className = "text-xs mt-2 text-brand-beige block";
+                } catch (error) {
+                    console.error("Erro na inscrição:", error);
+                    newsletterMsg.textContent = "Ocorreu um erro. Tente novamente mais tarde.";
+                    newsletterMsg.className = "text-xs mt-2 text-red-500 block";
+                } finally {
+                    newsletterBtn.disabled = false;
+                    newsletterBtn.textContent = "Inscrever";
+                }
+            });
+        }
     </script>
 </body>
 
