@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1A3C34">
+    <link rel="manifest" href="/manifest.json">
     <title>Mapa Astral Infantil | Natureza Cura</title>
     <meta name="description"
         content="Leitura de Mapa Astral Infantil — compreenda talentos, desafios e a essência única do seu filho.">
@@ -109,6 +111,11 @@
     <script src="config.js"></script>
     <script src="firebase-init.js"></script>
     <script src="calendly-listener.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
+        }
+    </script>
 </body>
 
 </html>

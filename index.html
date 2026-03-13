@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1A3C34">
+    <link rel="manifest" href="/manifest.json">
     <title>Natureza Cura | Terapia Holística</title>
     <meta name="description"
         content="Um retorno a si. Terapias naturais, astrologia e tarot para despertar o potencial que existe em você.">
@@ -482,6 +484,11 @@
     <script src="config.js"></script>
     <script src="firebase-init.js"></script>
     <script src="calendly-listener.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
+        }
+    </script>
 
     <script>
         // --- Mobile Menu Toggle ---

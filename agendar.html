@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1A3C34">
+    <link rel="manifest" href="/manifest.json">
     <title>Agendar Sessão | Natureza Cura</title>
     <meta name="description" content="Escolha a melhor data e horário para sua sessão terapêutica na Natureza Cura.">
 
@@ -628,6 +630,11 @@
 
         function toISODate(date) {
             return date.toISOString().split("T")[0];
+        }
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
         }
     </script>
 </body>

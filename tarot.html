@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1A3C34">
+    <link rel="manifest" href="/manifest.json">
     <title>Tarot Terapêutico | Natureza Cura</title>
     <meta name="description"
         content="O Tarot Terapêutico é um espelho da alma que revela o oculto e traz clareza para o presente através de mensagens simbólicas.">
@@ -106,6 +108,11 @@
     <script src="config.js"></script>
     <script src="firebase-init.js"></script>
     <script src="calendly-listener.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js');
+        }
+    </script>
 </body>
 
 </html>
